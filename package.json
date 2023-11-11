@@ -24,6 +24,7 @@
     "@nestjs/core": "^10.2.8",
     "@nestjs/swagger": "^7.1.15",
     "express": "^4.18.2",
+    "rxjs": "^7.8.1",
     "string-utils-ts": "^1.1.10"
   }
 }
