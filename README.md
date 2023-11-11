@@ -52,3 +52,7 @@ Response Normalizer will return a response as :
 ### Manage Empty Returned Datas (Unmanaged by ORM throwing)
 
 The management of empty datas is not currently implemented, i already developed that part, but i'm currently thinking on how to cleanly implement it in package.
+
+### Manage Fastify
+
+At this moment, Response Normalizer isn't compatible with Fastify, only with Express (Used by default with Nest), it will be implement later.
