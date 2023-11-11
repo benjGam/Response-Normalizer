@@ -5,7 +5,7 @@ import NormalizedResponse from '../normalized-response';
 
 export default class DeletedResponse extends NormalizedResponse {
   constructor(
-    parsedExecContext: ParsedExecContextObject,
+    parsedExecContextObject: ParsedExecContextObject,
     data: any | any[],
     entryObject: NormalizedResponseEntryObject = {
       message:
@@ -13,6 +13,6 @@ export default class DeletedResponse extends NormalizedResponse {
       statusCode: HttpStatus.OK,
     },
   ) {
-    super(parsedExecContext, data, entryObject);
+    super(parsedExecContextObject, data, entryObject);
   }
 }

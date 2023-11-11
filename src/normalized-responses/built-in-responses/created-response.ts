@@ -5,13 +5,13 @@ import NormalizedResponse from '../normalized-response';
 
 export default class CreatedResponse extends NormalizedResponse {
   constructor(
-    parsedExecContext: ParsedExecContextObject,
+    parsedExecContextObject: ParsedExecContextObject,
     data: any | any[],
     entryObject: NormalizedResponseEntryObject = {
       message: '::subjectModuleName has been created',
       statusCode: HttpStatus.CREATED,
     },
   ) {
-    super(parsedExecContext, data, entryObject);
+    super(parsedExecContextObject, data, entryObject);
   }
 }
