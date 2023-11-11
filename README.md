@@ -57,10 +57,6 @@ The management of empty datas is not currently implemented, i already developed 
 
 At this moment, Response Normalizer isn't compatible with Fastify, only with Express (Used by default with Nest), it will be implement later.
 
-### Clean Imports
-
-I know that package imports are terribly shitty, it will be fix later, i'm currently working on that issue for publishing clean Node Package using TS and all that stuff. It will be fix.
-
 ### Manage ORM Error Normalizer
 
 As for empty data, i already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
