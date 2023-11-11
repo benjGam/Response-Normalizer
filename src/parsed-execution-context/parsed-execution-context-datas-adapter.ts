@@ -1,5 +1,5 @@
 import StringFormatter from 'string-utils-ts';
-import QueryParamOrMetaStringifier from './helpers/query-param-stringifier';
+import QueryParamOrMetaStringifier from '../helpers/query-param-stringifier';
 import {
   ParsedExecContextObject,
   SringifiableParsedExecContextObject,

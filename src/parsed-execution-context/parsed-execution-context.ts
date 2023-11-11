@@ -1,8 +1,8 @@
 import { ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
-import { EXTERNAL_INVOKED_SERVICE } from './metadata-decorators/external-service.decorator';
-import { ParsedExecContextObject } from './structure-objects/parsed-exec-context.object';
+import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-service.decorator';
+import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 
 export default class ParsedExecContext {
   private readonly structureObject: ParsedExecContextObject;
