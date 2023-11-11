@@ -4,6 +4,7 @@
   "description": "An useful package to almost automatize NestJS responses normalization",
   "main": "./lib",
   "scripts": {
+    "build":"tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
