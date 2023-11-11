@@ -83,3 +83,52 @@ app.useGlobalInterceptors(new NormalizerInterceptor());
 In your boostrap function from `main.ts`.
 
 It will be initialized and will work without anymore to do.
+
+## Personnalization
+
+I did not really go deep into personnalization for now, but you can already personnalize response messages, it will requires some developpement from you to do it.
+
+First, you'll need to create a new custom interceptor (That you should use instead of Normalizer one), and make him extends 'NormalizerInterceptor' and put it into : 
+
+```ts
+private dispatchSuccessResponseByHttpMethod(data: any) {
+    const parsedExecContextObject = super.parsedContext.toJSON();
+    switch (parsedExecContextObject.httpMethod) {
+      case 'POST':
+        return new CreatedResponse(parsedExecContextObject, data, {
+          message: `Your message here`,
+          statusCode: 200,
+        }).toJSON();
+      case 'GET':
+        return new GettedResponse(parsedExecContextObject, data).toJSON();
+      case 'PATCH':
+        return new UpdatedResponse(parsedExecContextObject, data).toJSON();
+      case 'DELETE':
+        return new DeletedResponse(parsedExecContextObject, data).toJSON();
+      default:
+        throw new Error(
+          `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
+        );
+    }
+  }
+```
+
+There's some aliases to put interpreted flags.
+
+```json
+{
+    "subjectModuleName": [
+      "subjectmodulename",
+      "modulename",
+      "submodulename",
+      "mn",
+      "smn",
+      "module",
+      "submodule",
+    ],
+    "stringifiedQueryParams": ["stringifiedqueryparams", "queryparams", "qp"],
+    "statusCode": ["statuscode", "sc", "status", "stcd", "stc", "code"],
+  }
+```
+
+So, to use them you should prefix them by '::' like '::mn' will be interpreted as 'subjectModuleName' and will be replace by the module name. You can ignore casing match, it will be lowered to avoid uninterpretation errors.
