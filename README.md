@@ -53,10 +53,6 @@ Response Normalizer will return a response as :
 
 The management of empty datas is not currently implemented, i already developed that part, but i'm currently thinking on how to cleanly implement it in package.
 
-### Manage Fastify
-
-At this moment, Response Normalizer isn't compatible with Fastify, only with Express (Used by default with Nest), it will be implement later.
-
 ### Manage ORM Error Normalizer
 
 As for empty data, i already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
@@ -72,7 +68,7 @@ npm i response-normalizer
 And add : 
 
 ```ts
-import { NormalizerInterceptor } from 'response-normalizer/lib/normalizer.interceptor';
+import { NormalizerInterceptor } from 'response-normalizer';
 app.useGlobalInterceptors(new NormalizerInterceptor());
 ```
 
