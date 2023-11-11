@@ -2,7 +2,7 @@
   "name": "response-normalizer",
   "version": "1.0.4",
   "description": "An useful package to almost automatize NestJS responses normalization",
-  "main": "./lib",
+  "main": "./index.js",
   "scripts": {
     "build": "tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +24,6 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
