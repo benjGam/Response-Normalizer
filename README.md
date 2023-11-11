@@ -131,4 +131,10 @@ There's some aliases to put interpreted flags.
   }
 ```
 
-So, to use them you should prefix them by '::' like '::mn' will be interpreted as 'subjectModuleName' and will be replace by the module name. You can ignore casing match, it will be lowered to avoid uninterpretation errors.
+So, to use them you should prefix them by '::' like '::mn' will be interpreted as 'subjectModuleName' and will be replaced by the module name. You can ignore casing, it will be lowered to avoid uninterpretation errors.
+
+## Conclusion
+
+That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
+
+Enjoy !
