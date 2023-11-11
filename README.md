@@ -64,3 +64,22 @@ I know that package imports are terribly shitty, it will be fix later, i'm curre
 ### Manage ORM Error Normalizer
 
 As for empty data, i already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
+
+## Usage
+
+If you wish to implement Response Normalizer Interceptor, you can do it as : 
+
+```sh
+npm i response-normalizer
+```
+
+And add : 
+
+```ts
+import { NormalizerInterceptor } from 'response-normalizer/lib/normalizer.interceptor';
+app.useGlobalInterceptors(new NormalizerInterceptor());
+```
+
+In your boostrap function from `main.ts`.
+
+It will be initialized and will work without anymore to do.
