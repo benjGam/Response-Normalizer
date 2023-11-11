@@ -1,0 +1,19 @@
+{
+  "name": "response-normalizer",
+  "version": "1.0.0",
+  "description": "An usefull package to almost automatize NestJS responses normalization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjGam/Response-Normalizer.git"
+  },
+  "author": "benjGam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjGam/Response-Normalizer/issues"
+  },
+  "homepage": "https://github.com/benjGam/Response-Normalizer#readme"
+}
