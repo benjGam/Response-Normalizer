@@ -1,6 +1,5 @@
 import { ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { Request } from 'express';
 import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-service.decorator';
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 
@@ -20,8 +19,7 @@ export default class ParsedExecContext {
   }
 
   private getHttpMethod() {
-    return (this.executionContext.switchToHttp().getRequest() as Request)
-      .method;
+    return this.executionContext.switchToHttp().getRequest().method;
   }
 
   private extractHttpQueryParams() {
