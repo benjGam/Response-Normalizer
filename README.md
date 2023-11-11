@@ -40,3 +40,7 @@ Response Normalizer will return a response as :
   "statusCode":200,
 }
 ```
+
+## What's taken in charge
+
+- If your logic return not only one result but many, it will be handled by adding corresponding plural form for word (e.g: 'User' -> 'Users', 'Category' -> 'Categories', ...)
