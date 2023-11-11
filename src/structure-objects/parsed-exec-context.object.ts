@@ -7,7 +7,7 @@ export class ParsedExecContextObject {
   public httpMethod: string;
 }
 
-export class SringifiableParsedExecContextObject extends PickType(
+export class StringifiableParsedExecContextObject extends PickType(
   ParsedExecContextObject,
   ['httpMethod'],
 ) {

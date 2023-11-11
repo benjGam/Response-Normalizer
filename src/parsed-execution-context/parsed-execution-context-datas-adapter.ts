@@ -2,16 +2,16 @@ import StringFormatter from 'string-utils-ts';
 import QueryParamOrMetaStringifier from '../helpers/query-param-stringifier';
 import {
   ParsedExecContextObject,
-  SringifiableParsedExecContextObject,
+  StringifiableParsedExecContextObject,
 } from 'structure-objects/parsed-exec-context.object';
 
 export default class ParsedExecContextObjectAdapter {
-  private readonly stringifiedObject: SringifiableParsedExecContextObject;
+  private readonly stringifiedObject: StringifiableParsedExecContextObject;
   constructor(
     private readonly parsedExecutionContextDatas: ParsedExecContextObject,
     private readonly datas: any | any[],
   ) {
-    this.stringifiedObject = new SringifiableParsedExecContextObject();
+    this.stringifiedObject = new StringifiableParsedExecContextObject();
     this.dispatchBehavior();
     this.stringifiedObject.httpMethod =
       this.parsedExecutionContextDatas.httpMethod;
@@ -99,7 +99,7 @@ export default class ParsedExecContextObjectAdapter {
     return contatenedQueryParamsOrMetaKeys;
   }
 
-  public get adaptedObject(): SringifiableParsedExecContextObject {
+  public get adaptedObject(): StringifiableParsedExecContextObject {
     return this.stringifiedObject;
   }
 }

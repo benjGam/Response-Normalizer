@@ -1,4 +1,4 @@
-import { SringifiableParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
+import { StringifiableParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 
 export class MessageInterpretor {
   private static aliases = {
@@ -17,7 +17,7 @@ export class MessageInterpretor {
 
   public static getInterpretedMessage(
     message: string,
-    structObject: SringifiableParsedExecContextObject,
+    structObject: StringifiableParsedExecContextObject,
   ) {
     message = this.processedAliasesMessage(message);
 
