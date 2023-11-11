@@ -18,5 +18,8 @@
   "homepage": "https://github.com/benjGam/Response-Normalizer#readme",
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "string-utils-ts": "^1.1.10"
   }
 }
