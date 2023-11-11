@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/benjGam/Response-Normalizer/issues"
   },
-  "homepage": "https://github.com/benjGam/Response-Normalizer#readme"
+  "homepage": "https://github.com/benjGam/Response-Normalizer#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
 }
