@@ -1,7 +1,7 @@
 import {
   ParsedExecContextObject,
   StringifiableParsedExecContextObject,
-} from 'structure-objects/parsed-exec-context.object';
+} from '../structure-objects/parsed-exec-context.object';
 import {
   NormalizedResponseObject,
   NormalizedResponseEntryObject,

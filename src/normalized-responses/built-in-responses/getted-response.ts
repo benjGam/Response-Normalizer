@@ -1,7 +1,7 @@
 import { HttpStatus } from '@nestjs/common';
-import { NormalizedResponseEntryObject } from 'structure-objects/normalized-response.object';
-import { ParsedExecContextObject } from 'structure-objects/parsed-exec-context.object';
-import NormalizedResponse from 'normalized-responses/normalized-response';
+import { NormalizedResponseEntryObject } from '../../structure-objects/normalized-response.object';
+import { ParsedExecContextObject } from '../../structure-objects/parsed-exec-context.object';
+import NormalizedResponse from '../../normalized-responses/normalized-response';
 
 export default class GettedResponse extends NormalizedResponse {
   constructor(

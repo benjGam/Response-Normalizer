@@ -3,7 +3,7 @@ import QueryParamOrMetaStringifier from '../helpers/query-param-stringifier';
 import {
   ParsedExecContextObject,
   StringifiableParsedExecContextObject,
-} from 'structure-objects/parsed-exec-context.object';
+} from '../structure-objects/parsed-exec-context.object';
 
 export default class ParsedExecContextObjectAdapter {
   private readonly stringifiedObject: StringifiableParsedExecContextObject;
