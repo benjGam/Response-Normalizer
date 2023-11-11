@@ -72,7 +72,7 @@ npm i response-normalizer
 And add : 
 
 ```ts
-import { NormalizerInterceptor } from 'response-normalizer/lib/normalizer.interceptor';
+import { NormalizerInterceptor } from 'response-normalizer';
 app.useGlobalInterceptors(new NormalizerInterceptor());
 ```
 
