@@ -47,11 +47,12 @@ Response Normalizer will return a response as :
 - If you have not one query param but many, they'll be joined with 'and' and appears in order they were declared in handler declaration.
 - If your logic depends on another service, it handled by using '@ExternalService(ServiceType)' decorator on your handler declaration (Controller method).
 
-## What's next
+<details>
+<summary><h2>To Do</h2></summary>
 
-### Manage ORM Error Normalizer
+- Normalize ORM errors
 
-I already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
+</details>
 
 ## Usage
 
