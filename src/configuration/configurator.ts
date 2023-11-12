@@ -26,7 +26,7 @@ export class Configurator {
           currentOptionObject[key],
           defaultOptionsObject[key],
         );
-      } else if (!currentOptionObject[key]) {
+      } else if (currentOptionObject[key] === undefined) {
         currentOptionObject[key] = defaultOptionsObject[key];
       }
     }
