@@ -47,11 +47,21 @@ Response Normalizer will return a response as :
 - If you have not one query param but many, they'll be joined with 'and' and appears in order they were declared in handler declaration.
 - If your logic depends on another service, it handled by using '@ExternalService(ServiceType)' decorator on your handler declaration (Controller method).
 
-## What's next
+<details>
+<summary><h2>To Do</h2></summary>
 
-### Manage ORM Error Normalizer
+- [x] **Fix Exception Filter to permeet to Nest to return correctly Validation Pipe errors**
+  - [ ] Improve Corrective
+- [ ] **Improve Configuration**
+  - [ ] Add way to configure how query params should be joined
+- [ ] **Normalize ORM errors**
+  - [ ] Conceptualize way to get ORM without any changes from end user 
+  - [ ] Add Configuration to enable it or not
+- [ ] **Add Experimental Mode to handle automatically external service logic**
+  - [ ] Conceptualize it
+  - [ ] Add Configuration to enable experimental mode
 
-I already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
+</details>
 
 ## Usage
 
