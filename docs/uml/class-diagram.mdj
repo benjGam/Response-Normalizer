@@ -7491,7 +7491,7 @@
 											"top": 1363,
 											"width": 474.01123046875,
 											"height": 13,
-											"text": "+throwExceptionReponseByHttpMethod(data: any): void",
+											"text": "-throwExceptionReponseByHttpMethod(data: any): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -13867,6 +13867,7 @@
 								"$ref": "AAAAAAGLv+4C0/sjad0="
 							},
 							"name": "throwExceptionReponseByHttpMethod",
+							"visibility": "private",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
