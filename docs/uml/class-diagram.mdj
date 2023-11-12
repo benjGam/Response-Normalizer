@@ -11406,7 +11406,7 @@
 											"font": "Arial;13;1",
 											"left": 781,
 											"top": 1590,
-											"width": 791,
+											"width": 711,
 											"height": 13,
 											"text": "Configuration"
 										},
@@ -11441,7 +11441,7 @@
 									"font": "Arial;13;0",
 									"left": 776,
 									"top": 1583,
-									"width": 801,
+									"width": 721,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGLw4Uf5uXRS/o="
@@ -11466,7 +11466,7 @@
 							"containerChangeable": true,
 							"left": 776,
 							"top": 1568,
-							"width": 801,
+							"width": 721,
 							"height": 313,
 							"nameCompartment": {
 								"$ref": "AAAAAAGLw4Uf5uXQHZw="
@@ -11739,9 +11739,9 @@
 											"font": "Arial;13;1",
 											"left": 1261,
 											"top": 1655,
-											"width": 269.52783203125,
+											"width": 179.22607421875,
 											"height": 13,
-											"text": "Response Normalizer Successes Messages"
+											"text": "Success Messages Options"
 										},
 										{
 											"_type": "LabelView",
@@ -11774,7 +11774,7 @@
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 1648,
-									"width": 279.52783203125,
+									"width": 189.22607421875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGLw6N33EY5TWY="
@@ -11811,7 +11811,7 @@
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 1678,
-											"width": 269.52783203125,
+											"width": 179.22607421875,
 											"height": 13,
 											"text": "+createdMessage?: string = ...",
 											"horizontalAlignment": 0
@@ -11828,7 +11828,7 @@
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 1693,
-											"width": 269.52783203125,
+											"width": 179.22607421875,
 											"height": 13,
 											"text": "+gettedMessage?: string = ...",
 											"horizontalAlignment": 0
@@ -11845,7 +11845,7 @@
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 1708,
-											"width": 269.52783203125,
+											"width": 179.22607421875,
 											"height": 13,
 											"text": "+updatedMessage?: string = ...",
 											"horizontalAlignment": 0
@@ -11862,7 +11862,7 @@
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 1723,
-											"width": 269.52783203125,
+											"width": 179.22607421875,
 											"height": 13,
 											"text": "+deletedMessage?: string = ...",
 											"horizontalAlignment": 0
@@ -11871,7 +11871,7 @@
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 1673,
-									"width": 279.52783203125,
+									"width": 189.22607421875,
 									"height": 68
 								},
 								{
@@ -11930,7 +11930,7 @@
 							"containerChangeable": true,
 							"left": 1256,
 							"top": 1648,
-							"width": 279.52783203125,
+							"width": 189.22607421875,
 							"height": 93,
 							"nameCompartment": {
 								"$ref": "AAAAAAGLw6N33EY4vGE="
@@ -12263,9 +12263,9 @@
 											"font": "Arial;13;1",
 											"left": 1261,
 											"top": 1775,
-											"width": 269.52783203125,
+											"width": 187.1669921875,
 											"height": 13,
-											"text": "Response Normalizer Exception Messages"
+											"text": "Exception Messages Options"
 										},
 										{
 											"_type": "LabelView",
@@ -12296,7 +12296,7 @@
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 1768,
-									"width": 279.52783203125,
+									"width": 197.1669921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGLw6jw4PYoWoQ="
@@ -12333,7 +12333,7 @@
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 1798,
-											"width": 269.52783203125,
+											"width": 187.1669921875,
 											"height": 13,
 											"text": "+notFoundMessage?: string = ...",
 											"horizontalAlignment": 0
@@ -12342,7 +12342,7 @@
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 1793,
-									"width": 279.52783203125,
+									"width": 197.1669921875,
 									"height": 23
 								},
 								{
@@ -12396,7 +12396,7 @@
 							"containerChangeable": true,
 							"left": 1256,
 							"top": 1768,
-							"width": 279.52783203125,
+							"width": 197.1669921875,
 							"height": 48,
 							"nameCompartment": {
 								"$ref": "AAAAAAGLw6jw4PYngz8="
@@ -15974,7 +15974,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGLw4Uf5eXNuwI="
 							},
-							"name": "Response Normalizer Successes Messages",
+							"name": "Success Messages Options",
 							"ownedElements": [
 								{
 									"_type": "UMLAssociation",
@@ -16124,7 +16124,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Response Normalizer Exception Messages",
+					"name": "Exception Messages Options",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
