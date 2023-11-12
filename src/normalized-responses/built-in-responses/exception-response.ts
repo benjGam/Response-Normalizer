@@ -6,9 +6,10 @@ import { ParsedExecContextObject } from '../../structure-objects/parsed-exec-con
 export default abstract class ExceptionResponse extends NormalizedResponse {
   constructor(
     parsedExecContextObject: ParsedExecContextObject,
+    data: any | any[],
     entryObject: NormalizedResponseEntryObject,
   ) {
-    super(parsedExecContextObject, null, entryObject);
+    super(parsedExecContextObject, data, entryObject);
     this.throw();
   }
 
