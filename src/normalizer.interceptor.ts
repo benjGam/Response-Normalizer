@@ -5,6 +5,7 @@ import GettedResponse from './normalized-responses/built-in-responses/successes/
 import UpdatedResponse from './normalized-responses/built-in-responses/successes/updated-response';
 import ReflectorInterceptor from './reflector.interceptor';
 import { map } from 'rxjs/operators';
+import DataNotFoundExceptionResponse from 'normalized-responses/built-in-responses/errors/data-not-found-exception';
 
 @Injectable()
 export class NormalizerInterceptor extends ReflectorInterceptor {
@@ -13,7 +14,13 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
 
     return next
       .handle()
-      .pipe(map((data) => this.dispatchSuccessResponseByHttpMethod(data)));
+      .pipe(
+        map((data) =>
+          this.isDataEmpty(data)
+            ? this.throwExceptionResponseByHttpMethod(data)
+            : this.dispatchSuccessResponseByHttpMethod(data),
+        ),
+      );
   }
 
   private isDataEmpty(data: any) {
@@ -31,6 +38,18 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
         return new UpdatedResponse(parsedExecContextObject, data).toJSON();
       case 'DELETE':
         return new DeletedResponse(parsedExecContextObject, data).toJSON();
+      default:
+        throw new Error(
+          `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
+        );
+    }
+  }
+
+  private throwExceptionResponseByHttpMethod(data: any) {
+    const parsedExecContextObject = super.parsedContext.toJSON();
+    switch (parsedExecContextObject.httpMethod) {
+      case 'GET':
+        new DataNotFoundExceptionResponse(parsedExecContextObject, data);
       default:
         throw new Error(
           `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
