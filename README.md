@@ -51,7 +51,33 @@ Response Normalizer will return a response as :
 
 ### Manage ORM Error Normalizer
 
-As for empty data, i already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
+I already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
+
+## Usage
+
+To use Response Normalizer in your NestJS API, you can do it as following :
+
+```sh
+npm install response-normalizer
+```
+
+And init package into your `boostrap` function :
+
+`main.ts`
+
+```ts
+import { NestFactory } from '@nestjs/core';
+import { CategoriesModule } from './app.module';
+import { init } from 'response-normalizer';
+import {} from '@nestjs/common/interfaces/nest-application-options.interface';
+
+async function bootstrap() {
+  const app = await NestFactory.create(CategoriesModule);
+  init(app);
+  await app.listen(3000);
+}
+bootstrap();
+```
 
 ## Personnalization
 
