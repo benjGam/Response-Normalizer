@@ -24,7 +24,11 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
   }
 
   private isDataEmpty(data: any) {
-    return data === null || (Array.isArray(data) && data.length == 0);
+    return (
+      data === null ||
+      data === undefined ||
+      (Array.isArray(data) && data.length == 0)
+    );
   }
 
   private dispatchSuccessResponseByHttpMethod(data: any) {
