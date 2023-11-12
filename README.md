@@ -81,6 +81,14 @@ bootstrap();
 
 ## Personnalization
 
+I worked a lil bit on module personnalization issues, so we have now an object specifically dedicated to it. 
+
+You can configure module by passing an object in `init` function declaration.
+
+### Message personnalization
+
+I added an decorator `@CustomResponseMessage('your_message_here')` to customize messages if needed, you can use it on Controller handler. 
+
 There's some aliases to put as interpreted flags.
 
 ```json
