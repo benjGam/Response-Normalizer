@@ -50,9 +50,12 @@ Response Normalizer will return a response as :
 <details>
 <summary><h2>To Do</h2></summary>
 
-- [] **Normalize ORM errors**
-  - [] Conceptualize way to get ORM without any changes from end user 
-  - [] Add Configuration to enable it or not
+- [ ] **Normalize ORM errors**
+  - [ ] Conceptualize way to get ORM without any changes from end user 
+  - [ ] Add Configuration to enable it or not
+- [ ] **Add Experimental Mode to handle automatically external service logic**
+  - [ ] Conceptualize it
+  - [ ] Add Configuration to enable experimental mode
 
 </details>
 
