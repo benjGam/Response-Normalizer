@@ -1,10 +1,11 @@
 import { Injectable, ExecutionContext, CallHandler } from '@nestjs/common';
-import CreatedResponse from './normalized-responses/built-in-responses/created-response';
-import DeletedResponse from './normalized-responses/built-in-responses/deleted-response';
-import GettedResponse from './normalized-responses/built-in-responses/getted-response';
-import UpdatedResponse from './normalized-responses/built-in-responses/updated-response';
+import CreatedResponse from './normalized-responses/built-in-responses/successes/created-response';
+import DeletedResponse from './normalized-responses/built-in-responses/successes/deleted-response';
+import GettedResponse from './normalized-responses/built-in-responses/successes/getted-response';
+import UpdatedResponse from './normalized-responses/built-in-responses/successes/updated-response';
 import ReflectorInterceptor from './reflector.interceptor';
 import { map } from 'rxjs/operators';
+import DataNotFoundExceptionResponse from './normalized-responses/built-in-responses/errors/data-not-found-exception';
 
 @Injectable()
 export class NormalizerInterceptor extends ReflectorInterceptor {
@@ -13,11 +14,21 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
 
     return next
       .handle()
-      .pipe(map((data) => this.dispatchSuccessResponseByHttpMethod(data)));
+      .pipe(
+        map((data) =>
+          this.isDataEmpty(data)
+            ? this.throwExceptionResponseByHttpMethod(data)
+            : this.dispatchSuccessResponseByHttpMethod(data),
+        ),
+      );
   }
 
   private isDataEmpty(data: any) {
-    return data === null || (Array.isArray(data) && data.length == 0);
+    return (
+      data === null ||
+      data === undefined ||
+      (Array.isArray(data) && data.length == 0)
+    );
   }
 
   private dispatchSuccessResponseByHttpMethod(data: any) {
@@ -31,6 +42,18 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
         return new UpdatedResponse(parsedExecContextObject, data).toJSON();
       case 'DELETE':
         return new DeletedResponse(parsedExecContextObject, data).toJSON();
+      default:
+        throw new Error(
+          `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
+        );
+    }
+  }
+
+  private throwExceptionResponseByHttpMethod(data: any) {
+    const parsedExecContextObject = super.parsedContext.toJSON();
+    switch (parsedExecContextObject.httpMethod) {
+      case 'GET':
+        new DataNotFoundExceptionResponse(parsedExecContextObject, data);
       default:
         throw new Error(
           `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
