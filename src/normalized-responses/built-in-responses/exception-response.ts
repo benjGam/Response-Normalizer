@@ -1,15 +1,15 @@
-import { HttpException } from '@nestjs/common';
+import { HttpException, HttpStatus } from '@nestjs/common';
 import NormalizedResponse from '../../normalized-responses/normalized-response';
-import { NormalizedResponseEntryObject } from '../../structure-objects/normalized-response.object';
 import { ParsedExecContextObject } from '../../structure-objects/parsed-exec-context.object';
 
 export default abstract class ExceptionResponse extends NormalizedResponse {
   constructor(
     parsedExecContextObject: ParsedExecContextObject,
     data: any | any[],
-    entryObject: NormalizedResponseEntryObject,
+    message: string,
+    statusCode: HttpStatus,
   ) {
-    super(parsedExecContextObject, data, entryObject);
+    super(parsedExecContextObject, data, message, statusCode);
     this.throw();
   }
 
