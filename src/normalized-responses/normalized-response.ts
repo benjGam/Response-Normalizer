@@ -20,6 +20,9 @@ export default abstract class NormalizedResponse {
     statusCode: HttpStatus,
   ) {
     const reflector = new Reflector();
+    if (this.hasCustomMessage(reflector))
+      message = this.getCustomMessage(reflector);
+
     this.stringifiableExecContextObject = new ParsedExecContextObjectAdapter(
       parsedContextObject,
       data,
@@ -35,8 +38,15 @@ export default abstract class NormalizedResponse {
     };
   }
 
-  public hasCustomMessage(reflector: Reflector) {
+  private hasCustomMessage(reflector: Reflector) {
     return !reflector.get<string>(
+      CUSTOM_RESPONSE_MESSAGE,
+      this.parsedContextObject.baseContext.getHandler(),
+    );
+  }
+
+  private getCustomMessage(reflector: Reflector) {
+    return reflector.get<string>(
       CUSTOM_RESPONSE_MESSAGE,
       this.parsedContextObject.baseContext.getHandler(),
     );
