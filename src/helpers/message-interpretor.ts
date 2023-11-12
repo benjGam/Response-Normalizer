@@ -1,18 +1,13 @@
 import { StringifiableParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
+import StatusCodeAliases from './aliases/status-code.alias';
+import StringifiedQueryParamsAliases from './aliases/stringified-query-params.alias';
+import SubjectModuleAliases from './aliases/subject-module.alias';
 
 export class MessageInterpretor {
   private static aliases = {
-    subjectModuleName: [
-      'subjectmodulename',
-      'modulename',
-      'submodulename',
-      'mn',
-      'smn',
-      'module',
-      'submodule',
-    ],
-    stringifiedQueryParams: ['stringifiedqueryparams', 'queryparams', 'qp'],
-    statusCode: ['statuscode', 'sc', 'status', 'stcd', 'stc', 'code'],
+    subjectModuleName: SubjectModuleAliases.getAliases(),
+    stringifiedQueryParams: StringifiedQueryParamsAliases.getAliases(),
+    statusCode: StatusCodeAliases.getAliases(),
   };
 
   public static getInterpretedMessage(
