@@ -3808,7 +3808,7 @@
 											"top": 1123,
 											"width": 742.701171875,
 											"height": 13,
-											"text": "+hasCustomMessage(): boolean",
+											"text": "-hasCustomMessage(reflector: Reflector): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3825,7 +3825,7 @@
 											"top": 1138,
 											"width": 742.701171875,
 											"height": 13,
-											"text": "+getCustomMessage(): string",
+											"text": "-getCustomMessage(reflector: Reflector): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16717,6 +16717,7 @@
 										"$ref": "AAAAAAGLv6xuPGcKMew="
 									},
 									"name": "hasCustomMessage",
+									"visibility": "private",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -16726,6 +16727,15 @@
 											},
 											"type": "boolean",
 											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAGLxOdZG8Y6t3s=",
+											"_parent": {
+												"$ref": "AAAAAAGLxMqbfjszOMw="
+											},
+											"name": "reflector",
+											"type": "Reflector"
 										}
 									]
 								},
@@ -16736,6 +16746,7 @@
 										"$ref": "AAAAAAGLv6xuPGcKMew="
 									},
 									"name": "getCustomMessage",
+									"visibility": "private",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -16745,6 +16756,15 @@
 											},
 											"type": "string",
 											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAGLxOe+RMhNBYQ=",
+											"_parent": {
+												"$ref": "AAAAAAGLxMr0MkRhqAg="
+											},
+											"name": "reflector",
+											"type": "Reflector"
 										}
 									]
 								},

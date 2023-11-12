@@ -14,7 +14,7 @@ export default abstract class NormalizedResponse {
   protected readonly stringifiableExecContextObject: StringifiableParsedExecContextObject;
 
   constructor(
-    protected readonly parsedContextObject: ParsedExecContextObject,
+    private readonly parsedContextObject: ParsedExecContextObject,
     data: any | any[],
     message: string,
     statusCode: HttpStatus,
