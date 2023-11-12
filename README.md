@@ -50,6 +50,7 @@ Response Normalizer will return a response as :
 <details>
 <summary><h2>To Do</h2></summary>
 
+- [ ] **Fix Exception Filter to permeet to Nest to return correctly Validation Pipe errors**
 - [ ] **Improve Configuration**
   - [ ] Add way to configure how query params should be joined
 - [ ] **Normalize ORM errors**
