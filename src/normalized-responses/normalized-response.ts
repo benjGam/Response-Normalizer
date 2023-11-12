@@ -2,12 +2,10 @@ import {
   ParsedExecContextObject,
   StringifiableParsedExecContextObject,
 } from '../structure-objects/parsed-exec-context.object';
-import {
-  NormalizedResponseObject,
-  NormalizedResponseEntryObject,
-} from '../structure-objects/normalized-response.object';
+import { NormalizedResponseObject } from '../structure-objects/normalized-response.object';
 import { MessageInterpretor } from '../helpers/message-interpretor';
 import ParsedExecContextObjectAdapter from '../parsed-execution-context/parsed-exec-context-object-adapter';
+import { HttpStatus } from '@nestjs/common';
 
 export default abstract class NormalizedResponse {
   protected readonly normalizedResponseObject: NormalizedResponseObject;
@@ -16,7 +14,8 @@ export default abstract class NormalizedResponse {
   constructor(
     parsedContextObject: ParsedExecContextObject,
     data: any | any[],
-    entryObject: NormalizedResponseEntryObject,
+    message: string,
+    statusCode: HttpStatus,
   ) {
     this.stringifiableExecContextObject = new ParsedExecContextObjectAdapter(
       parsedContextObject,
@@ -26,10 +25,10 @@ export default abstract class NormalizedResponse {
     this.normalizedResponseObject = {
       data,
       message: MessageInterpretor.getInterpretedMessage(
-        entryObject.message,
+        message,
         this.stringifiableExecContextObject,
       ),
-      statusCode: entryObject.statusCode,
+      statusCode,
     };
   }
 
