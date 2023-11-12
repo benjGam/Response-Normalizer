@@ -7476,13 +7476,30 @@
 											"height": 13,
 											"text": "-dispatchSuccessResponseByHttpMethod(data: any): NormalizedResponseObject",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGLwuxBfkLpeqY=",
+											"_parent": {
+												"$ref": "AAAAAAGLv+4C1PssXAo="
+											},
+											"model": {
+												"$ref": "AAAAAAGLwuxBVELCFQ8="
+											},
+											"font": "Arial;13;0",
+											"left": 29,
+											"top": 1363,
+											"width": 474.01123046875,
+											"height": 13,
+											"text": "+throwExceptionReponseByHttpMethod(data: any): void",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1313,
 									"width": 484.01123046875,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -7522,7 +7539,7 @@
 							"left": 24,
 							"top": 1288,
 							"width": 484.01123046875,
-							"height": 78,
+							"height": 93,
 							"nameCompartment": {
 								"$ref": "AAAAAAGLv+4C1PsmFXc="
 							},
@@ -13839,6 +13856,34 @@
 										"$ref": "AAAAAAGLv+7e4g2tbGk="
 									},
 									"type": "NormalizedResponseObject",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGLwuxBVELCFQ8=",
+							"_parent": {
+								"$ref": "AAAAAAGLv+4C0/sjad0="
+							},
+							"name": "throwExceptionReponseByHttpMethod",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGLwuziaEO51ZY=",
+									"_parent": {
+										"$ref": "AAAAAAGLwuxBVELCFQ8="
+									},
+									"name": "data",
+									"type": "any"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGLwuziaUO6j4A=",
+									"_parent": {
+										"$ref": "AAAAAAGLwuxBVELCFQ8="
+									},
+									"type": "void",
 									"direction": "return"
 								}
 							]
