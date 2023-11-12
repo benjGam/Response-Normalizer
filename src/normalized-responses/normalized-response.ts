@@ -7,7 +7,7 @@ import { MessageInterpretor } from '../helpers/message-interpretor';
 import ParsedExecContextObjectAdapter from '../parsed-execution-context/parsed-exec-context-object-adapter';
 import { HttpStatus } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { CUSTOM_RESPONSE_MESSAGE } from 'metadata-decorators/custom-response-message.decorator';
+import { CUSTOM_RESPONSE_MESSAGE } from '../metadata-decorators/custom-response-message.decorator';
 
 export default abstract class NormalizedResponse {
   protected readonly normalizedResponseObject: NormalizedResponseObject;
@@ -39,7 +39,7 @@ export default abstract class NormalizedResponse {
   }
 
   private hasCustomMessage(reflector: Reflector) {
-    return !reflector.get<string>(
+    return reflector.get<string>(
       CUSTOM_RESPONSE_MESSAGE,
       this.parsedContextObject.baseContext.getHandler(),
     );
