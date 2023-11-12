@@ -10405,7 +10405,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGLwsrdeviax/c="
 											},
-											"font": "Arial;13;1",
+											"font": "Arial;13;3",
 											"left": 2949,
 											"top": 1535,
 											"width": 127.8671875,
@@ -13546,7 +13546,8 @@
 									"name": "throw",
 									"visibility": "private"
 								}
-							]
+							],
+							"isAbstract": true
 						}
 					]
 				},
