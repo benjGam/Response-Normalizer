@@ -10720,7 +10720,7 @@
 											"top": 1615,
 											"width": 664.37744140625,
 											"height": 13,
-											"text": "Data Not Found Response"
+											"text": "Data Not Found Exception Response"
 										},
 										{
 											"_type": "LabelView",
@@ -13452,7 +13452,7 @@
 											"_parent": {
 												"$ref": "AAAAAAGLwsykRT383jM="
 											},
-											"name": "Data Not Found Response",
+											"name": "Data Not Found Exception Response",
 											"ownedElements": [
 												{
 													"_type": "UMLGeneralization",
