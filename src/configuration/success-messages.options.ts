@@ -1,4 +1,4 @@
-export default class ResponseNormalizerSuccessMessagesOptions {
+export default class SuccessMessagesOptions {
   public createdMessage?: string = '::subjectModuleName has been created';
   public gettedMessage?: string =
     '::subjectModuleName for ::stringifiedQueryParams has been getted';
