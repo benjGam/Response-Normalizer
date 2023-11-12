@@ -15,6 +15,7 @@ export default class ParsedExecContext {
       handlerModuleName: this.parseHandlerModuleName(),
       queryParams: this.parseHttpQueryParamsToMap(),
       httpMethod: this.getHttpMethod(),
+      baseContext: executionContext,
     };
   }
 

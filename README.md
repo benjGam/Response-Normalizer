@@ -49,63 +49,47 @@ Response Normalizer will return a response as :
 
 ## What's next
 
-### Manage Empty Returned Datas (Unmanaged by ORM throwing)
-
-The management of empty datas is not currently implemented, i already developed that part, but i'm currently thinking on how to cleanly implement it in package.
-
 ### Manage ORM Error Normalizer
 
-As for empty data, i already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
+I already developed that part (Only for Prisma), i'm currently thinking on how implement it, if i make a new package or not, if i implement that directly there.
 
 ## Usage
 
-If you wish to implement Response Normalizer Interceptor, you can do it as : 
+To use Response Normalizer in your NestJS API, you can do it as following :
 
 ```sh
-npm i response-normalizer
+npm install response-normalizer
 ```
 
-And add : 
+And init package into your `boostrap` function :
+
+`main.ts`
 
 ```ts
-import { NormalizerInterceptor } from 'response-normalizer';
-app.useGlobalInterceptors(new NormalizerInterceptor());
+import { NestFactory } from '@nestjs/core';
+import { CategoriesModule } from './app.module';
+import { init } from 'response-normalizer';
+import {} from '@nestjs/common/interfaces/nest-application-options.interface';
+
+async function bootstrap() {
+  const app = await NestFactory.create(CategoriesModule);
+  init(app);
+  await app.listen(3000);
+}
+bootstrap();
 ```
-
-In your boostrap function from `main.ts`.
-
-It will be initialized and will work without anymore to do.
 
 ## Personnalization
 
-I did not really go deep into personnalization for now, but you can already personnalize response messages, it will requires some developpement from you to do it.
+I worked a lil bit on module personnalization issues, so we have now an object specifically dedicated to it. 
 
-First, you'll need to create a new custom interceptor (That you should use instead of Normalizer one), and make him extends 'NormalizerInterceptor' and put it into : 
+You can configure module by passing an object in `init` function declaration.
 
-```ts
-private dispatchSuccessResponseByHttpMethod(data: any) {
-    const parsedExecContextObject = super.parsedContext.toJSON();
-    switch (parsedExecContextObject.httpMethod) {
-      case 'POST':
-        return new CreatedResponse(parsedExecContextObject, data, {
-          message: `Your message here`,
-          statusCode: 200,
-        }).toJSON();
-      case 'GET':
-        return new GettedResponse(parsedExecContextObject, data).toJSON();
-      case 'PATCH':
-        return new UpdatedResponse(parsedExecContextObject, data).toJSON();
-      case 'DELETE':
-        return new DeletedResponse(parsedExecContextObject, data).toJSON();
-      default:
-        throw new Error(
-          `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
-        );
-    }
-  }
-```
+### Message personnalization
 
-There's some aliases to put interpreted flags.
+I added an decorator `@CustomResponseMessage('your_message_here')` to customize messages if needed, you can use it on Controller handler. 
+
+There's some aliases to put as interpreted flags.
 
 ```json
 {
