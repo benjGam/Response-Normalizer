@@ -1,8 +1,8 @@
 import { Injectable, ExecutionContext, CallHandler } from '@nestjs/common';
-import CreatedResponse from './normalized-responses/built-in-responses/created-response';
-import DeletedResponse from './normalized-responses/built-in-responses/deleted-response';
-import GettedResponse from './normalized-responses/built-in-responses/getted-response';
-import UpdatedResponse from './normalized-responses/built-in-responses/updated-response';
+import CreatedResponse from './normalized-responses/built-in-responses/successes/created-response';
+import DeletedResponse from './normalized-responses/built-in-responses/successes/deleted-response';
+import GettedResponse from './normalized-responses/built-in-responses/successes/getted-response';
+import UpdatedResponse from './normalized-responses/built-in-responses/successes/updated-response';
 import ReflectorInterceptor from './reflector.interceptor';
 import { map } from 'rxjs/operators';
 
