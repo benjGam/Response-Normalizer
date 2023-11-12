@@ -1,5 +1,4 @@
 import { HttpStatus } from '@nestjs/common';
-import { NormalizedResponseEntryObject } from '../../../structure-objects/normalized-response.object';
 import { ParsedExecContextObject } from '../../../structure-objects/parsed-exec-context.object';
 import NormalizedResponse from '../../normalized-response';
 
@@ -7,12 +6,8 @@ export default class GettedResponse extends NormalizedResponse {
   constructor(
     parsedExecContextObject: ParsedExecContextObject,
     data: any | any[],
-    entryObject: NormalizedResponseEntryObject = {
-      message:
-        '::subjectModuleName for ::stringifiedQueryParams has been getted',
-      statusCode: HttpStatus.OK,
-    },
+    message = '::subjectModuleName for ::stringifiedQueryParams has been getted',
   ) {
-    super(parsedExecContextObject, data, entryObject);
+    super(parsedExecContextObject, data, message, HttpStatus.OK);
   }
 }
