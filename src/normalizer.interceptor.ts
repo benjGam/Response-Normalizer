@@ -5,7 +5,7 @@ import GettedResponse from './normalized-responses/built-in-responses/successes/
 import UpdatedResponse from './normalized-responses/built-in-responses/successes/updated-response';
 import ReflectorInterceptor from './reflector.interceptor';
 import { map } from 'rxjs/operators';
-import DataNotFoundExceptionResponse from 'normalized-responses/built-in-responses/errors/data-not-found-exception';
+import DataNotFoundExceptionResponse from './normalized-responses/built-in-responses/errors/data-not-found-exception';
 
 @Injectable()
 export class NormalizerInterceptor extends ReflectorInterceptor {
