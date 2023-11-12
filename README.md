@@ -50,6 +50,8 @@ Response Normalizer will return a response as :
 <details>
 <summary><h2>To Do</h2></summary>
 
+- [ ] **Improve Configuration**
+  - [ ] Add way to configure how query params should be joined
 - [ ] **Normalize ORM errors**
   - [ ] Conceptualize way to get ORM without any changes from end user 
   - [ ] Add Configuration to enable it or not
