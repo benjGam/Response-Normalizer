@@ -47,24 +47,6 @@ Response Normalizer will return a response as :
 - If you have not one query param but many, they'll be joined with 'and' and appears in order they were declared in handler declaration.
 - If your logic depends on another service, it handled by using '@ExternalService(ServiceType)' decorator on your handler declaration (Controller method).
 
-<details>
-<summary><h2>To Do</h2></summary>
-
-- [x] **Fix Exception Filter to permeet to Nest to return correctly Validation Pipe errors**
-  - [ ] Improve Corrective
-- [ ] **Improve Configuration**
-  - [ ] Add way to configure how query params should be joined
-  - [ ] Add way to apply specific rule on query params (As 'uuid' should be uppered or lowered or also being replace by a total different thing like 'Universally Unique Identifer' or that kind of stuff)
-- [ ] **Normalize ORM errors**
-  - [ ] Add super class for ORM interceptor
-  - [ ] Conceptualize way to get ORM without any changes from end user 
-  - [ ] Add Configuration to enable it or not
-- [ ] **Add Experimental Mode to handle automatically external service logic**
-  - [ ] Conceptualize it
-  - [ ] Add Configuration to enable experimental mode
-
-</details>
-
 ## Usage
 
 To use Response Normalizer in your NestJS API, you can do it as following :
@@ -126,3 +108,21 @@ So, to use them you should prefix them by '::' like '::mn' will be interpreted a
 That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
 
 Enjoy !
+
+<details>
+<summary><h2>To Do</h2></summary>
+
+- [x] **Fix Exception Filter to permeet to Nest to return correctly Validation Pipe errors**
+  - [ ] Improve Corrective
+- [ ] **Improve Configuration**
+  - [ ] Add way to configure how query params should be joined
+  - [ ] Add way to apply specific rule on query params (As 'uuid' should be uppered or lowered or also being replace by a total different thing like 'Universally Unique Identifer' or that kind of stuff)
+- [ ] **Normalize ORM errors**
+  - [ ] Add super class for ORM interceptor
+  - [ ] Conceptualize way to get ORM without any changes from end user 
+  - [ ] Add Configuration to enable it or not
+- [ ] **Add Experimental Mode to handle automatically external service logic**
+  - [ ] Conceptualize it
+  - [ ] Add Configuration to enable experimental mode
+
+</details>
