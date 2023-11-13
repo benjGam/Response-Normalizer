@@ -1,4 +1,5 @@
 import ExceptionMessagesOptions from './exception-messages.options';
+import QueryParamsOptions from './query-params.options';
 import SuccessMessagesOptions from './success-messages.options';
 
 export default class ResponseNormalizerOptions {
@@ -7,4 +8,5 @@ export default class ResponseNormalizerOptions {
     new SuccessMessagesOptions();
   public exceptionMessages?: ExceptionMessagesOptions =
     new ExceptionMessagesOptions();
+  public queryParamsOptions?: QueryParamsOptions = new QueryParamsOptions();
 }
