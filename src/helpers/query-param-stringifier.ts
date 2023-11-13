@@ -1,3 +1,4 @@
+import { Configurator } from 'configuration/configurator';
 import StringFormatter from 'string-utils-ts';
 
 export default class QueryParamStringifier {
@@ -7,7 +8,7 @@ export default class QueryParamStringifier {
         (key) =>
           `'${queryParams.get(key)}' ${this.stringifyQueryParamKey(key)}`,
       )
-      .join(' and ');
+      .join(` ${Configurator.options.queryParamsOptions.joinedBy.trim()} `);
   }
 
   private static stringifyQueryParamKey(key: string) {
