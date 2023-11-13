@@ -56,6 +56,7 @@ Response Normalizer will return a response as :
   - [ ] Add way to configure how query params should be joined
   - [ ] Add way to apply specific rule on query params (As 'uuid' should be uppered or lowered or also being replace by a total different thing like 'Universally Unique Identifer' or that kind of stuff)
 - [ ] **Normalize ORM errors**
+  - [ ] Add super class for ORM interceptor
   - [ ] Conceptualize way to get ORM without any changes from end user 
   - [ ] Add Configuration to enable it or not
 - [ ] **Add Experimental Mode to handle automatically external service logic**
