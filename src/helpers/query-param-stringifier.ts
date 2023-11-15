@@ -27,17 +27,19 @@ export default class QueryParamStringifier {
           item.subStringSequence.toLowerCase() == strSequence.toLowerCase(),
       );
     if (!formattingRule) {
-      return `${strSequence[0].toUpperCase()}${strSequence
-        .slice(1, strSequence.length)
-        .toLowerCase()}`;
+      return this.formatAsDefaultCasing(strSequence);
     }
     if (formattingRule.replaceBy) return formattingRule.replaceBy;
     if (formattingRule.casing == WordCasing.DEFAULT)
-      return `${strSequence[0].toUpperCase()}${strSequence
-        .slice(1, strSequence.length)
-        .toLowerCase()}`;
+      return this.formatAsDefaultCasing(strSequence);
     else if (formattingRule.casing == WordCasing.LOWERED)
       return strSequence.toLowerCase();
     else return strSequence.toUpperCase();
+  }
+
+  private static formatAsDefaultCasing(subQueryParamStrSequence: string) {
+    return `${subQueryParamStrSequence[0].toUpperCase()}${subQueryParamStrSequence
+      .slice(1, subQueryParamStrSequence.length)
+      .toLowerCase()}`;
   }
 }
