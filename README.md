@@ -113,10 +113,10 @@ Enjoy !
 <summary><h2>To Do</h2></summary>
 
 - [x] **Fix Exception Filter to permeet to Nest to return correctly Validation Pipe errors**
-  - [ ] Improve Corrective
+  - [ ] Make fix more reliable
 - [ ] **Improve Configuration**
   - [x] Add way to configure how query params should be joined
-  - [ ] Add way to apply specific rule on query params (As 'uuid' should be uppered or lowered or also being replace by a total different thing like 'Universally Unique Identifer' or that kind of stuff)
+  - [x] Add way to apply specific rule on query params (As 'uuid' should be uppered or lowered or also being replace by a total different thing like 'Universally Unique Identifer' or that kind of stuff)
 - [ ] **Normalize ORM errors**
   - [ ] Add super class for ORM interceptor
   - [ ] Conceptualize way to get ORM without any changes from end user 
