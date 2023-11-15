@@ -116,7 +116,6 @@ Enjoy !
   - [ ] Make fix more reliable
 - [ ] **Improve Configuration**
   - [x] Add way to configure how query params should be joined
-  - [ ] Add separator configuration for query params or a rule to separate by casing
   - [ ] Add way to apply specific rule on query params (As 'uuid' should be uppered or lowered or also being replace by a total different thing like 'Universally Unique Identifer' or that kind of stuff)
 - [ ] **Normalize ORM errors**
   - [ ] Add super class for ORM interceptor
