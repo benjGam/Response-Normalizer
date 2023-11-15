@@ -113,7 +113,7 @@ Enjoy !
 <summary><h2>To Do</h2></summary>
 
 - [x] **Fix Exception Filter to permeet to Nest to return correctly Validation Pipe errors**
-  - [ ] Improve Corrective
+  - [ ] Make fix more reliable
 - [ ] **Improve Configuration**
   - [x] Add way to configure how query params should be joined
   - [ ] Add separator configuration for query params or a rule to separate by casing
