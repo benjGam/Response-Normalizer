@@ -22,10 +22,13 @@ export default class QueryParamStringifier {
     const formattingRule = this.getFormattingRuleForStringSequence(
       subQueryParamStrSequence,
     );
+
     if (!formattingRule || formattingRule.casing == WordCasing.DEFAULT) {
       return this.formatAsDefaultCasing(subQueryParamStrSequence);
     }
+
     if (formattingRule.replaceBy) return formattingRule.replaceBy;
+
     return this.formatAsOtherCasing(
       subQueryParamStrSequence,
       formattingRule.casing,
