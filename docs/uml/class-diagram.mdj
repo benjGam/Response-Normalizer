@@ -14920,7 +14920,7 @@
 											"font": "Arial;13;1",
 											"left": 1357,
 											"top": 1863,
-											"width": 208.8251953125,
+											"width": 223.98974609375,
 											"height": 13,
 											"text": "Query Params Building Options"
 										},
@@ -14955,7 +14955,7 @@
 									"font": "Arial;13;0",
 									"left": 1352,
 									"top": 1856,
-									"width": 218.8251953125,
+									"width": 233.98974609375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGLycDtVRChrlA="
@@ -14992,7 +14992,7 @@
 											"font": "Arial;13;0",
 											"left": 1357,
 											"top": 1886,
-											"width": 208.8251953125,
+											"width": 223.98974609375,
 											"height": 13,
 											"text": "+joinedBy?: string = ...",
 											"horizontalAlignment": 0
@@ -15009,16 +15009,16 @@
 											"font": "Arial;13;0",
 											"left": 1357,
 											"top": 1901,
-											"width": 208.8251953125,
+											"width": 223.98974609375,
 											"height": 13,
-											"text": "+replaceRules?: FormattingRule = []",
+											"text": "+formattingRules?: FormattingRule = []",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1352,
 									"top": 1881,
-									"width": 218.8251953125,
+									"width": 233.98974609375,
 									"height": 38
 								},
 								{
@@ -15074,7 +15074,7 @@
 							"containerChangeable": true,
 							"left": 1352,
 							"top": 1856,
-							"width": 218.8251953125,
+							"width": 233.98974609375,
 							"height": 63,
 							"nameCompartment": {
 								"$ref": "AAAAAAGLycDtVRCgjGQ="
@@ -15535,7 +15535,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1088,
+									"left": 1096,
 									"top": 2147,
 									"width": 106.052734375,
 									"height": 10
@@ -15551,7 +15551,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -544,
+									"left": -536,
 									"top": 456,
 									"width": 10,
 									"height": 10
@@ -15567,7 +15567,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -544,
+									"left": -536,
 									"top": 456,
 									"width": 10,
 									"height": 10
@@ -15875,7 +15875,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1608,
+									"left": 1615,
 									"top": 1897,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -15896,7 +15896,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 1608,
+									"left": 1615,
 									"top": 1912,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -15917,7 +15917,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1609,
+									"left": 1616,
 									"top": 1867,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -16002,7 +16002,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1595,
+									"left": 1610,
 									"top": 1896,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -16022,7 +16022,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 1598,
+									"left": 1613,
 									"top": 1910,
 									"height": 13,
 									"alpha": -0.7853981633974483,
@@ -16041,7 +16041,7 @@
 										"$ref": "AAAAAAGL0+Jm/Ja+7qQ="
 									},
 									"font": "Arial;13;0",
-									"left": 1588,
+									"left": 1603,
 									"top": 1896,
 									"width": 7.22998046875,
 									"height": 13,
@@ -16091,7 +16091,7 @@
 							"tail": {
 								"$ref": "AAAAAAGL09yn7siAHfM="
 							},
-							"points": "1648:1888;1570:1888",
+							"points": "1648:1888;1585:1888",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGL0+Jm/JbBe8c="
@@ -21675,7 +21675,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGLycDtVBCdtYw="
 							},
-							"name": "replaceRules?",
+							"name": "formattingRules?",
 							"type": "FormattingRule",
 							"defaultValue": "[]"
 						}
