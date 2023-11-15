@@ -9,10 +9,14 @@ export class Configurator {
     Configurator.options =
       options === undefined
         ? new ResponseNormalizerOptions()
-        : this.cleanFormattingRules(
-            this.fillUndefinedKeys(options, new ResponseNormalizerOptions()),
-          );
+        : this.parseOptions(options);
     this.init(nestApp);
+  }
+
+  private parseOptions(options: ResponseNormalizerOptions) {
+    options = this.fillUndefinedKeys(options, new ResponseNormalizerOptions());
+    options = this.cleanFormattingRules(options);
+    return options;
   }
 
   private fillUndefinedKeys(
