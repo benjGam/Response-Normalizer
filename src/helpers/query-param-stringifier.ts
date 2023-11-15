@@ -30,16 +30,21 @@ export default class QueryParamStringifier {
       return this.formatAsDefaultCasing(strSequence);
     }
     if (formattingRule.replaceBy) return formattingRule.replaceBy;
-    if (formattingRule.casing == WordCasing.DEFAULT)
-      return this.formatAsDefaultCasing(strSequence);
-    else if (formattingRule.casing == WordCasing.LOWERED)
-      return strSequence.toLowerCase();
-    else return strSequence.toUpperCase();
+    return this.formatAsOtherCasing(strSequence, formattingRule.casing);
   }
 
   private static formatAsDefaultCasing(subQueryParamStrSequence: string) {
     return `${subQueryParamStrSequence[0].toUpperCase()}${subQueryParamStrSequence
       .slice(1, subQueryParamStrSequence.length)
       .toLowerCase()}`;
+  }
+
+  private static formatAsOtherCasing(
+    subQueryParamStrSequence: string,
+    casing: WordCasing,
+  ) {
+    return casing == WordCasing.LOWERED
+      ? subQueryParamStrSequence.toLowerCase()
+      : subQueryParamStrSequence.toUpperCase();
   }
 }
