@@ -36,10 +36,10 @@ export class Configurator {
   }
 
   private cleanFormattingRules(options: ResponseNormalizerOptions) {
-    const formattingRules = options.queryParamsOptions.formattingRules
-      .filter((rule) => rule.subStringSequence.length > 0)
-      .filter((rule) => rule.replaceBy != null || rule.casing);
-    options.queryParamsOptions.formattingRules = formattingRules;
+    options.queryParamsOptions.formattingRules =
+      options.queryParamsOptions.formattingRules
+        .filter((rule) => rule.subStringSequence.length > 0)
+        .filter((rule) => rule.replaceBy != null || rule.casing);
     return options;
   }
 
