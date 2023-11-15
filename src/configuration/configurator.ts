@@ -9,8 +9,14 @@ export class Configurator {
     Configurator.options =
       options === undefined
         ? new ResponseNormalizerOptions()
-        : this.fillUndefinedKeys(options, new ResponseNormalizerOptions());
+        : this.parseOptions(options);
     this.init(nestApp);
+  }
+
+  private parseOptions(options: ResponseNormalizerOptions) {
+    options = this.fillUndefinedKeys(options, new ResponseNormalizerOptions());
+    options = this.cleanFormattingRules(options);
+    return options;
   }
 
   private fillUndefinedKeys(
@@ -31,6 +37,14 @@ export class Configurator {
       }
     }
     return currentOptionObject;
+  }
+
+  private cleanFormattingRules(options: ResponseNormalizerOptions) {
+    options.queryParamsOptions.formattingRules =
+      options.queryParamsOptions.formattingRules
+        .filter((rule) => rule.subStringSequence.length > 0)
+        .filter((rule) => rule.replaceBy != null || rule.casing);
+    return options;
   }
 
   private init(nestApp: INestApplication) {
