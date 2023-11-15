@@ -9,7 +9,7 @@ export default class QueryParamStringifier {
         (key) =>
           `'${queryParams.get(key)}' ${this.stringifyQueryParamKey(key)}`,
       )
-      .join(` ${Configurator.options.queryParamsOptions.joinedBy.trim()} `);
+      .join(Configurator.options.queryParamsOptions.joinedBy);
   }
 
   private static stringifyQueryParamKey(key: string) {
