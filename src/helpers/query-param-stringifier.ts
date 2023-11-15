@@ -1,4 +1,4 @@
-import { Configurator } from 'configuration/configurator';
+import { Configurator } from '../configuration/configurator';
 import StringFormatter from 'string-utils-ts';
 
 export default class QueryParamStringifier {
@@ -12,6 +12,6 @@ export default class QueryParamStringifier {
   }
 
   private static stringifyQueryParamKey(key: string) {
-    return StringFormatter.formatEachWords(key, '_').replace('_', ' ');
+    return StringFormatter.splitByCasing(key).join(' ');
   }
 }
