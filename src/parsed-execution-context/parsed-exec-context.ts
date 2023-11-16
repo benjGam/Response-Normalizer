@@ -2,7 +2,6 @@ import { ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-service.decorator';
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
-import InvokedServiceHooker from '../experimental/invoked-service-hooker';
 
 export default class ParsedExecContext {
   private readonly structureObject: ParsedExecContextObject;
@@ -11,7 +10,6 @@ export default class ParsedExecContext {
     reflector: Reflector,
     private readonly executionContext: ExecutionContext,
   ) {
-    InvokedServiceHooker.getProviders(executionContext.getClass());
     this.structureObject = {
       logicModuleName: this.parseLogicModuleName(reflector),
       handlerModuleName: this.parseHandlerModuleName(),
