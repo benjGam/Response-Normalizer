@@ -10,8 +10,6 @@ export default class InvokedServiceHooker {
       InvokedServiceHooker.getProviders(handlerClass),
     );
 
-    console.log(classServiceProviders);
-
     return 'undefined';
   }
 
@@ -31,5 +29,10 @@ export default class InvokedServiceHooker {
     return (Configurator.nestApp as any)._moduleRefsForHooksByDistance.find(
       (module: Module) => module.controllers.get(handlerClass),
     );
+  }
+
+  private static getInvokedService(handler: Function) {
+    const returnMatches = handler.toString().match(/return this.(\w+)/);
+    return returnMatches[returnMatches.length - 1];
   }
 }
