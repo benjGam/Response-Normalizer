@@ -122,7 +122,7 @@ Enjoy !
   - [ ] Conceptualize way to get ORM without any changes from end user 
   - [ ] Add Configuration to enable it or not
 - [ ] **Add Experimental Mode to handle automatically external service logic**
-  - [ ] Conceptualize it
+  - [x] Conceptualize it
   - [ ] Add Configuration to enable experimental mode
 
 </details>
