@@ -6,7 +6,11 @@ import { InstanceWrapper } from '@nestjs/core/injector/instance-wrapper';
 
 export default class InvokedServiceHooker {
   public static resolveService(handlerClass: Type, handler: Function) {
-    const classProviders = InvokedServiceHooker.getProviders(handlerClass);
+    const classServiceProviders = this.extractServicesFromProviders(
+      InvokedServiceHooker.getProviders(handlerClass),
+    );
+
+    console.log(classServiceProviders);
 
     return 'undefined';
   }
@@ -14,6 +18,12 @@ export default class InvokedServiceHooker {
   private static getProviders(handlerClass: Type) {
     return Array.from(
       InvokedServiceHooker.getControllerModule(handlerClass).providers.values(),
+    );
+  }
+
+  private static extractServicesFromProviders(providers: InstanceWrapper[]) {
+    return providers.filter((provider: InstanceWrapper) =>
+      (provider.name as string).toLowerCase().includes('service'),
     );
   }
 
