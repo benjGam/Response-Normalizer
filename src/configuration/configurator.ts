@@ -4,13 +4,15 @@ import { NormalizerInterceptor } from '../normalizer.interceptor';
 
 export class Configurator {
   public static options: ResponseNormalizerOptions;
+  public static nestApp: INestApplication;
 
   constructor(nestApp: INestApplication, options?: ResponseNormalizerOptions) {
+    Configurator.nestApp = nestApp;
     Configurator.options =
       options === undefined
         ? new ResponseNormalizerOptions()
         : this.parseOptions(options);
-    this.init(nestApp);
+    this.init();
   }
 
   private parseOptions(options: ResponseNormalizerOptions) {
@@ -47,8 +49,8 @@ export class Configurator {
     return options;
   }
 
-  private init(nestApp: INestApplication) {
+  private init() {
     if (Configurator.options.useNormalizerInterceptor)
-      nestApp.useGlobalInterceptors(new NormalizerInterceptor());
+      Configurator.nestApp.useGlobalInterceptors(new NormalizerInterceptor());
   }
 }
