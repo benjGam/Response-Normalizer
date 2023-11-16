@@ -30,16 +30,4 @@ export default class InvokedServiceHooker {
       (module: Module) => module.controllers.get(handlerClass),
     );
   }
-
-  private static getInvokedService(handler: Function) {
-    const returnMatches = handler.toString().match(/return this.(\w+)/);
-    return returnMatches[returnMatches.length - 1];
-  }
-
-  private static getTypeOfUsedVar(usedVarName: string, handlerClass: Type) {
-    const returnMatches = handlerClass
-      .toString()
-      .match(new RegExp(`${usedVarName}: (\w+)`));
-    return returnMatches[returnMatches.length - 1];
-  }
 }
