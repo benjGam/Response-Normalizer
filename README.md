@@ -50,6 +50,14 @@ bootstrap();
 
 `@CustomResponseMessage('...')` metadata decorator can be used above controller method declaration to customize the response message format for this specific route.
 
+#### Aliases
+
+**Status code aliases :**
+
+```json
+["statuscode", "sc", "status", "stcd", "stc", "code"]
+```
+
 ## Conclusion
 
 That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
