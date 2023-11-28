@@ -107,3 +107,20 @@ init(app, {
     },
   });
 ```
+
+**Formatting rules**
+
+It may happens that you have some verbs that you wish to format as UPPER or lower form or else to replace by totally different thing. To do it, proceed as following :
+
+```ts
+init(app, {
+    queryParamsOptions: {
+      formattingRules: [
+        {
+          subStringSequence: 'uuid',
+          casing: WordCasing.UPPERED,
+        },
+      ],
+    },
+  });
+```
