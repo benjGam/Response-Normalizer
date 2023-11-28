@@ -6,3 +6,4 @@
   - [ ] Design it
   - [ ] Code it
 - [ ] **Add tests for module**
+- [ ] **Add ORM exception normalizer interceptor**
