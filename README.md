@@ -52,6 +52,8 @@ bootstrap();
 
 #### Aliases
 
+Aliases can be used as shorthand of real internal object keys interpretation from message builder (internal sys) what he has to put and above all where it has to be putted. So to do it, you should preffix aliases by `::` syntax to indicate that you want message interpretor to replace `::...` by corresponding value.
+
 **Status code aliases :**
 
 ```json
