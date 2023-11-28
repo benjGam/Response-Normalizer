@@ -44,9 +44,9 @@ async function bootstrap() {
 bootstrap();
 ```
 
-### Message personnalization
+## Message personnalization
 
-#### Globally
+### Globally
 
 To personnalize messages globally, you can personnalize them directly from module bootstraping.
 
@@ -58,11 +58,11 @@ init(app, {
 })
 ```
 
-#### Locally
+### Locally
 
 `@CustomResponseMessage('...')` metadata decorator can be used above controller method declaration to customize the response message format for this specific route.
 
-#### Aliases
+### Aliases
 
 Aliases can be used as shorthand of real internal object keys interpretation from message builder (internal sys) what he has to put and above all where it has to be putted. So to do it, you should preffix aliases by `::` syntax to indicate that you want message interpretor to replace `::...` by corresponding value.
 
@@ -94,7 +94,7 @@ Aliases can be used as shorthand of real internal object keys interpretation fro
 
 Note: Subject module refers to logic module (e.g: Logic module is named 'User', so the subject module will refer to 'User')
 
-#### Query Params Options
+### Query Params Options
 
 Query params can be personnalized by using configuration system (in bootstraping module)
 
