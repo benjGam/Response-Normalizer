@@ -78,6 +78,8 @@ bootstrap();
   ]
 ```
 
+Note: Subject module refers to logic module (e.g: Logic module is named 'User', so the subject module will refer to 'User')
+
 ## Conclusion
 
 That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
