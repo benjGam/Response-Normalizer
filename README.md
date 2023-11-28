@@ -10,11 +10,9 @@ Response Normalizer is a sub system that allows you to avoid NestJS responses no
 }
 ```
 
-## What's taken in charge
+## Features
 
-- If your logic return not only one result but many, it will be handled by adding corresponding plural form for word (e.g: 'User' -> 'Users', 'Category' -> 'Categories', ...)
-- If you have not one query param but many, they'll be joined with 'and' and appears in order they were declared in handler declaration.
-- If your logic depends on another service, it handled by using '@ExternalService(ServiceType)' decorator on your handler declaration (Controller method).
+- Plural or Singular form for used query params (Calculated in RT)
 
 ## Usage
 
