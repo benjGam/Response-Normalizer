@@ -93,3 +93,17 @@ Aliases can be used as shorthand of real internal object keys interpretation fro
 ```
 
 Note: Subject module refers to logic module (e.g: Logic module is named 'User', so the subject module will refer to 'User')
+
+#### Query Params Options
+
+Query params can be personnalized by using configuration system (in bootstraping module)
+
+**Joiner configuration** :
+
+```ts
+init(app, {
+    queryParamsOptions: {
+      joinedBy: ', ',
+    },
+  });
+```
