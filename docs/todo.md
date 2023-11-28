@@ -5,3 +5,4 @@
   - [ ] End developper should be able to ignore all **specified** rules on a specific route 
   - [ ] Design it
   - [ ] Code it
+- [ ] **Add tests for module**
