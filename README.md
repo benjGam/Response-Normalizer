@@ -2,42 +2,11 @@
 
 Response Normalizer is a sub system that allows you to avoid NestJS responses normalization. It will handle it for you. 
 
-## For instance
-
-We assume that ':uuid' = 'hey'
-
-`app.controller.ts` :
-
-```ts
-@Controller()
-export class UsersController {
-  constructor(private readonly appService: UsersService) {}
-
-  @Get(':uuid')
-  getUser(@Param('uuid') uuid: string) {
-    this.appService.getUser(uuid);
-  }
-}
-```
-
-`app.service.ts` :
-
-```ts
-@Injectable()
-export class UsersService {
-  getUser(uuid: string) {
-    //getting logic here
-  }
-}
-```
-
-Response Normalizer will return a response as : 
-
 ```json
 {
-  "message": "User for 'hey' Uuid has been found",
-  "data":"service returned datas",
-  "statusCode":200,
+  "message": "...", // Auto generated message
+  "data":"service returned datas", // ORM / DB datas
+  "statusCode": 200, // Request associated success status code
 }
 ```
 
