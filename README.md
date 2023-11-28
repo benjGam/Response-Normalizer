@@ -126,3 +126,7 @@ init(app, {
 ```
 
 Note: A `@IgnoreFormattingRules()` decorator should be available soon.
+
+## Conclusion
+
+That's all. Every help is most welcome, do not hesitate to contribute by any form you want. Enjoy
