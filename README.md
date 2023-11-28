@@ -20,13 +20,13 @@ Response Normalizer is a sub system that allows you to avoid NestJS responses no
 
 ## Usage
 
-To use Response Normalizer in your NestJS API, you can do it as following :
+To use module into your own project, proceed as following :
 
 ```sh
 npm install response-normalizer
 ```
 
-And init package into your `boostrap` function :
+And boostrap it into your `boostrap` function :
 
 `main.ts`
 
@@ -44,35 +44,11 @@ async function bootstrap() {
 bootstrap();
 ```
 
-## Personnalization
-
-I worked a lil bit on module personnalization issues, so we have now an object specifically dedicated to it. 
-
-You can configure module by passing an object in `init` function declaration.
-
 ### Message personnalization
 
-I added an decorator `@CustomResponseMessage('your_message_here')` to customize messages if needed, you can use it on Controller handler. 
+#### Locally
 
-There's some aliases to put as interpreted flags.
-
-```json
-{
-    "subjectModuleName": [
-      "subjectmodulename",
-      "modulename",
-      "submodulename",
-      "mn",
-      "smn",
-      "module",
-      "submodule",
-    ],
-    "stringifiedQueryParams": ["stringifiedqueryparams", "queryparams", "qp"],
-    "statusCode": ["statuscode", "sc", "status", "stcd", "stc", "code"],
-  }
-```
-
-So, to use them you should prefix them by '::' like '::mn' will be interpreted as 'subjectModuleName' and will be replaced by the module name. You can ignore casing, it will be lowered to avoid uninterpretation errors.
+`@CustomResponseMessage('...')` metadata decorator can be used above controller method declaration to customize the response message format for this specific route.
 
 ## Conclusion
 
