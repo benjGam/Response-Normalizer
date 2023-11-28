@@ -124,3 +124,5 @@ init(app, {
     },
   });
 ```
+
+Note: A `@IgnoreFormattingRules()` decorator should be available soon.
