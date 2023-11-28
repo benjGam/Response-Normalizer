@@ -64,6 +64,20 @@ bootstrap();
 ["stringifiedqueryparams", "queryparams", "qp"]
 ```
 
+**Subject module aliases :**
+
+```json
+[
+  "subjectmodulename",
+  "modulename",
+  "submodulename",
+  "mn",
+  "smn",
+  "module",
+  "submodule",
+  ]
+```
+
 ## Conclusion
 
 That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
