@@ -46,6 +46,18 @@ bootstrap();
 
 ### Message personnalization
 
+#### Globally
+
+To personnalize messages globally, you can personnalize them directly from module bootstraping.
+
+```ts
+init(app, {
+  successMessages: {
+    createdMessage: '::subjectModuleName has been created', // This is default value, you can set it as you want
+  }
+})
+```
+
 #### Locally
 
 `@CustomResponseMessage('...')` metadata decorator can be used above controller method declaration to customize the response message format for this specific route.
