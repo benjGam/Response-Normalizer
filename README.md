@@ -58,6 +58,12 @@ bootstrap();
 ["statuscode", "sc", "status", "stcd", "stc", "code"]
 ```
 
+**Query params aliases :**
+
+```json
+["stringifiedqueryparams", "queryparams", "qp"]
+```
+
 ## Conclusion
 
 That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
