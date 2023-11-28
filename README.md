@@ -14,6 +14,9 @@ Response Normalizer is a sub system that allows you to avoid NestJS responses no
 
 - Plural or Singular form for used query params (Calculated in RT).
 - Externally managed logic by using `@ExternalService(ServiceType)` metadata decorator above controller method decorator.
+- Configuration
+  - Success messages formatting (globally & locally)
+  - ORM exceptions messages formatting (globally)
 
 ## Usage
 
