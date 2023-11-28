@@ -94,12 +94,6 @@ Aliases can be used as shorthand of real internal object keys interpretation fro
 
 Note: Subject module refers to logic module (e.g: Logic module is named 'User', so the subject module will refer to 'User')
 
-## Conclusion
-
-That's quite all, every help most welcome ! Do not forgot to request some ideas, it will be a pleasure to discuss about.
-
-Enjoy !
-
 <details>
 <summary><h2>To Do</h2></summary>
 
