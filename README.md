@@ -125,7 +125,7 @@ init(app, {
   });
 ```
 
-Note: A `@IgnoreFormattingRules()` decorator should be available soon.
+Note: A `@IgnoreFormattingRules()` decorator is available to ignore specified (or all) rules on specific route.
 
 ## Conclusion
 
