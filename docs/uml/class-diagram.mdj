@@ -19372,6 +19372,23 @@
 										},
 										{
 											"_type": "UMLOperationView",
+											"_id": "AAAAAAGMGjUmRK2Z4sE=",
+											"_parent": {
+												"$ref": "AAAAAAGMGguNg2x69a4="
+											},
+											"model": {
+												"$ref": "AAAAAAGMGjUmLa0zExI="
+											},
+											"font": "Arial;13;0",
+											"left": 757,
+											"top": 1965,
+											"width": 389.07958984375,
+											"height": 13,
+											"text": "+arync manageError(error: Error): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
 											"_id": "AAAAAAGMGg9NrooZiLo=",
 											"_parent": {
 												"$ref": "AAAAAAGMGguNg2x69a4="
@@ -19381,7 +19398,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 757,
-											"top": 1965,
+											"top": 1980,
 											"width": 389.07958984375,
 											"height": 13,
 											"text": "+isPrismaError(error: Error): boolean",
@@ -19398,7 +19415,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 757,
-											"top": 1980,
+											"top": 1995,
 											"width": 389.07958984375,
 											"height": 13,
 											"text": "+throwExceptionResponse(error: PrismaClientKnownRequestError)",
@@ -19409,7 +19426,7 @@
 									"left": 752,
 									"top": 1945,
 									"width": 399.07958984375,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -19452,7 +19469,7 @@
 							"left": 752,
 							"top": 1920,
 							"width": 399.07958984375,
-							"height": 78,
+							"height": 93,
 							"nameCompartment": {
 								"$ref": "AAAAAAGMGguNg2x0ItE="
 							},
@@ -20413,7 +20430,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 988,
-									"top": 2016,
+									"top": 2031,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -20434,7 +20451,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1001,
-									"top": 2019,
+									"top": 2034,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -20454,7 +20471,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 984,
-									"top": 2011,
+									"top": 2026,
 									"width": 21.68359375,
 									"height": 13,
 									"alpha": 0.7853983705328773,
@@ -20565,7 +20582,7 @@
 							"tail": {
 								"$ref": "AAAAAAGMGguNg2xzKWU="
 							},
-							"points": "973:1997;973:2320;1544:2320",
+							"points": "973:2012;973:2320;1544:2320",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGMGiL4tf0Qdz0="
@@ -24654,6 +24671,34 @@
 											},
 											"name": "next",
 											"type": "CallHandler"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAGMGjUmLa0zExI=",
+									"_parent": {
+										"$ref": "AAAAAAGMGguNgmxxlT0="
+									},
+									"name": "arync manageError",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAGMGjVT96/D0wo=",
+											"_parent": {
+												"$ref": "AAAAAAGMGjUmLa0zExI="
+											},
+											"name": "error",
+											"type": "Error"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAGMGjVjvrCern8=",
+											"_parent": {
+												"$ref": "AAAAAAGMGjUmLa0zExI="
+											},
+											"type": "void",
+											"direction": "return"
 										}
 									]
 								},
