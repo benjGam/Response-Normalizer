@@ -3,11 +3,18 @@ import { Configurator } from '../configuration/configurator';
 import StringFormatter from 'string-utils-ts';
 
 export default class QueryParamStringifier {
-  public static stringifyQueryParams(queryParams: Map<string, string>) {
+  public static stringifyQueryParams(
+    queryParams: Map<string, string>,
+    ignoredRules: string[],
+  ) {
     return Array.from(queryParams.keys())
       .map(
         (key) =>
-          `'${queryParams.get(key)}' ${this.stringifyQueryParamKey(key)}`,
+          `'${queryParams.get(key)}' ${
+            ignoredRules.find((rule) => rule.toLowerCase() == key.toLowerCase())
+              ? key
+              : this.stringifyQueryParamKey(key)
+          }`,
       )
       .join(Configurator.options.queryParamsOptions.joinedBy);
   }
