@@ -10,6 +10,6 @@
   - [x] Design a way to hook used ORM
   - [x] Design it
   - [x] Code it
-- [ ] **Add way to use datas fields into message**
+- [ ] **Add way to use datas or metas fields into message**
   - [ ] Design it
   - [ ] Code it
