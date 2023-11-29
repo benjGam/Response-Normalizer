@@ -1,7 +1,7 @@
 import { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
-import ParsedExecContext from './parsed-execution-context/parsed-exec-context';
+import ParsedExecContext from '../parsed-execution-context/parsed-exec-context';
 
 export default abstract class ReflectorInterceptor implements NestInterceptor {
   protected readonly reflector: Reflector;

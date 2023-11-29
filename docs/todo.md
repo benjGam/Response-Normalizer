@@ -6,10 +6,10 @@
   - [ ] Design it
   - [ ] Code it
 - [ ] **Add tests for module**
-- [ ] **Add ORM exception normalizer interceptor**
-  - [ ] Design a way to hook used ORM
-  - [ ] Design it
-  - [ ] Code it
+- [x] **Add ORM exception normalizer interceptor**
+  - [x] Design a way to hook used ORM
+  - [x] Design it
+  - [x] Code it
 - [ ] **Add way to use datas fields into message**
   - [ ] Design it
   - [ ] Code it
