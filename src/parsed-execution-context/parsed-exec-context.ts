@@ -4,6 +4,7 @@ import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-servic
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 import { Configurator } from '../configuration/configurator';
 import InvokedServiceHooker from '../experimental/invoked-service-hooker';
+import { IGNORING_RULES } from '../metadata-decorators/ignore-formatting-rules.decorator';
 
 export default class ParsedExecContext {
   private readonly structureObject: ParsedExecContextObject;
@@ -23,6 +24,9 @@ export default class ParsedExecContext {
       queryParams: this.parseHttpQueryParamsToMap(),
       httpMethod: this.getHttpMethod(),
       baseContext: executionContext,
+      ignoredRules: this.isIgnoringRules(reflector)
+        ? this.getIgnoringRules(reflector)
+        : [],
     };
   }
 
@@ -67,6 +71,26 @@ export default class ParsedExecContext {
 
   private parseHandlerModuleName() {
     return this.executionContext.getClass().name.replace(/controller/gim, '');
+  }
+
+  private isIgnoringRules(reflector: Reflector): boolean {
+    return (
+      reflector.get(IGNORING_RULES, this.executionContext.getHandler()) !==
+      undefined
+    );
+  }
+
+  private getIgnoringRules(reflector: Reflector) {
+    const ignoringRules = reflector.get(
+      IGNORING_RULES,
+      this.executionContext.getHandler(),
+    );
+
+    return ignoringRules.length == 0
+      ? Configurator.options.queryParamsOptions.formattingRules.map(
+          (rule) => rule.subStringSequence,
+        )
+      : ignoringRules;
   }
 
   public toJSON(): ParsedExecContextObject {
