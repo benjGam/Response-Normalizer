@@ -1,7 +1,7 @@
 import { INestApplication, Type } from '@nestjs/common';
 import ResponseNormalizerOptions from './objects/response-normalizer.options';
 import { NormalizerInterceptor } from '../interceptors/normalizer.interceptor';
-import { PrismaExceptionInterceptor } from 'interceptors/prisma-exception-interceptor';
+import { PrismaExceptionInterceptor } from '../interceptors/prisma-exception-interceptor';
 
 export class Configurator {
   public static options: ResponseNormalizerOptions;
