@@ -7,6 +7,7 @@ export class ParsedExecContextObject {
   public queryParams: Map<string, string>;
   public httpMethod: string;
   public baseContext: ExecutionContext;
+  public ignoredRules: string[];
 }
 
 export class StringifiableParsedExecContextObject extends PickType(
