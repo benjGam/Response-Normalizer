@@ -19196,6 +19196,174 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAGMGgqapmK5aj0="
 							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "AAAAAAGMGguNg2xzKWU=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAGMGguNgmxxlT0="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAGMGguNg2x0ItE=",
+									"_parent": {
+										"$ref": "AAAAAAGMGguNg2xzKWU="
+									},
+									"model": {
+										"$ref": "AAAAAAGMGguNgmxxlT0="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGMGguNg2x1Z10=",
+											"_parent": {
+												"$ref": "AAAAAAGMGguNg2x0ItE="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGMGguNg2x2wdo=",
+											"_parent": {
+												"$ref": "AAAAAAGMGguNg2x0ItE="
+											},
+											"font": "Arial;13;1",
+											"left": 781,
+											"top": 1943,
+											"width": 180.60986328125,
+											"height": 13,
+											"text": "Prisma Exception Interceptor"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGMGguNg2x3r4U=",
+											"_parent": {
+												"$ref": "AAAAAAGMGguNg2x0ItE="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"width": 73.67724609375,
+											"height": 13,
+											"text": "(from Model)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAGMGguNg2x4akI=",
+											"_parent": {
+												"$ref": "AAAAAAGMGguNg2x0ItE="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 776,
+									"top": 1936,
+									"width": 190.60986328125,
+									"height": 25,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAGMGguNg2x1Z10="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAGMGguNg2x2wdo="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAGMGguNg2x3r4U="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAGMGguNg2x4akI="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAGMGguNg2x5IO0=",
+									"_parent": {
+										"$ref": "AAAAAAGMGguNg2xzKWU="
+									},
+									"model": {
+										"$ref": "AAAAAAGMGguNgmxxlT0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 776,
+									"top": 1961,
+									"width": 190.60986328125,
+									"height": 10
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "AAAAAAGMGguNg2x69a4=",
+									"_parent": {
+										"$ref": "AAAAAAGMGguNg2xzKWU="
+									},
+									"model": {
+										"$ref": "AAAAAAGMGguNgmxxlT0="
+									},
+									"font": "Arial;13;0",
+									"left": 776,
+									"top": 1961,
+									"width": 190.60986328125,
+									"height": 10
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAGMGguNg2x7DcY=",
+									"_parent": {
+										"$ref": "AAAAAAGMGguNg2xzKWU="
+									},
+									"model": {
+										"$ref": "AAAAAAGMGguNgmxxlT0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAGMGguNg2x8JLY=",
+									"_parent": {
+										"$ref": "AAAAAAGMGguNg2xzKWU="
+									},
+									"model": {
+										"$ref": "AAAAAAGMGguNgmxxlT0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"width": 10,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"containerChangeable": true,
+							"left": 776,
+							"top": 1936,
+							"width": 190.60986328125,
+							"height": 45,
+							"nameCompartment": {
+								"$ref": "AAAAAAGMGguNg2x0ItE="
+							},
+							"suppressAttributes": true,
+							"attributeCompartment": {
+								"$ref": "AAAAAAGMGguNg2x5IO0="
+							},
+							"operationCompartment": {
+								"$ref": "AAAAAAGMGguNg2x69a4="
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAGMGguNg2x7DcY="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAGMGguNg2x8JLY="
+							}
 						}
 					]
 				},
@@ -23067,6 +23235,14 @@
 							]
 						}
 					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGMGguNgmxxlT0=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Prisma Exception Interceptor"
 				}
 			]
 		}
