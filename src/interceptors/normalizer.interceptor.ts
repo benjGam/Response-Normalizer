@@ -1,11 +1,11 @@
 import { Injectable, ExecutionContext, CallHandler } from '@nestjs/common';
-import CreatedResponse from './normalized-responses/built-in-responses/success/created-response';
-import DeletedResponse from './normalized-responses/built-in-responses/success/deleted-response';
-import GettedResponse from './normalized-responses/built-in-responses/success/getted-response';
-import UpdatedResponse from './normalized-responses/built-in-responses/success/updated-response';
+import CreatedResponse from '../normalized-responses/built-in-responses/success/created-response';
+import DeletedResponse from '../normalized-responses/built-in-responses/success/deleted-response';
+import GettedResponse from '../normalized-responses/built-in-responses/success/getted-response';
+import UpdatedResponse from '../normalized-responses/built-in-responses/success/updated-response';
 import ReflectorInterceptor from './reflector.interceptor';
 import { map } from 'rxjs/operators';
-import DataNotFoundExceptionResponse from './normalized-responses/built-in-responses/errors/data-not-found-exception';
+import DataNotFoundExceptionResponse from '../normalized-responses/built-in-responses/errors/data-not-found-exception';
 
 @Injectable()
 export class NormalizerInterceptor extends ReflectorInterceptor {

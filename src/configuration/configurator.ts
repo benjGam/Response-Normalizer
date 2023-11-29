@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common';
 import ResponseNormalizerOptions from './objects/response-normalizer.options';
-import { NormalizerInterceptor } from '../normalizer.interceptor';
+import { NormalizerInterceptor } from '../interceptors/normalizer.interceptor';
 
 export class Configurator {
   public static options: ResponseNormalizerOptions;
