@@ -11,3 +11,5 @@
   - [ ] Design it
   - [ ] Code it
 - [ ] **Add way to use datas fields into message**
+  - [ ] Design it
+  - [ ] Code it
