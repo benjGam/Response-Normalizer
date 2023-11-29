@@ -1,8 +1,8 @@
 # To do
 
-- [ ] **Add @IgnoreFormattingRules(['...', '...']) metadata decorator**
+- [x] **Add @IgnoreFormattingRules(['...', '...']) metadata decorator**
   - [x] Design it
-  - [ ] Code it
+  - [x] Code it
 - [ ] **Add tests for module**
 - [x] **Add ORM exception normalizer interceptor**
   - [x] Design a way to hook used ORM
