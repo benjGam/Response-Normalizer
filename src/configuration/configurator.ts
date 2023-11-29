@@ -55,7 +55,8 @@ export class Configurator {
   private init() {
     if (Configurator.options.useNormalizerInterceptor)
       Configurator.nestApp.useGlobalInterceptors(new NormalizerInterceptor());
-    if (Configurator.options.usedORM) this.instanciateORMExceptionInterceptor();
+    if (Configurator.options.usedORM != null)
+      this.instanciateORMExceptionInterceptor();
   }
 
   private instanciateORMExceptionInterceptor() {
