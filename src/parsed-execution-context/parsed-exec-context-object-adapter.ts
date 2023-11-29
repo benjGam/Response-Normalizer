@@ -1,5 +1,5 @@
 import StringFormatter from 'string-utils-ts';
-import QueryParamOrMetaStringifier from '../helpers/query-param-stringifier';
+import QueryParamStringifier from '../helpers/query-param-stringifier';
 import {
   ParsedExecContextObject,
   StringifiableParsedExecContextObject,
@@ -36,10 +36,11 @@ export default class ParsedExecContextObjectAdapter {
   }
 
   private getQueryParams(isExternallyManaged: boolean) {
-    return QueryParamOrMetaStringifier.stringifyQueryParams(
+    return QueryParamStringifier.stringifyQueryParams(
       isExternallyManaged
         ? this.parsedExecutionContextDatas.queryParams
         : this.concatHandlerModuleNameToQueryParamsKeys(),
+      this.parsedExecutionContextDatas.ignoredRules,
     );
   }
 
