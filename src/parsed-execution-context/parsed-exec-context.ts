@@ -24,6 +24,9 @@ export default class ParsedExecContext {
       queryParams: this.parseHttpQueryParamsToMap(),
       httpMethod: this.getHttpMethod(),
       baseContext: executionContext,
+      ignoredRules: this.isIgnoringRules(reflector)
+        ? this.getIgnoringRules(reflector)
+        : [],
     };
   }
 
