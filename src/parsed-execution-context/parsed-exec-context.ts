@@ -4,7 +4,7 @@ import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-servic
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 import { Configurator } from '../configuration/configurator';
 import InvokedServiceHooker from '../experimental/invoked-service-hooker';
-import { IGNORING_RULES } from 'metadata-decorators/ignore-formatting-rules.decorator';
+import { IGNORING_RULES } from '../metadata-decorators/ignore-formatting-rules.decorator';
 
 export default class ParsedExecContext {
   private readonly structureObject: ParsedExecContextObject;
