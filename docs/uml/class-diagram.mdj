@@ -11506,7 +11506,7 @@
 											"top": 2318,
 											"width": 187.1669921875,
 											"height": 13,
-											"text": "+notFoundMessage?: string = ...",
+											"text": "+notFound?: string = ...",
 											"horizontalAlignment": 0
 										},
 										{
@@ -24004,7 +24004,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGLw6jw3/YkQw4="
 							},
-							"name": "notFoundMessage?",
+							"name": "notFound?",
 							"type": "string",
 							"defaultValue": "..."
 						},
