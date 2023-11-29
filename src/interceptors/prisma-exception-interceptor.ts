@@ -13,19 +13,19 @@ export class PrismaExceptionInterceptor extends ReflectorInterceptor {
     return next.handle().pipe(catchError((err) => this.manageError(err)));
   }
 
-  private async manageError(err: Error) {
-    if (this.isPrismaError(err))
-      this.dispatchError(err as PrismaClientKnownRequestError);
-    else throw err;
+  private async manageError(error: Error) {
+    if (this.isPrismaError(error))
+      this.throwExceptionResponse(error as PrismaClientKnownRequestError);
+    else throw error;
   }
 
-  private isPrismaError(err: Error) {
-    return err instanceof PrismaClientKnownRequestError;
+  private isPrismaError(error: Error) {
+    return error instanceof PrismaClientKnownRequestError;
   }
 
-  private dispatchError(err: PrismaClientKnownRequestError) {
+  private throwExceptionResponse(error: PrismaClientKnownRequestError) {
     const parsedExecContextObject = super.parsedContext.toJSON();
-    switch (err.code) {
+    switch (error.code) {
       case 'P2025':
         new DataNotFoundExceptionResponse(parsedExecContextObject, null);
         break;
@@ -35,7 +35,7 @@ export class PrismaExceptionInterceptor extends ReflectorInterceptor {
           null,
         );
       default:
-        return err;
+        return error;
     }
   }
 }
