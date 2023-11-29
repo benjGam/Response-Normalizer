@@ -12626,7 +12626,7 @@
 											"top": 2430,
 											"width": 459.19580078125,
 											"height": 13,
-											"text": "+instanciateORMExceptionInterceptor(): void",
+											"text": "-instanciateORMExceptionInterceptor(): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -25970,6 +25970,7 @@
 										"$ref": "AAAAAAGLxAZWZjyqmxc="
 									},
 									"name": "instanciateORMExceptionInterceptor",
+									"visibility": "private",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
