@@ -77,6 +77,19 @@ export default class ParsedExecContext {
     );
   }
 
+  private getIgnoringRules(reflector: Reflector) {
+    const ignoringRules = reflector.get(
+      IGNORING_RULES,
+      this.executionContext.getHandler(),
+    );
+
+    return ignoringRules.length == 0
+      ? Configurator.options.queryParamsOptions.formattingRules.map(
+          (rule) => rule.subStringSequence,
+        )
+      : ignoringRules;
+  }
+
   public toJSON(): ParsedExecContextObject {
     return this.structureObject;
   }
