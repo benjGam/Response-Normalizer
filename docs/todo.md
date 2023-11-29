@@ -10,3 +10,4 @@
   - [ ] Design a way to hook used ORM
   - [ ] Design it
   - [ ] Code it
+- [ ] **Add way to use datas fields into message**
