@@ -7,8 +7,8 @@
   - [ ] Code it
 - [ ] **Add tests for module**
 - [ ] **Add ORM exception normalizer interceptor**
-  - [ ] Design a way to hook used ORM
-  - [ ] Design it
+  - [x] Design a way to hook used ORM
+  - [x] Design it
   - [ ] Code it
 - [ ] **Add way to use datas fields into message**
   - [ ] Design it
