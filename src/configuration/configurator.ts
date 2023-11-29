@@ -1,10 +1,13 @@
 import { INestApplication } from '@nestjs/common';
 import ResponseNormalizerOptions from './objects/response-normalizer.options';
 import { NormalizerInterceptor } from '../interceptors/normalizer.interceptor';
+import { PrismaExceptionInterceptor } from 'interceptors/prisma-exception-interceptor';
 
 export class Configurator {
   public static options: ResponseNormalizerOptions;
   public static nestApp: INestApplication;
+
+  private static ormsTypes = [PrismaExceptionInterceptor];
 
   constructor(nestApp: INestApplication, options?: ResponseNormalizerOptions) {
     Configurator.nestApp = nestApp;
@@ -52,5 +55,12 @@ export class Configurator {
   private init() {
     if (Configurator.options.useNormalizerInterceptor)
       Configurator.nestApp.useGlobalInterceptors(new NormalizerInterceptor());
+    if (Configurator.options.usedORM) this.instanciateORMExceptionInterceptor();
+  }
+
+  private instanciateORMExceptionInterceptor() {
+    Configurator.nestApp.useGlobalInterceptors(
+      new Configurator.ormsTypes[Configurator.options.usedORM](),
+    );
   }
 }
