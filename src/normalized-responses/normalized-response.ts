@@ -8,6 +8,7 @@ import ParsedExecContextObjectAdapter from '../parsed-execution-context/parsed-e
 import { HttpStatus } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { CUSTOM_RESPONSE_MESSAGE } from '../metadata-decorators/custom-response-message.decorator';
+import { Configurator } from '../configuration/configurator';
 
 export default abstract class NormalizedResponse {
   protected readonly normalizedResponseObject: NormalizedResponseObject;
@@ -36,6 +37,9 @@ export default abstract class NormalizedResponse {
       ),
       statusCode,
     };
+
+    if (!Configurator.options.includeStatusCode)
+      delete this.normalizedResponseObject.statusCode;
   }
 
   private hasCustomMessage(reflector: Reflector) {
