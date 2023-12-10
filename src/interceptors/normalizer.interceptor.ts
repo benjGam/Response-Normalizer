@@ -43,9 +43,9 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
       case 'DELETE':
         return new DeletedResponse(parsedExecContextObject, data).toJSON();
       default:
-        throw new Error(
-          `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
-        );
+        return {
+          data,
+        };
     }
   }
 
@@ -55,9 +55,9 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
       case 'GET':
         new DataNotFoundExceptionResponse(parsedExecContextObject, data);
       default:
-        throw new Error(
-          `HTTP Method ${parsedExecContextObject.httpMethod} not implemented`,
-        );
+        return {
+          data: null,
+        };
     }
   }
 }
