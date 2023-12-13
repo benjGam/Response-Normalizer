@@ -32,13 +32,12 @@ And boostrap it into your `boostrap` function :
 
 ```ts
 import { NestFactory } from '@nestjs/core';
-import { CategoriesModule } from './app.module';
+import { AppModule } from './app.module';
 import { init } from 'response-normalizer';
-import {} from '@nestjs/common/interfaces/nest-application-options.interface';
 
 async function bootstrap() {
-  const app = await NestFactory.create(CategoriesModule);
-  init(app);
+  const app = await NestFactory.create(AppModule);
+  init(app); // Use it to boostrap package
   await app.listen(3000);
 }
 bootstrap();
