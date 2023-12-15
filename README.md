@@ -76,6 +76,9 @@ There's 2 ways to tell to module, which value do you want to put into your messa
 Here's the list of keys to inject real values into your message: 
 
 - **subjectModuleName**: This represents the name of handler module.
+    <details>
+    <summary>Code</summary>
+
     ```ts
     import { AwesomeService } from './awesome-service.service';
     import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
@@ -93,7 +96,11 @@ Here's the list of keys to inject real values into your message:
     }
     ```
     `::subjectModuleName` will be `Awesome` (or `Awesomes` depending on returned data)
+    </details>
 - **stringifiedQueryParams**: This represents list of query params with handler was invoked or supposed to be invoked.
+    <details>
+    <summary>Code</summary>
+
     ```ts
     import { AwesomeService } from './awesome-service.service';
     import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
@@ -116,6 +123,7 @@ Here's the list of keys to inject real values into your message:
     }
     ```
     `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see below)
+    </details>
 - **statusCode**: `::statusCode` will represents the response status code (Not used in default templates).
 
 But 'cause it can be long and tricky to remember, some aliases are available:
