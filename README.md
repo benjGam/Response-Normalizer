@@ -222,4 +222,34 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
     Will make return of getByUUID handler invokation looks like : `for '5b890609-f862-4a6e-b1dd-89467c2de36b' UUID`.
     </details>
 
-    Formatting rules objects has a `replaceBy` key which make you able to replace the `subString Sequence` by something totally different (like: for 'uuid' replace by 'Universally Unique Identifier')
+    Formatting rules objects has a `replaceBy` key which make you able to replace the `subStringSequence` by something totally different (like: for 'uuid' replace by 'Universally Unique Identifier')
+
+### Decorators
+
+Also, package provides many decorators, here's a list:
+
+- `CustomResponseMessage(message)`: This decorator has to be applied on top of handler declaration.
+    <details>
+    <summary>Code</summary>
+
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+    import { CustomResponseMessage } from 'response-normalizer';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+      ) {}
+
+      @Get(':uuid')
+      @CustomResponseMessage('My custom message here') // <- Decorator
+      public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
+        return this.awesomeService.getByUUID(uuid);
+      }
+    }
+    ```
+
+    Using this decorator means "Message pattern for this route is this", it also takes injectable identifiers (`::subjectModuleName`, ...)
+    </details>
