@@ -271,7 +271,8 @@ Also, package provides many decorators, here's a list:
 
     ```ts
     import { AwesomeService } from './awesome-service.service';
-    import { AnotherAwesomeService } from '../another-awesome-module/another-awesome-service.service'; // <- Not the same module which is responsible of service
+    import { AnotherAwesomeService } from '../another-awesome-module/another-awesome-service.service'; 
+    // ↑ ⚠️ Not the same module which is responsible of service ⚠️ ↑
     import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
     import { ExternalService } from 'response-normalizer';
 
@@ -283,7 +284,7 @@ Also, package provides many decorators, here's a list:
       ) {}
 
       @Get(':uuid')
-      @ExternalService(AnotherAwesomeService) // <- Decorator (with the type of the service /!\ not the name of properties, the type of service)
+      @ExternalService(AnotherAwesomeService) // <- Decorator (⚠️ with the type of the service, not the name of properties, the type of service)
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.anotherAwesomeService.getByUUID(uuid);
       }
