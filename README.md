@@ -228,7 +228,7 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
 
 Also, package provides many decorators, here's a list:
 
-- `CustomResponseMessage(message)`: This decorator has to be applied on top of handler declaration.
+- `CustomResponseMessage(message)`: This decorator has to be applied above handler declaration.
     <details>
     <summary>Code</summary>
 
@@ -253,7 +253,7 @@ Also, package provides many decorators, here's a list:
 
     Using this decorator means "Message pattern for this route is this", it also takes injectable identifiers (`::subjectModuleName`, ...)
     </details>
-- `ExternalService(type)`: This decorator has to be applied on top of handler declaration, and has to be used when your logic is in another module.
+- `ExternalService(type)`: This decorator has to be applied above handler declaration, and has to be used when your logic is in another module.
     <details>
     <summary>Code</summary>
 
@@ -280,7 +280,7 @@ Also, package provides many decorators, here's a list:
 
     Using this decorator means "The subject module isn't the same as handler".
     </details>
-- `IgnoreFormattingRules(string[])`: This decorator has to be applied on top of handler declaration, and has to be used if you want to do not apply specific (or all) rules.
+- `IgnoreFormattingRules(string[])`: This decorator has to be applied above handler declaration, and has to be used if you want to do not apply specific (or all) rules.
     <details>
     <summary>Code</summary>
 
@@ -305,3 +305,4 @@ Also, package provides many decorators, here's a list:
 
     Using this decorator means "For the formatting rule where `subStringSequence` is contained in table, do not apply formatting". If you do not specify any rule, all formatting rules will be ignored.
     </details>
+- `IgnoreNormalization()`: This decorator has to be applied above handler declaration. It's used to do not submit handler response to any form of normalization.
