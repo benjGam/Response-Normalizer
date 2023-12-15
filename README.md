@@ -253,3 +253,30 @@ Also, package provides many decorators, here's a list:
 
     Using this decorator means "Message pattern for this route is this", it also takes injectable identifiers (`::subjectModuleName`, ...)
     </details>
+- `ExternalService(type)`: This decorator has to be applied on top of handler declaration, and has to be used when your logic is in another module.
+    <details>
+    <summary>Code</summary>
+
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { AnotherAwesomeService } from '../another-awesome-module/another-awesome-service.service'; // <- Not the same module which is responsible of service
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+    import { CustomResponseMessage } from 'response-normalizer';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+        private readonly anotherAwesomeService: AnotherAwesomeService, // Another service
+      ) {}
+
+      @Get(':uuid')
+      @ExternalService(AnotherAwesomeService) // <- Decorator (with the type of the service /!\ not the name of properties, the type of service)
+      public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
+        return this.anotherAwesomeService.getByUUID(uuid);
+      }
+    }
+    ```
+
+    Using this decorator means "The subject module isn't the same as handler".
+    </details>
