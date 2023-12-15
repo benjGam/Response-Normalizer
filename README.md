@@ -1,3 +1,15 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Response Normalizer](#response-normalizer)
+  - [Installation \& Bootstraping](#installation--bootstraping)
+  - [Personalization](#personalization)
+    - [Messages](#messages)
+      - [Identifiers for messages patterns injection](#identifiers-for-messages-patterns-injection)
+      - [Stringified Query Params formating](#stringified-query-params-formating)
+    - [Decorators](#decorators)
+  - [Conclusion](#conclusion)
+
 # Response Normalizer
 
 Response Normalizer is a package which handle NestJS responses normalization.
