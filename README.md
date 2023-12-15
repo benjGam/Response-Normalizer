@@ -116,3 +116,4 @@ Here's the list of keys to inject real values into your message:
     }
     ```
     `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see below)
+- **statusCode**: `::statusCode` will represents the response status code (Not used in default templates).
