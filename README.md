@@ -172,7 +172,7 @@ async function bootstrap() {
 }
 ```
 
-By adding `queryParamsOptions` object, it's possible to dig into options, there's 2 keys to personnalize format:
+By adding `queryParamsOptions` object, it's possible to dig into options, there's 2 keys to personalize format:
 
 - `joinedBy`: This represents the operator of joining (**DEFAULT**: 'and')
     <details>
