@@ -2,7 +2,7 @@ import { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
 import ParsedExecContext from '../parsed-execution-context/parsed-exec-context';
-import { IGNORE_NORMALIZATION } from 'metadata-decorators/ignore-normalization.decorator';
+import { IGNORE_NORMALIZATION } from '../metadata-decorators/ignore-normalization.decorator';
 
 export default abstract class ReflectorInterceptor implements NestInterceptor {
   protected readonly reflector: Reflector;
