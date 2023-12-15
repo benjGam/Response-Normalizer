@@ -306,3 +306,7 @@ Also, package provides many decorators, here's a list:
     Using this decorator means "For the formatting rule where `subStringSequence` is contained in table, do not apply formatting". If you do not specify any rule, all formatting rules will be ignored.
     </details>
 - `IgnoreNormalization()`: This decorator has to be applied above handler declaration. It's used to do not submit handler response to any form of normalization.
+
+## Conclusion
+
+Every suggestions / help is most welcome, enjoy package.
