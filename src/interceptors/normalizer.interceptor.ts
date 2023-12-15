@@ -10,17 +10,20 @@ import DataNotFoundExceptionResponse from '../normalized-responses/built-in-resp
 @Injectable()
 export class NormalizerInterceptor extends ReflectorInterceptor {
   public intercept(context: ExecutionContext, next: CallHandler) {
-    super.parseContext(context);
+    if (super.isHandlerIgnoreNormalization(context)) {
+      super.parseContext(context);
 
-    return next
-      .handle()
-      .pipe(
-        map((data) =>
-          this.isDataEmpty(data)
-            ? this.throwExceptionResponseByHttpMethod(data)
-            : this.dispatchSuccessResponseByHttpMethod(data),
-        ),
-      );
+      return next
+        .handle()
+        .pipe(
+          map((data) =>
+            this.isDataEmpty(data)
+              ? this.throwExceptionResponseByHttpMethod(data)
+              : this.dispatchSuccessResponseByHttpMethod(data),
+          ),
+        );
+    }
+    return next.handle();
   }
 
   private isDataEmpty(data: any) {
