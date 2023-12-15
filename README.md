@@ -68,3 +68,28 @@ async function bootstrap() {
 ```
 
 By setting up Response Normalizer like that, you'll be able to overwrite default messages patterns by your owns. 
+
+#### Identifiers for messages patterns injection
+
+There's 2 ways to tell to module, which value do you want to put into your messages.
+
+Here's the list of keys to inject real values into your message: 
+
+- **subjectModuleName**: This represents the name of handler module.
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+      ) {}
+
+      @Post()
+      public create(@Body() createAwesomeRessourceDto : CreateAwesomeRessourceDto) {
+        return this.awesomeService.create(createAwesomeRessourceDto);
+      }
+    }
+    ```
+    `::subjectModuleName` will be `Awesome` (or `Awesomes` depending on returned data)
