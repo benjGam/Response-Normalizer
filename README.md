@@ -44,7 +44,7 @@ There's many way to personalize Response Normalizer returns, let's dig througth 
 
 ### Messages
 
-You can obviously personnalize format of builded messages.
+You can obviously personalize format of builded messages.
 
 `main.ts`
 
@@ -261,7 +261,7 @@ Also, package provides many decorators, here's a list:
     import { AwesomeService } from './awesome-service.service';
     import { AnotherAwesomeService } from '../another-awesome-module/another-awesome-service.service'; // <- Not the same module which is responsible of service
     import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
-    import { CustomResponseMessage } from 'response-normalizer';
+    import { ExternalService } from 'response-normalizer';
 
     @Controller()
     export class AwesomeController {
@@ -279,4 +279,29 @@ Also, package provides many decorators, here's a list:
     ```
 
     Using this decorator means "The subject module isn't the same as handler".
+    </details>
+- `IgnoreFormattingRules(string[])`: This decorator has to be applied on top of handler declaration, and has to be used if you want to do not apply specific (or all) rules.
+    <details>
+    <summary>Code</summary>
+
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+    import { IgnoreFormattingRules } from 'response-normalizer';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+      ) {}
+
+      @Get(':uuid')
+      @IgnoreFormattingRules(['uuid']) // <- Decorator
+      public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
+        return this.awesomeService.getByUUID(uuid);
+      }
+    }
+    ```
+
+    Using this decorator means "For the formatting rule where `subStringSequence` is contained in table, do not apply formatting". If you do not specify any rule, all formatting rules will be ignored.
     </details>
