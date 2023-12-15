@@ -177,7 +177,7 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
       ) {}
 
       @Get(':uuid/:anotherCriteria')
-      public getByUUIDAndAnotherCriteriaD(
+      public getByUUIDAndAnotherCriteria(
         @Param('uuid') uuid: string, 
         @Param('anotherCriteria') anotherCriteria: string) {
         return this.awesomeService.getByUUIDAndAnotherCriteria(uuid, anotherCriteria);
@@ -186,3 +186,40 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
     ```
     `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid and 'value_here' Another Criteria`
     </details>
+- `formattingRules`: This is an object that permeet to format specifically rules for a query params term.
+    <details>
+    <summary>Code</summary>
+
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+      ) {}
+
+      @Get(':uuid')
+      public getByUUID(@Param('uuid') uuid: string) {
+        return this.awesomeService.getByUUID(uuid);
+      }
+    }
+    ```
+    Formatting rules definition: 
+    ```ts
+    init(app, {
+        queryParamsOptions: {
+          formattingRules: [
+            {
+              subStringSequence: 'uuid',
+              casing: WordCasing.UPPERED,
+            },
+          ],
+        },
+      });
+    ```
+    Will make return of getByUUID handler invokation looks like : `for '5b890609-f862-4a6e-b1dd-89467c2de36b' UUID`.
+    </details>
+
+    Formatting rules objects has a `replaceBy` key which make you able to replace the `subString Sequence` by something totally different (like: for 'uuid' replace by 'Universally Unique Identifier')
