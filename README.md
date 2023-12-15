@@ -126,6 +126,18 @@ init(app, {
 
 Note: A `@IgnoreFormattingRules()` decorator is available to ignore specified (or all) rules on specific route.
 
+## Disable normalization on a specific route
+
+There's a decorator to disable normalization on a specific route, you can now use `@IgnoreNormalization()` decorator on your handler.
+
+```ts
+@Post()
+@IgnoreNormalization()
+public create(@Body() createStuffDTO: CreateStuffDto) {
+  //handler code here
+}
+```
+
 ## Conclusion
 
 That's all. Every help is most welcome, do not hesitate to contribute by any form you want. Enjoy
