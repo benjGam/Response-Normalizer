@@ -126,8 +126,63 @@ Here's the list of keys to inject real values into your message:
     </details>
 - **statusCode**: `::statusCode` will represents the response status code (Not used in default templates).
 
-But 'cause it can be long and tricky to remember, some aliases are available:
+But 'cause it can be long and tricky to remember, the other way to inject values is aliases: <a id='aliases'></a>
 
 - **subjectModuleName**: `'subjectmodulename', 'modulename', 'submodulename', 'mn', 'smn', 'module', 'submodule'`.
 - **stringifiedQueryParams**: `'stringifiedqueryparams', 'queryparams', 'qp'`.
 - **statusCode**: `'statuscode', 'sc', 'status', 'stcd', 'stc', 'code'`.
+
+#### Stringified Query Params formating
+
+It's possible to personalize the format of query params.
+
+`main.ts`
+
+```ts
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { init } from 'response-normalizer';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  init(app, {
+    queryParamsOptions: {
+      joinedBy: ', ',
+      formattingRules: [
+        {
+          subStringSequence: 'uuid',
+          casing: WordCasing.UPPERED,
+        },
+      ],
+    },
+  });
+  await app.listen(3000);
+}
+```
+
+By adding `queryParamsOptions` object, it's possible to dig into options, there's 2 keys to personnalize format:
+
+- `joinedBy`: This represents the operator of joining (**DEFAULT**: 'and')
+    <details>
+    <summary>Code</summary>
+
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+      ) {}
+
+      @Get(':uuid/:anotherCriteria')
+      public getByUUIDAndAnotherCriteriaD(
+        @Param('uuid') uuid: string, 
+        @Param('anotherCriteria') anotherCriteria: string) {
+        return this.awesomeService.getByUUIDAndAnotherCriteria(uuid, anotherCriteria);
+      }
+    }
+    ```
+    `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid and 'value_here' Another Criteria`
+    </details>
