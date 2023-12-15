@@ -93,3 +93,26 @@ Here's the list of keys to inject real values into your message:
     }
     ```
     `::subjectModuleName` will be `Awesome` (or `Awesomes` depending on returned data)
+- **stringifiedQueryParams**: This represents list of query params with handler was invoked or supposed to be invoked.
+    ```ts
+    import { AwesomeService } from './awesome-service.service';
+    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+
+    @Controller()
+    export class AwesomeController {
+      constructor(
+        private readonly awesomeService: AwesomeService,
+      ) {}
+
+      @Post()
+      public create(@Body() createAwesomeRessourceDto : CreateAwesomeRessourceDto) {
+        return this.awesomeService.create(createAwesomeRessourceDto);
+      }
+
+      @Get(':uuid') // <-        ↓      ↓   This query param
+      public getByUUID(@Param('uuid') uuid: string) {
+        return this.awesomeService.getByUUID(uuid);
+      }
+    }
+    ```
+    `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see below)
