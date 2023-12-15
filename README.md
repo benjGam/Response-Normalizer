@@ -117,3 +117,9 @@ Here's the list of keys to inject real values into your message:
     ```
     `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see below)
 - **statusCode**: `::statusCode` will represents the response status code (Not used in default templates).
+
+But 'cause it can be long and tricky to remember, some aliases are available:
+
+- **subjectModuleName**: `'subjectmodulename', 'modulename', 'submodulename', 'mn', 'smn', 'module', 'submodule'`.
+- **stringifiedQueryParams**: `'stringifiedqueryparams', 'queryparams', 'qp'`.
+- **statusCode**: `'statuscode', 'sc', 'status', 'stcd', 'stc', 'code'`.
