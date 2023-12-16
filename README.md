@@ -8,6 +8,7 @@
       - [Identifiers for messages patterns injection](#identifiers-for-messages-patterns-injection)
       - [Stringified Query Params formating](#stringified-query-params-formating)
     - [Decorators](#decorators)
+    - [Response Format](#response-format)
   - [Conclusion](#conclusion)
 
 # Response Normalizer
@@ -319,6 +320,27 @@ Also, package provides many decorators, here's a list:
     Using this decorator means "For the formatting rule where `subStringSequence` is contained in table, do not apply formatting". If you do not specify any rule, all formatting rules will be ignored.
     </details>
 - `IgnoreNormalization()`: This decorator has to be applied above handler declaration. It's used to do not submit handler response to any form of normalization.
+
+### Response Format
+
+Also, package provides a way to include or not the `statusCode` field into responses, it can be modified only globally.
+
+`main.ts`
+
+```ts
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { init } from 'response-normalizer';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  init(app, {
+    includeStatusCode: false, 
+    // ↑ This will remove 'statusCode' field from responses
+  });
+  await app.listen(3000);
+}
+```
 
 ## Conclusion
 
