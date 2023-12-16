@@ -10,7 +10,6 @@ export default class ResponseNormalizerOptions {
   public exceptionMessages?: ExceptionMessagesOptions =
     new ExceptionMessagesOptions();
   public queryParamsOptions?: QueryParamsOptions = new QueryParamsOptions();
-  public experimental?: boolean = false;
   public usedORM?: ORMS | null = null;
   public includeStatusCode?: boolean = true;
 }

@@ -3,7 +3,6 @@ import { Reflector } from '@nestjs/core';
 import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-service.decorator';
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 import { Configurator } from '../configuration/configurator';
-import InvokedServiceHooker from '../experimental/invoked-service-hooker';
 import { IGNORING_RULES } from '../metadata-decorators/ignore-formatting-rules.decorator';
 
 export default class ParsedExecContext {
@@ -14,12 +13,7 @@ export default class ParsedExecContext {
     private readonly executionContext: ExecutionContext,
   ) {
     this.structureObject = {
-      logicModuleName: Configurator.options.experimental
-        ? InvokedServiceHooker.resolveService(
-            executionContext.getClass(),
-            executionContext.getHandler(),
-          )
-        : this.parseLogicModuleName(reflector),
+      logicModuleName: this.parseLogicModuleName(reflector),
       handlerModuleName: this.parseHandlerModuleName(),
       queryParams: this.parseHttpQueryParamsToMap(),
       httpMethod: this.getHttpMethod(),
