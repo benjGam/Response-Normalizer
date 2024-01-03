@@ -11,7 +11,7 @@ export default class CreatedResponse extends NormalizedResponse {
     super(
       parsedExecContextObject,
       data,
-      Configurator.options.successMessages.createdMessage,
+      Configurator.options.messages.success.createdMessage,
       HttpStatus.CREATED,
     );
   }

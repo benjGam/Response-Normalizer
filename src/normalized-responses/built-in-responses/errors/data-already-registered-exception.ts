@@ -11,7 +11,7 @@ export default class DataAlreadyRegisteredExceptionResponse extends ExceptionRes
     super(
       parsedExecContextObject,
       data,
-      Configurator.options.exceptionMessages.alreadyRegistered,
+      Configurator.options.messages.errors.alreadyRegistered,
       HttpStatus.CONFLICT,
     );
   }

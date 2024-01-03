@@ -1,5 +1,5 @@
 import { HttpExceptionFilter } from './http-exception.filter';
-import ResponseNormalizerOptions from './configuration/objects/response-normalizer.options';
+import ResponseNormalizerOptions from './configuration/options/response-normalizer.options';
 import { Configurator } from './configuration/configurator';
 
 export * from './decorators';

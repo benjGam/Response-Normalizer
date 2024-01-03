@@ -1,4 +1,4 @@
-import FormattingRule from './formatting-rule';
+import FormattingRule from './formatting-rule.options';
 
 export default class QueryParamsOptions {
   public joinedBy?: string = 'and';
