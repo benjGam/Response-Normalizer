@@ -17,7 +17,7 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
         .handle()
         .pipe(
           map((data) =>
-            this.isDataEmpty(data)
+            this.isDataEmpty(data) && super.parsedContext.hasToThrowOnEmpty()
               ? this.throwExceptionResponseByHttpMethod(data)
               : this.dispatchSuccessResponseByHttpMethod(data),
           ),

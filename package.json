@@ -1,10 +1,10 @@
 {
   "name": "response-normalizer",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "An useful package to almost automatize NestJS responses normalization",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "tsc --project tsconfig.json",
+    "build": "rm -r lib |& tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
