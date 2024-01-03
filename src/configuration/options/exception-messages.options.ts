@@ -1,6 +1,6 @@
 export default class ExceptionMessagesOptions {
   public notFound?: string =
-    'No ::subjectModuleName found for ::stringifiedQueryParams';
+    'No ::subjectModuleName found ::stringifiedQueryParams';
   public alreadyRegistered?: string =
-    '::subjectModuleName was already registered for ::stringifiedQueryParams';
+    '::subjectModuleName was already registered ::stringifiedQueryParams';
 }
