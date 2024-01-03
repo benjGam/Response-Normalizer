@@ -11,7 +11,7 @@ export default class DataNotFoundExceptionResponse extends ExceptionResponse {
     super(
       parsedExecContextObject,
       data,
-      Configurator.options.exceptionMessages.notFound,
+      Configurator.options.messages.errors.notFound,
       HttpStatus.NOT_FOUND,
     );
   }

@@ -11,7 +11,7 @@ export default class GettedResponse extends NormalizedResponse {
     super(
       parsedExecContextObject,
       data,
-      Configurator.options.successMessages.gettedMessage,
+      Configurator.options.messages.success.gettedMessage,
       HttpStatus.OK,
     );
   }
