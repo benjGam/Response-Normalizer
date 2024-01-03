@@ -11,7 +11,7 @@ export default class DeletedResponse extends NormalizedResponse {
     super(
       parsedExecContextObject,
       data,
-      Configurator.options.successMessages.deletedMessage,
+      Configurator.options.messages.success.deletedMessage,
       HttpStatus.OK,
     );
   }
