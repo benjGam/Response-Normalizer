@@ -3,6 +3,7 @@ import ResponseNormalizerOptions from './configuration/objects/response-normaliz
 import { Configurator } from './configuration/configurator';
 
 export * from './decorators';
+export * from './configuration';
 
 export const init = function (
   nestApp: any,
