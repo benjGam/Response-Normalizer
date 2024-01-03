@@ -1,10 +1,10 @@
 import { ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-service.decorator';
+import { EXTERNAL_INVOKED_SERVICE } from '../decorators/external-service.decorator';
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 import { Configurator } from '../configuration/configurator';
-import { IGNORING_RULES } from '../metadata-decorators/ignore-formatting-rules.decorator';
-import { DO_NOT_THROW_ON_EMPTY } from '../metadata-decorators/do-not-throw-on-empty';
+import { IGNORING_RULES } from '../decorators/ignore-formatting-rules.decorator';
+import { DO_NOT_THROW_ON_EMPTY } from '../decorators/do-not-throw-on-empty';
 
 export default class ParsedExecContext {
   private readonly structureObject: ParsedExecContextObject;
