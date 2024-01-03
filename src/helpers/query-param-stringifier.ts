@@ -7,7 +7,7 @@ export default class QueryParamStringifier {
     queryParams: Map<string, string>,
     ignoredRules: string[],
   ) {
-    return Array.from(queryParams.keys())
+    const stringifiedQueryParams = Array.from(queryParams.keys())
       .map(
         (key) =>
           `'${queryParams.get(key)}' ${
@@ -17,6 +17,9 @@ export default class QueryParamStringifier {
           }`,
       )
       .join(Configurator.options.queryParamsOptions.joinedBy);
+    return Array.from(queryParams.keys()).length >= 1
+      ? `for ${stringifiedQueryParams}`
+      : '';
   }
 
   private static stringifyQueryParamKey(key: string) {

@@ -50,8 +50,7 @@ export class Configurator {
   }
 
   private init() {
-    if (Configurator.options.useNormalizerInterceptor)
-      Configurator.nestApp.useGlobalInterceptors(new NormalizerInterceptor());
+    Configurator.nestApp.useGlobalInterceptors(new NormalizerInterceptor());
     if (Configurator.options.ormInterceptor)
       Configurator.nestApp.useGlobalInterceptors(
         Configurator.options.ormInterceptor,

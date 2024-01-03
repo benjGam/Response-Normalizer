@@ -23,7 +23,7 @@ export class MessageInterpretor {
           structObject[interpretedOptionMatch[1]],
         )),
     );
-    return message;
+    return this.cleanMessageFromGarbageSpaces(message);
   }
 
   private static processedAliasesMessage(message: string) {
@@ -41,5 +41,12 @@ export class MessageInterpretor {
     return Object.keys(this.aliases).find((key) =>
       this.aliases[key].includes(alias.toLowerCase()),
     );
+  }
+
+  private static cleanMessageFromGarbageSpaces(message: string) {
+    return message
+      .split(' ')
+      .filter((value) => value != ' ' && value != '')
+      .join(' ');
   }
 }

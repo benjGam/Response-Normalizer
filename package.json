@@ -1,6 +1,6 @@
 {
   "name": "response-normalizer",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "An useful package to almost automatize NestJS responses normalization",
   "main": "./lib/index.js",
   "scripts": {
