@@ -4,12 +4,13 @@ import { EXTERNAL_INVOKED_SERVICE } from '../metadata-decorators/external-servic
 import { ParsedExecContextObject } from '../structure-objects/parsed-exec-context.object';
 import { Configurator } from '../configuration/configurator';
 import { IGNORING_RULES } from '../metadata-decorators/ignore-formatting-rules.decorator';
+import { DO_NOT_THROW_ON_EMPTY } from '../metadata-decorators/do-not-throw-on-empty';
 
 export default class ParsedExecContext {
   private readonly structureObject: ParsedExecContextObject;
 
   constructor(
-    reflector: Reflector,
+    private readonly reflector: Reflector,
     private readonly executionContext: ExecutionContext,
   ) {
     this.structureObject = {
@@ -85,6 +86,13 @@ export default class ParsedExecContext {
           (rule) => rule.subStringSequence,
         )
       : ignoringRules;
+  }
+
+  public hasToThrowOnEmpty(): boolean {
+    return !!!this.reflector.get(
+      DO_NOT_THROW_ON_EMPTY,
+      this.executionContext.getHandler(),
+    );
   }
 
   public toJSON(): ParsedExecContextObject {

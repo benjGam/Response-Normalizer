@@ -11,6 +11,8 @@ export const CustomResponseMessage = InternalCustomResponseMessage;
 export const IgnoreFormattingRules = InternalIgnoreFormattingRules;
 export const IgnoreNormalization = InternalIgnoreNormalization;
 
+export { DoNotThrowOnEmpty } from './metadata-decorators/do-not-throw-on-empty';
+
 export const init = function (
   nestApp: any,
   options?: ResponseNormalizerOptions,
