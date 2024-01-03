@@ -69,11 +69,13 @@ import { init } from 'response-normalizer';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   init(app, {
-    exceptionMessages: {
-      alreadyRegistered: '::subjectModuleName was already registered', //Default value, set is as you want
-    },
-    successMessages: {
-      createdMessage: '::subjectModuleName has been registered', //Default value, set is as you want
+    messages: {
+      success: {
+        createdMessage: '::subjectModuleName has been registered', //Default value, set is as you want
+      },
+      errors: {
+        alreadyRegistered: '::subjectModuleName was already registered', //Default value, set is as you want
+      },
     },
   });
   await app.listen(3000);
