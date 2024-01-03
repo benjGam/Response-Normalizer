@@ -3,7 +3,6 @@ import QueryParamsOptions from './query-params.options';
 import ReflectorInterceptor from 'interceptors/reflector.interceptor';
 
 export default class ResponseNormalizerOptions {
-  public useNormalizerInterceptor?: boolean = true;
   public messages?: MessagesOptions = new MessagesOptions();
   public queryParamsOptions?: QueryParamsOptions = new QueryParamsOptions();
   public includeStatusCode?: boolean = true;
