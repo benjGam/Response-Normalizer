@@ -40,11 +40,11 @@ To use Response Normalizer, proceed as following:
 ```ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { init } from 'response-normalizer'; //Import bootstrap function
+import { bootstrapNormalizer } from 'response-normalizer'; //Import bootstrap function
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  init(app); // Use bootstrap function which need an 'INestApplication' object (Here 'app')
+  bootstrapNormalizer(app); // Use bootstrap function which need an 'INestApplication' object (Here 'app')
   await app.listen(3000);
 }
 ```
@@ -64,11 +64,11 @@ You can obviously personalize format of builded messages.
 ```ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { init } from 'response-normalizer';
+import { bootstrapNormalizer } from 'response-normalizer';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  init(app, {
+  bootstrapNormalizer(app, {
     messages: {
       success: {
         createdMessage: '::subjectModuleName has been registered', //Default value, set is as you want
@@ -156,11 +156,11 @@ It's possible to personalize the format of query params.
 ```ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { init } from 'response-normalizer';
+import { bootstrapNormalizer } from 'response-normalizer';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  init(app, {
+  bootstrapNormalizer(app, {
     queryParamsOptions: {
       joinedBy: ', ',
       formattingRules: [
@@ -223,7 +223,7 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
     ```
     Formatting rules definition: 
     ```ts
-    init(app, {
+    bootstrapNormalizer(app, {
         queryParamsOptions: {
           formattingRules: [
             {
@@ -332,11 +332,11 @@ Also, package provides a way to include or not the `statusCode` field into respo
 ```ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { init } from 'response-normalizer';
+import { bootstrapNormalizer } from 'response-normalizer';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  init(app, {
+  bootstrapNormalizer(app, {
     includeStatusCode: false, 
     // ↑ This will remove 'statusCode' field from responses
   });
