@@ -5,7 +5,7 @@ import { Configurator } from './configuration/configurator';
 export * from './decorators';
 export * from './configuration';
 
-export const init = function (
+export const bootstrapNormalizer = function (
   nestApp: any,
   options?: ResponseNormalizerOptions,
 ) {
