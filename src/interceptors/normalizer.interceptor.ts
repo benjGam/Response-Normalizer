@@ -56,7 +56,10 @@ export class NormalizerInterceptor extends ReflectorInterceptor {
     const parsedExecContextObject = super.parsedContext.toJSON();
     switch (parsedExecContextObject.httpMethod) {
       case 'GET':
-        new DataNotFoundExceptionResponse(parsedExecContextObject, data);
+        new DataNotFoundExceptionResponse(
+          parsedExecContextObject,
+          data,
+        ).toJSON();
       default:
         return {
           data: null,
