@@ -130,18 +130,18 @@ Here's the list of keys to inject real values into your message:
       public create(@Body() createAwesomeRessourceDto : CreateAwesomeRessourceDto) {
         return this.awesomeService.create(createAwesomeRessourceDto);
       }
-
-      @Get(':uuid') // <-        ↓      ↓   This query param
+    
+      @Get(':uuid') // <- This one
       public getByUUID(@Param('uuid') uuid: string) {
         return this.awesomeService.getByUUID(uuid);
       }
     }
     ```
-    `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see below)
+    `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see <a href='#stringified-query-params-formating'>below</a>)
     </details>
 - **statusCode**: `::statusCode` will represents the response status code (Not used in default templates).
 
-But 'cause it can be long and tricky to remember, the other way to inject values is aliases: <a id='aliases'></a>
+But 'cause it can be long and tricky to remember, the other way to inject values is **aliases**: <a id='aliases'></a>
 
 - **subjectModuleName**: `'subjectmodulename', 'modulename', 'submodulename', 'mn', 'smn', 'module', 'submodule'`.
 - **stringifiedQueryParams**: `'stringifiedqueryparams', 'queryparams', 'qp'`.
@@ -201,7 +201,7 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
     ```
     `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid and 'value_here' Another Criteria`
     </details>
-- `formattingRules`: This is an object that permeet to format specifically rules for a query params term.
+- `formattingRules`: This is an object that permeet to format a query params term.
     <details>
     <summary>Code</summary>
 
@@ -258,8 +258,8 @@ Also, package provides many decorators, here's a list:
         private readonly awesomeService: AwesomeService,
       ) {}
 
-      @Get(':uuid')
       @CustomResponseMessage('My custom message here') // <- Decorator
+      @Get(':uuid')
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.awesomeService.getByUUID(uuid);
       }
@@ -286,8 +286,8 @@ Also, package provides many decorators, here's a list:
         private readonly anotherAwesomeService: AnotherAwesomeService, // Another service
       ) {}
 
+      @ExternalService(AnotherAwesomeService) // <- Decorator (⚠️ the type of the service, not the name of property)
       @Get(':uuid')
-      @ExternalService(AnotherAwesomeService) // <- Decorator (⚠️ with the type of the service, not the name of properties, the type of service)
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.anotherAwesomeService.getByUUID(uuid);
       }
@@ -311,8 +311,8 @@ Also, package provides many decorators, here's a list:
         private readonly awesomeService: AwesomeService,
       ) {}
 
-      @Get(':uuid')
       @IgnoreFormattingRules(['uuid']) // <- Decorator
+      @Get(':uuid')
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.awesomeService.getByUUID(uuid);
       }
