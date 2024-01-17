@@ -258,8 +258,8 @@ Also, package provides many decorators, here's a list:
         private readonly awesomeService: AwesomeService,
       ) {}
 
-      @Get(':uuid')
       @CustomResponseMessage('My custom message here') // <- Decorator
+      @Get(':uuid')
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.awesomeService.getByUUID(uuid);
       }
@@ -286,8 +286,8 @@ Also, package provides many decorators, here's a list:
         private readonly anotherAwesomeService: AnotherAwesomeService, // Another service
       ) {}
 
+      @ExternalService(AnotherAwesomeService) // <- Decorator (⚠️ the type of the service, not the name of property)
       @Get(':uuid')
-      @ExternalService(AnotherAwesomeService) // <- Decorator (⚠️ with the type of the service, not the name of properties, the type of service)
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.anotherAwesomeService.getByUUID(uuid);
       }
@@ -311,8 +311,8 @@ Also, package provides many decorators, here's a list:
         private readonly awesomeService: AwesomeService,
       ) {}
 
-      @Get(':uuid')
       @IgnoreFormattingRules(['uuid']) // <- Decorator
+      @Get(':uuid')
       public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
         return this.awesomeService.getByUUID(uuid);
       }
