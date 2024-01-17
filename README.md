@@ -130,8 +130,8 @@ Here's the list of keys to inject real values into your message:
       public create(@Body() createAwesomeRessourceDto : CreateAwesomeRessourceDto) {
         return this.awesomeService.create(createAwesomeRessourceDto);
       }
-
-      @Get(':uuid') // <-        ↓      ↓   This query param
+    
+      @Get(':uuid') // <- This one
       public getByUUID(@Param('uuid') uuid: string) {
         return this.awesomeService.getByUUID(uuid);
       }
