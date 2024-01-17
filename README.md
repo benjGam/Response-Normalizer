@@ -201,7 +201,7 @@ By adding `queryParamsOptions` object, it's possible to dig into options, there'
     ```
     `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid and 'value_here' Another Criteria`
     </details>
-- `formattingRules`: This is an object that permeet to format specifically rules for a query params term.
+- `formattingRules`: This is an object that permeet to format a query params term.
     <details>
     <summary>Code</summary>
 
