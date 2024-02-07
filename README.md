@@ -112,7 +112,7 @@ Here's the list of keys to inject real values into your message:
     ```
     `::subjectModuleName` will be `Awesome` (or `Awesomes` depending on returned data)
     </details>
-- **stringifiedQueryParams**: This represents list of query params with handler was invoked or supposed to be invoked.
+- **stringifiedQueryParams**: This represents list of query params handler was invoked or supposed to be invoked with.
     <details>
     <summary>Code</summary>
 
