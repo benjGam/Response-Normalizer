@@ -34,6 +34,7 @@
 
 - MUST be auto-builded based on the `Module` invoked by the API call.
 - MUST be present in minimal response.
+- MUST be overridable by a local rule.
 
 ### `data` field
 
