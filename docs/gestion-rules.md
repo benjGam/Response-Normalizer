@@ -26,8 +26,8 @@
 ## Normalization process
 
 - SHOULD be as lightweight as possible.
-- SHOULD provide a way to personalize responses depending on some factors.
-  - SHOULD provide a way to apply normalization rules on global or local scope.
+- MUST provide a way to personalize responses depending on some factors.
+  - MUST provide a way to apply normalization rules on global or local scope.
 
 ## Response formatting
 
