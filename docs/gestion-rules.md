@@ -6,6 +6,13 @@
   - Normalization process should be as lightweight as possible.
   - Normalization process should provide a way to personalize responses depending on some factors.
     - Normalization process should provide a way to apply normalization rules on global or local scope.
+- The package MUST provide a way to personalize basic normalization rules on bootstraping.
+- The pacakge MUST provide a base format for normalized APIs calls responses :
+  - ```json
+    "message":"",
+    "data": {},
+    "statusCode": 200
+    ```
 
 ## Global scope normalization rules
 
