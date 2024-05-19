@@ -2,7 +2,7 @@
 
 ## Package
 
-- The package should provide a way to normalize responses of Nest APIs calls.
+- The package SHOULD provide a way to normalize responses of Nest APIs calls.
 - The package MUST provide a way to personalize basic normalization rules on bootstraping.
 - The package MUST provide a basic format for normalized APIs calls responses :
   - ```json
@@ -13,13 +13,13 @@
 
 ## Global scope normalization rules
 
-- Global normalization rules must be applied to all APIs endpoint as defined (or not) default rules.
-- Global normalization rules should be overwritten by local normalization rules.
+- Global normalization rules MUST be applied to all APIs endpoint as defined (or not) default rules.
+- Global normalization rules SHOULD be overwritten by local normalization rules.
 
 ## Local scope normalization rules
 
-- Local normalization rules can be applied on a specific APIs endpoint.
-  - Local normalization rules can be applied by using Nest metadata decorators on APIs endpoints.
+- Local normalization rules COULD be applied on a specific APIs endpoint.
+  - Local normalization rules COULD be applied by using Nest metadata decorators on APIs endpoints.
 - Local normalization rules MUST NOT change responses format.
 
 ## Normalization process
