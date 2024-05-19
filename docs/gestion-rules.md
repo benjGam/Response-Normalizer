@@ -4,7 +4,7 @@
 
 - The package should provide a way to normalize responses of Nest APIs calls.
 - The package MUST provide a way to personalize basic normalization rules on bootstraping.
-- The package MUST provide a base format for normalized APIs calls responses :
+- The package MUST provide a basic format for normalized APIs calls responses :
   - ```json
     "message":"",
     "data": {},
