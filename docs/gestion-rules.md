@@ -11,3 +11,8 @@
 
 - Global normalization rules must be applied to all APIs endpoint as defined (or not) default rules.
 - Global normalization rules should be overwritten by local normalization rules.
+
+## Local scope normalization rules
+
+- Local normalization rules can be applied on a specific APIs endpoint.
+  - Local normalization rules can be applied by using Nest metadata decorators on APIs endpoints.
