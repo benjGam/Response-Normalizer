@@ -16,3 +16,4 @@
 
 - Local normalization rules can be applied on a specific APIs endpoint.
   - Local normalization rules can be applied by using Nest metadata decorators on APIs endpoints.
+- Local normalization rules MUST NOT change responses format.
