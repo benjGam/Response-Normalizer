@@ -3,9 +3,6 @@
 ## Package
 
 - The package should provide a way to normalize responses of Nest APIs calls.
-  - Normalization process should be as lightweight as possible.
-  - Normalization process should provide a way to personalize responses depending on some factors.
-    - Normalization process should provide a way to apply normalization rules on global or local scope.
 - The package MUST provide a way to personalize basic normalization rules on bootstraping.
 - The pacakge MUST provide a base format for normalized APIs calls responses :
   - ```json
@@ -24,3 +21,9 @@
 - Local normalization rules can be applied on a specific APIs endpoint.
   - Local normalization rules can be applied by using Nest metadata decorators on APIs endpoints.
 - Local normalization rules MUST NOT change responses format.
+
+## Normalization process
+
+- SHOULD be as lightweight as possible.
+- SHOULD provide a way to personalize responses depending on some factors.
+  - SHOULD provide a way to apply normalization rules on global or local scope.
