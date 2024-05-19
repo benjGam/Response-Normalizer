@@ -27,3 +27,20 @@
 - SHOULD be as lightweight as possible.
 - SHOULD provide a way to personalize responses depending on some factors.
   - SHOULD provide a way to apply normalization rules on global or local scope.
+
+## Response formatting
+
+### `message` field
+
+- MUST be auto-builded based on the `Module` invoked by the API call.
+- MUST be present in minimal response.
+
+### `data` field
+
+- MUST be auto-filled based on the return of invoked API endpoint.
+- MUST be present in minimal response.
+
+### `statusCode` field
+
+- MUST be determined by the return of invoked API endpoint.
+- COULD be ignored in response format.
