@@ -18,9 +18,10 @@
 
 ## Local scope normalization rules
 
-- Local normalization rules COULD be applied on a specific APIs endpoint.
-  - Local normalization rules COULD be applied by using Nest metadata decorators on APIs endpoints.
-- Local normalization rules MUST NOT change responses format.
+- COULD be applied on a specific APIs endpoint.
+  - COULD be applied by using Nest metadata decorators on APIs endpoints.
+- MUST NOT change responses format.
+- MUST provide a way to do not apply normalization process on specific APIs endpoints.
 
 ## Normalization process
 
