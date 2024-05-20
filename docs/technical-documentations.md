@@ -82,3 +82,20 @@ GET http://localhost:3000/users?username=test1
   },
 "statusCode": 200,
 ```
+
+### Getting User of an API (Using `dotNotIncludeQueryParams` metadata decorator)
+
+Responsible `Nest Module` name: `UsersModule`.
+
+```http
+GET http://localhost:3000/users?username=test1
+```
+
+```json
+"message": "User has been getted.",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
