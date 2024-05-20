@@ -15,6 +15,11 @@ Normalization process has to return APIs calls responses as following:
 
 This format can be changed by a `global rule` which is applied on bootstraping.
 
+## `MessageInterpretor`
+
+This component will be responsible of casting `parameters` into real values.
+This process will start when all API call invokation informations are collected by the interceptor.
+
 ## `message` field
 
 This field will be automatically builded by the module, the message autobuilding process will be based on some factors:
