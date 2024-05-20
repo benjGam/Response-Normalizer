@@ -55,3 +55,16 @@ This parameter format should be personnalizable using a global or local rule.
       - `lower`: This will lower interpreted value.
       - `unchanged`: This will do nothing (it's the default behavior).
       - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
+
+### Sample
+
+`formatting` Rule:
+
+```json
+"formatting": {
+  ":apiCallSubject": "normal",
+  ":apiCallQueryParamName": {
+    "replaceValueBy": ["uuid", "UUID"]
+  },
+}
+```
