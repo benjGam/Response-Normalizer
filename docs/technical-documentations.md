@@ -108,7 +108,7 @@ To override global rules, we'll use `Nest metadata decorators`.
 
 - `@formattingRuleOverride({})`:
 
-```ts
+  ```ts
   @formattingRuleOverride({
       formatting: {
       :apiCallSubject: "normal",
