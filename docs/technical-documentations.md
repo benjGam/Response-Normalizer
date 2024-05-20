@@ -88,6 +88,16 @@ To override global rules, we'll use `Nest metadata decorators`.
   function getUser() { /* ... */ }
   ```
 
+- `@messageRuleOverride({})`:
+
+  ```ts
+  @messageRuleOverride({
+    success: "",
+    error: "",
+  })
+  function getUser() { /* ... */ }
+  ```
+
 ### Sample
 
 - `formatting` Rule:
