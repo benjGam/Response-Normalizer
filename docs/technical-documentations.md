@@ -90,7 +90,7 @@ This parameter format should be personnalizable using a global or local rule.
   }
   ```
 
-## Metadata Decorator for Rules
+## Metadata Decorator for Rules override
 
 To override global rules, we'll use `Nest metadata decorators`.
 
