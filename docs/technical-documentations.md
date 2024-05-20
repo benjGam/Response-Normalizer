@@ -48,7 +48,8 @@ This parameter format should be personnalizable using a global or local rule.
   - sub params: `:value`, `:name`.
   - `formatting`: `upper`, `lower`, `normal`, `unchanged`.
   - `replacing`: Another text replacing `:name`.
-- `:apiCallSubject`
+- `:apiCallSubject`:
+  - `formatting`: `upper`, `lower`, `normal`, `unchanged`.
 
 ## Sample
 
