@@ -53,6 +53,11 @@ This parameter format should be personnalizable using a global or local rule.
     - `lower`: This will lower interpreted value.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
+- `message`: It's global but it also can be overwritten by local declaration
+  - `success`:
+    - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
+  - `error`:
+    - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
 
 ### Sample
 
