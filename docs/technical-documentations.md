@@ -43,18 +43,16 @@ This parameter format should be personnalizable using a global or local rule.
 ## Rules
 
 - `apiCallQueryParamsFormat`: It's global but it also can be overwritten by local declaration
-  - Sub params:
-    - `syntax`:
-      - `value`: This can take `:name` and `:value` interpretor parameters.
-      - `separator`: This will be used to separate each `syntax` (If there's more than one query params)
-      - `surrounding`: This is a table of two strings, it can be used to surround `syntax`.
+  - `value`: This can take `:name` and `:value` interpretor parameters.
+  - `separator`: This will be used to separate each `syntax` (If there's more than one query params)
+  - `surrounding`: This is a table of two strings, it can be used to surround `syntax`.
 - `formatting`: This can take following parameters:
-    - `[anyInterpretorParameter]`: 
-      - `upper`: This will upper interpreted value.
-      - `normal`: This will normalize (if `:apiCallSubject` = `usersModule` then will produce `Users`) interpreted value.
-      - `lower`: This will lower interpreted value.
-      - `unchanged`: This will do nothing (it's the default behavior).
-      - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
+  - `[anyInterpretorParameter]`: 
+    - `upper`: This will upper interpreted value.
+    - `normal`: This will normalize (if `:apiCallSubject` = `usersModule` then will produce `Users`) interpreted value.
+    - `lower`: This will lower interpreted value.
+    - `unchanged`: This will do nothing (it's the default behavior).
+    - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
 
 ### Sample
 
