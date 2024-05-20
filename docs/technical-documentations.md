@@ -20,6 +20,11 @@ This format can be changed by a `global rule` which is applied on bootstraping.
 This component will be responsible of casting `parameters` into real values.
 This process will start when all API call invokation informations are collected by the interceptor.
 
+## `QueryParametersInterpretor`
+
+This component will be responsible of casting `parameters` into real values.
+This process will start when all API call invokation informations are collected by the interceptor. And right before message interpretation.
+
 ## `message` field
 
 This field will be automatically builded by the module, the message autobuilding process will be based on some factors:
