@@ -40,6 +40,15 @@ It could be removed by using a `Nest metadata decorator` on controller methods d
 
 This parameter format should be personnalizable using a global or local rule.
 
+## Rules
+
+### Globals
+
+- `:apiCallQueryParamsFormat`:
+  - sub params: `:value`, `:name`.
+  - `formatting`: `upper`, `lower`, `normal`, `unchanged`.
+  - `replacing`: Another text replacing `:name`.
+- `:apiCallSubject`
 
 ## Sample
 
