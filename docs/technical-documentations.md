@@ -39,3 +39,46 @@ It could be removed by using a `Nest metadata decorator` on controller methods d
 #### Personalization
 
 This parameter format should be personnalizable using a global or local rule.
+
+
+## Sample
+
+### Getting Users of an API
+
+Responsible `Nest Module` name: `UsersModule`.
+
+```http
+GET http://localhost:3000/users
+```
+
+```json
+"message": "Users has been getted.",
+"data": [
+  {
+    "username": "test1",
+    "password": "...",
+  }, 
+  {
+    "username": "test2",
+    "password": "...",
+  }
+],
+"statusCode": 200,
+```
+
+### Getting User of an API
+
+Responsible `Nest Module` name: `UsersModule`.
+
+```http
+GET http://localhost:3000/users?username=test1
+```
+
+```json
+"message": "User has been getted for 'test1' username.",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
