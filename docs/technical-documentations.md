@@ -53,12 +53,11 @@ This parameter format should be personnalizable using a global or local rule.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
 - `message`: It's global but it also can be overwritten by local declaration
-  - `success`:
-    - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
-  - `error`:
-    - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
+  - `[anyHTTPRequest]`:
+    - `success`: `message to return` (Could use interpretor parameters in there)
+    - `error`: `message to return` (Could use interpretor parameters in there)
 
-### Sample
+### Examples
 
 - `formatting` Rule:
 
@@ -84,11 +83,49 @@ This parameter format should be personnalizable using a global or local rule.
 
   ```json
   "message": {
-    "success": {
-      "post": ":apiCallSubject has been created for :apiCallQueryParams"
-    },
-    "error": {
-      "post": ":apiCallSubject cannot be created for :apiCallQueryParams"
+    "post": {
+      "success": ":apiCallSubject has been created for :apiCallQueryParams",
+      "error": ":apiCallSubject cannot be created for :apiCallQueryParams"
     }
   }
+  ```
+
+## Metadata Decorator for Rules override
+
+To override global rules, we'll use `Nest metadata decorators`.
+
+- `@apiCallQueryParamsFormatRuleOverride({})`:
+
+  ```ts
+  @apiCallQueryParamsFormatRuleOverride({
+    apiCallQueryParamsFormat: {
+      syntax: "':name':':value'",
+      separator: ", ",
+    }
+  })
+  function getUser() { /* ... */ }
+  ```
+
+- `@formattingRuleOverride({})`:
+
+```ts
+  @formattingRuleOverride({
+      formatting: {
+      :apiCallSubject: "normal",
+      :apiCallQueryParamName: {
+        replaceValueBy: ["uuid", "UUID"]
+      },
+    }
+  })
+  function getUser() { /* ... */ }
+  ```
+
+- `@messageRuleOverride({})`:
+
+  ```ts
+  @messageRuleOverride({
+    success: "",
+    error: "",
+  })
+  function getUser() { /* ... */ }
   ```
