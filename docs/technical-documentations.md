@@ -99,3 +99,20 @@ GET http://localhost:3000/users?username=test1
   },
 "statusCode": 200,
 ```
+
+### Getting User of an API (Using `apiCallQueryParamsFormat` global rule)
+
+Responsible `Nest Module` name: `UsersModule`.
+
+```http
+GET http://localhost:3000/users?username=test1
+```
+
+```json
+"message": "User has been getted ('username':'test').",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
