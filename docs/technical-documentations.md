@@ -106,14 +106,25 @@ GET http://localhost:3000/users?username=test1
 
 #### Using `apiCallQueryParamsFormat` global rule
 
-`apiCallQueryParamsFormat`: `:((':name':':value', :{...}))`
+```json
+"apiCallQueryParamsFormat": {
+  "syntax": "':name':':value'",
+  "formatting": {
+    "name": "normal",
+    //"value":"unchanged" (Default if undefined)
+  },
+  "separator": ", ",
+  "surrounding": ["(", ")"],
+}
+```
+
 
 ```http
 GET http://localhost:3000/users?username=test1
 ```
 
 ```json
-"message": "User has been getted ('username':'test1').",
+"message": "User has been getted ('Username':'test1').",
 "data": {
     "username": "test1",
     "password": "...",
@@ -121,20 +132,4 @@ GET http://localhost:3000/users?username=test1
 "statusCode": 200,
 ```
 
-#### Using `apiCallQueryParamsFormat` global rule
 
-`apiCallQueryParamsFormat`: `:((':name':':value', :{...}))`
-
-```http
-GET http://localhost:3000/users?username=test1&displayName=test1
-```
-
-```json
-"message": "User has been getted ('username':'test1', 'displayName':'test1').",
-"data": {
-    "username": "test1",
-    "displayName":"test1",
-    "password": "..."
-  },
-"statusCode": 200,
-```
