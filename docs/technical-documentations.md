@@ -45,7 +45,6 @@ This parameter format should be personnalizable using a global or local rule.
 - `apiCallQueryParamsFormat`: It's global but it also can be overwritten by local declaration
   - `syntax`: This can take `:name` and `:value` interpretor parameters.
   - `separator`: This will be used to separate each `syntax` (If there's more than one query params)
-  - `surroundings`: This is a table of two strings, it can be used to surround `syntax`.
 - `formatting`: This can take following parameters:
   - `[anyInterpretorParameter]`: 
     - `upper`: This will upper interpreted value.
@@ -78,7 +77,6 @@ This parameter format should be personnalizable using a global or local rule.
   "apiCallQueryParamsFormat": {
     "syntax": "':name':':value'",
     "separator": ", ",
-    "surroundings": ["for ", ""],
   }
   ```
 
@@ -87,10 +85,10 @@ This parameter format should be personnalizable using a global or local rule.
   ```json
   "message": {
     "success": {
-      "post": ":apiCallSubject has been created :apiCallQueryParams"
+      "post": ":apiCallSubject has been created for :apiCallQueryParams"
     },
     "error": {
-      "post": ":apiCallSubject cannot be created :apiCallQueryParams"
+      "post": ":apiCallSubject cannot be created for :apiCallQueryParams"
     }
   }
   ```
