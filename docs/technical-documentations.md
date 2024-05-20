@@ -35,3 +35,7 @@ It could be overwritten by a `Nest metadata decorator` to replace the auto-deter
 
 This parameter will be replaced by the 'Normalized' lists of query parameters with which the API call was made.
 It could be removed by using a `Nest metadata decorator` on controller methods declarations.
+
+#### Personalization
+
+This parameter format should be personnalizable using a global or local rule.
