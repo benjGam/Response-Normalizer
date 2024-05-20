@@ -53,10 +53,42 @@ This parameter format should be personnalizable using a global or local rule.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
 - `message`: It's global but it also can be overwritten by local declaration
-  - `success`:
-    - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
-  - `error`:
-    - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
+  - `[anyHTTPRequest]`:
+    - `success`: `message to return` (Could use interpretor parameters in there)
+    - `error`: `message to return` (Could use interpretor parameters in there)
+
+### Examples
+
+- `formatting` Rule:
+
+  ```json
+  "formatting": {
+    ":apiCallSubject": "normal",
+    ":apiCallQueryParamName": {
+      "replaceValueBy": ["uuid", "UUID"]
+    },
+  }
+  ```
+
+- `apiCallQueryParamsFormat` Rule:
+
+  ```json
+  "apiCallQueryParamsFormat": {
+    "syntax": "':name':':value'",
+    "separator": ", ",
+  }
+  ```
+
+- `message` Rule:
+
+  ```json
+  "message": {
+    "post": {
+      "success": ":apiCallSubject has been created for :apiCallQueryParams",
+      "error": ":apiCallSubject cannot be created for :apiCallQueryParams"
+    }
+  }
+  ```
 
 ## Metadata Decorator for Rules
 
@@ -96,39 +128,4 @@ To override global rules, we'll use `Nest metadata decorators`.
     error: "",
   })
   function getUser() { /* ... */ }
-  ```
-
-### Sample
-
-- `formatting` Rule:
-
-  ```json
-  "formatting": {
-    ":apiCallSubject": "normal",
-    ":apiCallQueryParamName": {
-      "replaceValueBy": ["uuid", "UUID"]
-    },
-  }
-  ```
-
-- `apiCallQueryParamsFormat` Rule:
-
-  ```json
-  "apiCallQueryParamsFormat": {
-    "syntax": "':name':':value'",
-    "separator": ", ",
-  }
-  ```
-
-- `message` Rule:
-
-  ```json
-  "message": {
-    "success": {
-      "post": ":apiCallSubject has been created for :apiCallQueryParams"
-    },
-    "error": {
-      "post": ":apiCallSubject cannot be created for :apiCallQueryParams"
-    }
-  }
   ```
