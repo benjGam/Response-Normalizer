@@ -93,13 +93,7 @@ GET http://localhost:3000/users?username=test1
 "statusCode": 200,
 ```
 
-### Getting User of an API (Using `dotNotIncludeQueryParams` metadata decorator)
-
-Responsible `Nest Module` name: `UsersModule`.
-
-```http
-GET http://localhost:3000/users?username=test1
-```
+#### Using `dotNotIncludeQueryParams` metadata decorator
 
 ```json
 "message": "User has been getted.",
@@ -110,9 +104,9 @@ GET http://localhost:3000/users?username=test1
 "statusCode": 200,
 ```
 
-### Getting User of an API (Using `apiCallQueryParamsFormat` global rule)
+#### Using `apiCallQueryParamsFormat` global rule
 
-Responsible `Nest Module` name: `UsersModule`.
+`apiCallQueryParamsFormat`: `(':name':':value', :{...})`
 
 ```http
 GET http://localhost:3000/users?username=test1
