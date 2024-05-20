@@ -58,13 +58,13 @@ This parameter format should be personnalizable using a global or local rule.
 
 ### Sample
 
-`formatting` Rule:
+- `formatting` Rule:
 
-```json
-"formatting": {
-  ":apiCallSubject": "normal",
-  ":apiCallQueryParamName": {
-    "replaceValueBy": ["uuid", "UUID"]
-  },
-}
-```
+  ```json
+  "formatting": {
+    ":apiCallSubject": "normal",
+    ":apiCallQueryParamName": {
+      "replaceValueBy": ["uuid", "UUID"]
+    },
+  }
+  ```
