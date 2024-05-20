@@ -43,7 +43,7 @@ This parameter format should be personnalizable using a global or local rule.
 ## Rules
 
 - `apiCallQueryParamsFormat`: It's global but it also can be overwritten by local declaration
-  - `value`: This can take `:name` and `:value` interpretor parameters.
+  - `syntax`: This can take `:name` and `:value` interpretor parameters.
   - `separator`: This will be used to separate each `syntax` (If there's more than one query params)
   - `surroundings`: This is a table of two strings, it can be used to surround `syntax`.
 - `formatting`: This can take following parameters:
@@ -71,7 +71,7 @@ This parameter format should be personnalizable using a global or local rule.
 
   ```json
   "apiCallQueryParamsFormat": {
-    "value": "':name':':value'",
+    "syntax": "':name':':value'",
     "separator": ", ",
     "surroundings": ["for ", ""],
   }
