@@ -42,12 +42,17 @@ This parameter format should be personnalizable using a global or local rule.
 
 ## Rules
 
-### Globals
-
-- `:apiCallQueryParamsFormat`:
-  - sub params: `:value`, `:name`.
-  - `formatting`: `upper`, `lower`, `normal`, `unchanged`.
-  - `replacing`: Another text replacing `:name`.
+- `:apiCallQueryParamsFormat`: It's global but also can be overwritten by local declaration
+  - Sub params:
+    - `syntax`:
+      - `value`: This can take `:name` and `:value` interpretor parameters.
+      - `separator`: This will be used to separate each `syntax` (If there's more than one query params)
+      - `surrounding`: This is a table of two strings, it can be used to surround `syntax`.
+    - `formatting`: This can take following parameters:
+      - `upper`: This will upper `:name` or `:value` depending on which is selected.
+      - `normal`: This will normalize (if `:name` = `users` then will produce `Users`) `:name` or `:value` depending on which is selected.
+      - `lower`: This will lower `:name` or `:value` depending on which is selected.
+      - `unchanged`: This will do nothing (it's the default behavior).
 - `:apiCallSubject`:
   - `formatting`: `upper`, `lower`, `normal`, `unchanged`.
 
