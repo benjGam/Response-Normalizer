@@ -81,3 +81,16 @@ This parameter format should be personnalizable using a global or local rule.
     "surroundings": ["for ", ""],
   }
   ```
+
+- `message` Rule:
+
+  ```json
+  "message": {
+    "success": {
+      "post": ":apiCallSubject has been created :apiCallQueryParams"
+    },
+    "error": {
+      "post": ":apiCallSubject cannot be created :apiCallQueryParams"
+    }
+  }
+  ```
