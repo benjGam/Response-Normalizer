@@ -14,3 +14,14 @@ Normalization process has to return APIs calls responses as following:
 ```
 
 This format can be changed by a `global rule` which is applied on bootstraping.
+
+## `message` field
+
+This field will be automatically builded by the module, the message autobuilding process will be based on some factors:
+  - Getting invoked `Nest Module` name and make it plural or singular depending on the `data` returned by the `invoked method` (if it's a table, then make it plural, otherwise singular).
+  - The `Nest Module Name` will result in a `:apiCallSubject` parameter, this parameter will be used in `MessageInterpretor`.
+
+### `:apiCallSubject` parameter
+
+This parameter will be replaced by the 'Normalized' Nest module name.
+It could be overwritten by a `Nest metadata decorator` to replace the auto-determined `:apiCallSubject` value by a choosen one.
