@@ -39,3 +39,162 @@ It could be removed by using a `Nest metadata decorator` on controller methods d
 #### Personalization
 
 This parameter format should be personnalizable using a global or local rule.
+
+## Rules
+
+- `:apiCallQueryParamsFormat`: It's global but also can be overwritten by local declaration
+  - Sub params:
+    - `syntax`:
+      - `value`: This can take `:name` and `:value` interpretor parameters.
+      - `separator`: This will be used to separate each `syntax` (If there's more than one query params)
+      - `surrounding`: This is a table of two strings, it can be used to surround `syntax`.
+    - `formatting`: This can take following parameters:
+      - `upper`: This will upper `:name` or `:value` depending on which is selected.
+      - `normal`: This will normalize (if `:name` = `users` then will produce `Users`) `:name` or `:value` depending on which is selected.
+      - `lower`: This will lower `:name` or `:value` depending on which is selected.
+      - `unchanged`: This will do nothing (it's the default behavior).
+- `:apiCallSubject`:
+  - `formatting`: `upper`, `lower`, `normal`, `unchanged`.
+
+## Sample
+
+### Getting Users of an API
+
+Responsible `Nest Module` name: `UsersModule`.
+
+```http
+GET http://localhost:3000/users
+```
+
+```json
+"message": "Users has been getted.",
+"data": [
+  {
+    "username": "test1",
+    "password": "...",
+  }, 
+  {
+    "username": "test2",
+    "password": "...",
+  }
+],
+"statusCode": 200,
+```
+
+### Getting User of an API
+
+Responsible `Nest Module` name: `UsersModule`.
+
+```http
+GET http://localhost:3000/users?username=test1
+```
+
+```json
+"message": "User has been getted for 'test1' username.",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
+
+#### Using `dotNotIncludeQueryParams` metadata decorator
+
+```json
+"message": "User has been getted.",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
+
+#### Using `apiCallQueryParamsFormat` global rule
+
+```json
+"apiCallQueryParamsFormat": {
+  "syntax": {
+    "value": "':name':':value'",
+    "separator": ", ",
+    "surrounding": ["(", ")"],
+  },
+  "formatting": {
+    "name": "normal",
+    //"value":"unchanged" (Default if undefined)
+  },
+}
+```
+
+
+```http
+GET http://localhost:3000/users?username=test1
+```
+
+```json
+"message": "User has been getted ('Username':'test1').",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
+
+#### Using `apiCallQueryParamsFormat` global rule
+
+```json
+"apiCallQueryParamsFormat": {
+  "syntax": {
+    "value": "':name':':value'",
+    "separator": ", ",
+    "surrounding": ["(", ")"],
+  },
+  "formatting": {
+    "name": "normal",
+    //"value":"unchanged" (Default if undefined)
+  },
+}
+```
+
+
+```http
+GET http://localhost:3000/users?username=test1&password=...
+```
+
+```json
+"message": "User has been getted ('Username':'test1', 'Password':'...').",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
+
+#### Using `apiCallQueryParamsFormat` global rule
+
+```json
+"apiCallQueryParamsFormat": {
+  "syntax": {
+    "value": "':name':':value'",
+    "separator": ", ",
+    "surrounding": ["for ", ""],
+  },
+  "formatting": {
+    "name": "normal",
+    //"value":"unchanged" (Default if undefined)
+  },
+}
+```
+
+
+```http
+GET http://localhost:3000/users?username=test1&password=...
+```
+
+```json
+"message": "User has been getted for 'Username':'test1', 'Password':'...'.",
+"data": {
+    "username": "test1",
+    "password": "...",
+  },
+"statusCode": 200,
+```
