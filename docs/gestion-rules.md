@@ -46,3 +46,13 @@
 
 - MUST be determined by the return of invoked API endpoint.
 - COULD be ignored in response format.
+
+## Interpretor Parameters
+
+- Are values that package provide to be replaced by real values (evaluated during executing time).
+
+## Rules
+
+- Are litterals objects whose COULD contains other rules.
+- Are used to apply a particular behavior on components of package.
+- MUST have a default value if user doesn't set it.
