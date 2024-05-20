@@ -58,6 +58,36 @@ This parameter format should be personnalizable using a global or local rule.
   - `error`:
     - `[anyHTTPRequest]`: `message to return` (Could use interpretor parameters in there)
 
+## Metadata Decorator for Rules
+
+To override global rules, we'll use `Nest metadata decorators`.
+
+- `@apiCallQueryParamsFormatRuleOverride({})`:
+
+  ```ts
+  @apiCallQueryParamsFormatRuleOverride({
+    apiCallQueryParamsFormat: {
+      syntax: "':name':':value'",
+      separator: ", ",
+    }
+  })
+  function getUser() { /* ... */ }
+  ```
+
+- `@formattingRuleOverride({})`:
+
+```ts
+  @formattingRuleOverride({
+      formatting: {
+      :apiCallSubject: "normal",
+      :apiCallQueryParamName: {
+        replaceValueBy: ["uuid", "UUID"]
+      },
+    }
+  })
+  function getUser() { /* ... */ }
+  ```
+
 ### Sample
 
 - `formatting` Rule:
