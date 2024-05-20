@@ -152,3 +152,11 @@ To override global rules, we'll use `Nest metadata decorators`.
   @logicManagedService(RoomService)
   function getRoom() { /* ... */ }
   ```
+
+## Tests
+
+Following tests should be implemented with TDD:
+
+- Unitary tests
+- Integration test
+- Non-Regression tests
