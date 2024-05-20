@@ -143,13 +143,15 @@ GET http://localhost:3000/users?username=test1
 
 ```json
 "apiCallQueryParamsFormat": {
-  "syntax": "':name':':value'",
+  "syntax": {
+    "value": "':name':':value'",
+    "separator": ", ",
+    "surrounding": ["(", ")"],
+  },
   "formatting": {
     "name": "normal",
     //"value":"unchanged" (Default if undefined)
   },
-  "separator": ", ",
-  "surrounding": ["(", ")"],
 }
 ```
 
@@ -171,13 +173,15 @@ GET http://localhost:3000/users?username=test1&password=...
 
 ```json
 "apiCallQueryParamsFormat": {
-  "syntax": "':name':':value'",
+  "syntax": {
+    "value": "':name':':value'",
+    "separator": ", ",
+    "surrounding": ["for ", ""],
+  },
   "formatting": {
     "name": "normal",
     //"value":"unchanged" (Default if undefined)
   },
-  "separator": ", ",
-  "surrounding": ["for ", ""],
 }
 ```
 
