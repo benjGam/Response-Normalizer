@@ -129,3 +129,21 @@ To override global rules, we'll use `Nest metadata decorators`.
   })
   function getUser() { /* ... */ }
   ```
+
+## Metadata decorators
+
+- `@skipNormalization()`:
+
+  ```ts
+  @skipNormalization()
+  function getUser() { /* ... */ }
+  ```
+
+- `@logicManagedService(ServiceType)`:
+
+  ```ts
+  import { RoomService } from '...';
+
+  @logicManagedService(RoomService)
+  function getRoom() { /* ... */ }
+  ```
