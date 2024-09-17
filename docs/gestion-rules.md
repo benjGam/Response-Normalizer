@@ -49,7 +49,7 @@
 
 ## Interpretor Parameters
 
-- Are values that package provide to be replaced by real values (evaluated during executing time).
+- Are values that package provide to be replaced by real values (evaluated during runtime).
 
 ## Rules
 
