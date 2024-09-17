@@ -57,7 +57,7 @@ This parameter format should be personnalizable using a global or local rule.
     - `lower`: This will lower interpreted value.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
-- `message`: It's global but it also can be overwritten by local declaration
+- `messages`: It's global but it also can be overwritten by local declaration
   - `[anyHTTPRequest]`:
     - `success`: `message to return` (Could use interpretor parameters in there)
     - `error`: `message to return` (Could use interpretor parameters in there)
@@ -87,7 +87,7 @@ This parameter format should be personnalizable using a global or local rule.
 - `message` Rule:
 
   ```json
-  "message": {
+  "messages": {
     "post": {
       "success": ":callSubject has been created for :callQueryParams",
       "error": ":callSubject cannot be created for :callQueryParams"
