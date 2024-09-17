@@ -53,7 +53,7 @@ This parameter format should be personnalizable using a global or local rule.
 - `formatting`: This can take following parameters:
   - `[anyInterpretorParameter]`: 
     - `upper`: This will upper interpreted value.
-    - `normal`: This will normalize (if `:apiCallSubject` = `usersModule` then will produce `Users`) interpreted value.
+    - `normal`: This will normalize (if `:apiCallSubject` = `usersModule` then will produce `Users` or `User` depending on `data` returned by invoked method) interpreted value.
     - `lower`: This will lower interpreted value.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
@@ -70,7 +70,7 @@ This parameter format should be personnalizable using a global or local rule.
   "formatting": {
     ":apiCallSubject": "normal",
     ":apiCallQueryParamName": {
-      "replaceValueBy": ["uuid", "UUID"]
+      "replaceValueBy": ["uuid", "Universally Unique IDentifier"]
     },
   }
   ```
