@@ -33,7 +33,7 @@ This field will be automatically builded by the module, the message autobuilding
 
 ### `:callSubject` parameter
 
-This parameter will be replaced by the 'Normalized' Nest module name.
+This parameter will be replaced by the 'Normalized' Nest service name.
 It could be overwritten by a `Nest metadata decorator` to replace the auto-determined `:callSubject` value by a choosen one.
 
 ### `:callQueryParams` parameter
@@ -53,7 +53,7 @@ This parameter format should be personnalizable using a global or local rule.
 - `formatting`: This can take following parameters:
   - `[anyInterpretorParameter]`: 
     - `upper`: This will upper interpreted value.
-    - `normal`: This will normalize (if `:callSubject` = `usersModule` then will produce `Users` or `User` depending on `data` returned by invoked method) interpreted value.
+    - `normal`: This will normalize (if `:callSubject` = `usersService` then will produce `Users` or `User` depending on `data` returned by invoked method) interpreted value.
     - `lower`: This will lower interpreted value.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
