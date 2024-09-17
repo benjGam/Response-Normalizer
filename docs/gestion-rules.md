@@ -14,7 +14,7 @@
 ## Global scope normalization rules
 
 - MUST be applied to all APIs endpoint as defined (or not) default rules.
-- SHOULD be overwritten by local normalization rules.
+- SHOULD be overridable by local normalization rules.
 
 ## Local scope normalization rules
 
