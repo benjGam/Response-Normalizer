@@ -58,7 +58,7 @@ This parameter format should be personnalizable using a global or local rule.
     - `unchanged`: This will do nothing (it's the default behavior).
     - `replaceValueBy`: [`oldValue`, `newValue`]; This will replace interpreted `oldValue` by `newValue`.
 - `messages`: It's global but it also can be overwritten by local declaration
-  - `[anyHTTPRequest]`:
+  - `[anyHTTPMethod]`:
     - `success`: `message to return` (Could use interpretor parameters in there)
     - `error`: `message to return` (Could use interpretor parameters in there)
 
