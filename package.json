@@ -4,8 +4,9 @@
   "description": "An useful package to almost automatize NestJS responses normalization",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "rm -r lib |& tsc --project tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -r lib/ |& tsc --project tsconfig.json",
+    "test": "jest",
+    "coverage": "c8 --check-coverage jest"
   },
   "repository": {
     "type": "git",
