@@ -1,4 +1,4 @@
 export interface MessageWrapper {
-  success: string;
-  failure: string;
+  success?: string;
+  failure?: string;
 }
