@@ -6,7 +6,6 @@ export class MessageBuilder {
     return '';
   }
 
-  // Have to be changed in UML
   private getTemplateMessageFromMethod(context: DetailedContext): string {
     return '';
   }
@@ -15,7 +14,6 @@ export class MessageBuilder {
     return [];
   }
 
-  // Have to be changed in UML
   private replaceInterpretableFlagsByRealValues(
     interpretableFlags: string[],
     messageToReplaceIn: string,
