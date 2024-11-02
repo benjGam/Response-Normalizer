@@ -11,12 +11,10 @@ export class ResponseBuilder {
     return null;
   }
 
-  // Have to be changed in UML
   private determineOptionalFields(context: DetailedContext): string[] {
     return [];
   }
 
-  // Have to be changed in UML
   private deleteOptionalFields(
     response: Response,
     optionalFields: string[],
