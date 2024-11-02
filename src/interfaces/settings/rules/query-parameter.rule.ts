@@ -1,4 +1,4 @@
-import { CaseName } from 'string-utils-ts/lib/src';
+import { CaseName } from 'string-utils-ts';
 
 export interface QueryParameterRule {
   case: CaseName | null;
