@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class NormalizerInterceptor implements NestInterceptor {
-  private readonly _reflector: Reflector;
+  //Have to be rework in UML
   private executionContextParser: ExecutionContextParser;
   private responseBuilder: ResponseBuilder;
 
@@ -22,9 +22,5 @@ export class NormalizerInterceptor implements NestInterceptor {
     next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
     throw new Error('Method not implemented.');
-  }
-
-  public get reflector(): Reflector {
-    return this._reflector;
   }
 }
