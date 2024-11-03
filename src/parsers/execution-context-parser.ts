@@ -4,8 +4,8 @@ import { DetailedContext } from 'interfaces/detailed-context';
 import { QueryParameterNormalizer } from 'query-parameter-normalizer';
 
 export class ExecutionContextParser {
-  private readonly _reflector: Reflector;
-  private queryParameterNormalizer: QueryParameterNormalizer;
+  private readonly reflector: Reflector;
+  private readonly queryParameterNormalizer: QueryParameterNormalizer;
   private currentContext: ExecutionContext;
 
   constructor() {}
