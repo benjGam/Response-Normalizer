@@ -1,6 +1,6 @@
 import { InterpretableFlag } from './interpretable-flag';
 
-export class CallSubject extends InterpretableFlag {
+export class CallQueryParams extends InterpretableFlag {
   protected readonly _aliases: string[] = [];
 
   public get name(): string {
