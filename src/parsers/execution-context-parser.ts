@@ -4,12 +4,9 @@ import { DetailedContext } from 'interfaces/detailed-context';
 import { QueryParameterNormalizer } from 'query-parameter-normalizer';
 
 export class ExecutionContextParser {
-  //Have to be rework in UML
-  private readonly _reflector: Reflector;
+  private readonly reflector: Reflector;
+  private readonly queryParameterNormalizer: QueryParameterNormalizer;
   private currentContext: ExecutionContext;
-
-  //Have to be rework in UML
-  private queryParameterNormalizer: QueryParameterNormalizer;
 
   constructor() {}
 
@@ -31,7 +28,6 @@ export class ExecutionContextParser {
     return null;
   }
 
-  //Have to be rework in UML
   private getRuleOverrides(): string[] {
     return [];
   }

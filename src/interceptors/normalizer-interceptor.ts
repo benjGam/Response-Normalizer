@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class NormalizerInterceptor implements NestInterceptor {
-  //Have to be rework in UML
   private executionContextParser: ExecutionContextParser;
   private responseBuilder: ResponseBuilder;
 
