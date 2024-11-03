@@ -1,17 +1,15 @@
 import { ExecutionContext, RequestMethod } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { DetailedContext } from 'interfaces/detailed-context';
 
 export class ExecutionContextParser {
   //Have to be rework in UML
-  constructor(private _currentContext: ExecutionContext) {}
+  private readonly _reflector: Reflector;
+  private currentContext: ExecutionContext;
+  constructor() {}
 
-  //Have to be rework in UML
-  public parseContext(): DetailedContext {
+  public parseContext(contextToParse: ExecutionContext): DetailedContext {
     return null;
-  }
-
-  public set currentContext(newContext: ExecutionContext) {
-    this._currentContext = newContext;
   }
 
   private getHttpMethod(): RequestMethod {
