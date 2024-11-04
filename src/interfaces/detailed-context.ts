@@ -4,7 +4,6 @@ export interface DetailedContext {
   httpMethod: RequestMethod;
   handlerName: string;
   queryParameters: Map<string, string>;
-  skippedQueryParametersIdentifiers: Array<string>;
-  ruleOverrides: Array<string>;
+  ruleOverrides: Map<string, any>;
   errorOccured: boolean;
 }
