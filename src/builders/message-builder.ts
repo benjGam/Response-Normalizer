@@ -5,6 +5,10 @@ export class MessageBuilder {
     return '';
   }
 
+  private getOverride(context: DetailedContext): string {
+    return '';
+  }
+
   private getTemplateMessageFromMethod(context: DetailedContext): string {
     return '';
   }

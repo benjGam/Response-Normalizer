@@ -28,8 +28,8 @@ export class ExecutionContextParser {
     return null;
   }
 
-  private getRuleOverrides(): string[] {
-    return [];
+  private getRuleOverrides(): Map<string, any> {
+    return new Map<string, any>();
   }
 
   private determineIfRequestFailed(): boolean {
