@@ -12,12 +12,31 @@ export class Bootstrapper {
     settings: NormalizerSettings = undefined,
   ): void {
     app.useGlobalInterceptors(new NormalizerInterceptor());
-    if (!settings) {
-      this._settings = this.getDefaultSettings();
-    }
+    this._settings = !settings
+      ? this.getDefaultSettings()
+      : this.fillUndefinedSettingValues(settings, this.getDefaultSettings());
   }
 
-  private static fillUndefinedSettingValues(): void {}
+  //Have to be rework in UML
+  private static fillUndefinedSettingValues(
+    currentSettingObject: any,
+    defaultSettingObject: any,
+  ): any {
+    for (const key in defaultSettingObject) {
+      if (
+        currentSettingObject[key] &&
+        defaultSettingObject[key] instanceof Object
+      ) {
+        currentSettingObject[key] = this.fillUndefinedSettingValues(
+          currentSettingObject[key],
+          defaultSettingObject[key],
+        );
+      } else if (currentSettingObject[key] === undefined) {
+        currentSettingObject[key] = defaultSettingObject[key];
+      }
+    }
+    return currentSettingObject;
+  }
 
   public static get settings(): NormalizerSettings {
     return this._settings;
