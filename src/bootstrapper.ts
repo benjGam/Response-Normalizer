@@ -1,7 +1,7 @@
 import { INestApplication, RequestMethod } from '@nestjs/common';
-import { NormalizerInterceptor } from 'interceptors/normalizer-interceptor';
-import { MessageWrapper } from 'interfaces/settings/message-wrapper';
-import { NormalizerSettings } from 'interfaces/settings/normalizer-settings';
+import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
+import { MessageWrapper } from './interfaces/settings/message-wrapper';
+import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 
 export class Bootstrapper {
   private static _settings: NormalizerSettings;
