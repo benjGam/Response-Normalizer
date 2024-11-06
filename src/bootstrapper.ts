@@ -23,17 +23,15 @@ export class Bootstrapper {
     defaultSettingObject: any,
   ): any {
     for (const key in defaultSettingObject) {
-      if (
-        currentSettingObject[key] &&
-        defaultSettingObject[key] instanceof Object
-      ) {
-        currentSettingObject[key] = this.fillUndefinedSettingValues(
+      if (currentSettingObject[key] === undefined) {
+        currentSettingObject[key] = defaultSettingObject[key];
+        continue;
+      }
+      if (defaultSettingObject[key] instanceof Object)
+        currentSettingObject = this.fillUndefinedSettingValues(
           currentSettingObject[key],
           defaultSettingObject[key],
         );
-      } else if (currentSettingObject[key] === undefined) {
-        currentSettingObject[key] = defaultSettingObject[key];
-      }
     }
     return currentSettingObject;
   }
