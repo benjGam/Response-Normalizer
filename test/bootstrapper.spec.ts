@@ -42,4 +42,13 @@ describe('Settings', () => {
       includeStatusCode: true,
     });
   });
+
+  test('Invokation of "fillUndefinedSettingValues" should return default settings', () => {
+    expect(
+      Bootstrapper['fillUndefinedSettingValues'](
+        {},
+        Bootstrapper['getDefaultSettings'](),
+      ),
+    ).toEqual(Bootstrapper['getDefaultSettings']());
+  });
 });
