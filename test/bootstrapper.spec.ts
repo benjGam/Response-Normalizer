@@ -68,7 +68,6 @@ describe('Settings', () => {
 
   test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
     delete defaultSettings['test'];
-    defaultSettings.responseMessages = new Map<RequestMethod, MessageWrapper>();
     expect(
       Bootstrapper['fillUndefinedSettingValues'](
         {
