@@ -43,6 +43,8 @@ describe('Settings', () => {
     });
   });
 
+  const defaultSettings = Bootstrapper['getDefaultSettings']();
+
   test('Invokation of "fillUndefinedSettingValues" should return default settings', () => {
     expect(
       Bootstrapper['fillUndefinedSettingValues'](
@@ -53,12 +55,24 @@ describe('Settings', () => {
   });
 
   test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
-    const defaultSettings = Bootstrapper['getDefaultSettings']();
     defaultSettings['test'] = '';
     expect(
       Bootstrapper['fillUndefinedSettingValues'](
         {
           test: '',
+        },
+        Bootstrapper['getDefaultSettings'](),
+      ),
+    ).toEqual(defaultSettings);
+  });
+
+  test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
+    delete defaultSettings['test'];
+    defaultSettings.responseMessages = new Map<RequestMethod, MessageWrapper>();
+    expect(
+      Bootstrapper['fillUndefinedSettingValues'](
+        {
+          responseMessages: new Map<RequestMethod, MessageWrapper>(),
         },
         Bootstrapper['getDefaultSettings'](),
       ),
