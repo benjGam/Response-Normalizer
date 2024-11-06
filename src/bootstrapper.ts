@@ -27,11 +27,13 @@ export class Bootstrapper {
         currentSettingObject[key] = defaultSettingObject[key];
         continue;
       }
-      if (defaultSettingObject[key] instanceof Object)
+      if (currentSettingObject[key] instanceof Map) continue;
+      if (defaultSettingObject[key] instanceof Object) {
         currentSettingObject = this.fillUndefinedSettingValues(
           currentSettingObject[key],
           defaultSettingObject[key],
         );
+      }
     }
     return currentSettingObject;
   }
