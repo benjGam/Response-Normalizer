@@ -33,7 +33,7 @@ export class Bootstrapper {
         continue;
       }
       if (defaultSettingObject[key] instanceof Object) {
-        currentSettingObject = this.fillUndefinedSettingValues(
+        currentSettingObject[key] = this.fillUndefinedSettingValues(
           currentSettingObject[key],
           defaultSettingObject[key],
         );
