@@ -23,13 +23,12 @@ export class Bootstrapper {
     defaultSettingObject: any,
   ): any {
     for (const key in defaultSettingObject) {
-      if (currentSettingObject[key] === undefined) {
+      if (
+        currentSettingObject[key] === undefined ||
+        (currentSettingObject[key] instanceof Map &&
+          currentSettingObject[key].size == 0)
+      ) {
         currentSettingObject[key] = defaultSettingObject[key];
-        continue;
-      }
-      if (currentSettingObject[key] instanceof Map) {
-        if (currentSettingObject[key].size == 0)
-          currentSettingObject[key] = defaultSettingObject[key];
         continue;
       }
       if (defaultSettingObject[key] instanceof Object) {
