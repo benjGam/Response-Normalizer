@@ -77,4 +77,23 @@ describe('Settings', () => {
       ),
     ).toEqual(defaultSettings);
   });
+
+  test('Invokation of "fillUndefinedSettingValues" should return correct settings', () => {
+    defaultSettings['queryParameterFormatRule'] = {
+      syntax: "(':name': ':value')",
+      separator: ' and ',
+    };
+
+    expect(
+      Bootstrapper['fillUndefinedSettingValues'](
+        {
+          queryParameterFormatRule: {
+            syntax: "(':name': ':value')",
+            separator: ' and ',
+          },
+        },
+        Bootstrapper['getDefaultSettings'](),
+      ),
+    ).toEqual(defaultSettings);
+  });
 });
