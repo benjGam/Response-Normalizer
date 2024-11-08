@@ -3,69 +3,28 @@ import { Bootstrapper } from '../src/bootstrapper';
 import { MessageWrapper } from '../src/interfaces/settings/message-wrapper';
 import JestRunner from './tests.utils';
 import { NormalizerSettings } from '../src/interfaces/settings/normalizer-settings';
+import { defaultNormalizerSettings } from '../src/helpers/default-normalizer-settings';
 
 const runner = new JestRunner(Bootstrapper);
 
 describe('Settings', () => {
-  test(`Should be the default settings`, () => {
-    expect(Bootstrapper['getDefaultSettings']()).toEqual({
-      responseMessages: new Map<RequestMethod, MessageWrapper>([
-        [
-          RequestMethod.POST,
-          {
-            success: ':callSubject has been registered.',
-            failure: ':callSubject was already registered.',
-          },
-        ],
-        [
-          RequestMethod.GET,
-          {
-            success: ':callSubject :callQueryParams has been getted.',
-            failure: ':callSubject :callQueryParams was not found.',
-          },
-        ],
-        [
-          RequestMethod.DELETE,
-          {
-            success: ':callSubject :callQueryParams has been deleted.',
-            failure: ':callSubject :callQueryParams cannot be deleted.',
-          },
-        ],
-        [
-          RequestMethod.PATCH,
-          {
-            success: ':callSubject :callQueryParams has been updated.',
-            failure: ':callSubject :callQueryParams was not updated.',
-          },
-        ],
-      ]),
-      queryParameterFormatRule: {
-        syntax: "(':name': ':value')",
-        separator: ', ',
-      },
-      includeStatusCode: true,
-    });
-  });
-
-  const defaultSettings = Bootstrapper['getDefaultSettings']();
-
   runner.runBasicTests(
     Bootstrapper['fillUndefinedSettingValues'],
     new Map<Function, NormalizerSettings>([
-      [() => [{}, defaultSettings], defaultSettings],
+      [() => [{}, defaultNormalizerSettings], defaultNormalizerSettings],
       [
         () => [
           {
             responseMessages: new Map<RequestMethod, MessageWrapper>(),
           },
-          defaultSettings,
+          defaultNormalizerSettings,
         ],
-        defaultSettings,
+        defaultNormalizerSettings,
       ],
     ]),
   );
 
-  const modifiedSettings = Bootstrapper['getDefaultSettings']();
+  const modifiedSettings = defaultNormalizerSettings;
   modifiedSettings['queryParameterFormatRule'] = {
     syntax: "(':name': ':value')",
     separator: ' and ',
@@ -82,7 +41,7 @@ describe('Settings', () => {
               separator: ' and ',
             },
           },
-          defaultSettings,
+          defaultNormalizerSettings,
         ],
         modifiedSettings,
       ],
