@@ -2,6 +2,7 @@ import { INestApplication, RequestMethod } from '@nestjs/common';
 import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
 import { MessageWrapper } from './interfaces/settings/message-wrapper';
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
+import { SettingsType } from './types/settings.type';
 
 export class Bootstrapper {
   private static _settings: NormalizerSettings;
@@ -19,8 +20,8 @@ export class Bootstrapper {
 
   //Have to be rework in UML
   private static fillUndefinedSettingValues(
-    currentSettingObject: any,
-    defaultSettingObject: any,
+    currentSettingObject: SettingsType,
+    defaultSettingObject: SettingsType,
   ): any {
     for (const key in defaultSettingObject) {
       if (
