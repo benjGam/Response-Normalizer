@@ -10,7 +10,6 @@ export class QueryParameterNormalizer {
     return new Map<string, QueryParameterRule>();
   }
 
-  //Have to be rework in UML
   private mergeOverrideWithRules(
     overrides: Map<string, QueryParameterRule>,
   ): Map<string, QueryParameterRule> {
