@@ -15,7 +15,17 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "builders/": ["./src/builders/"],
+      "decorators/": ["./src/decorators/"],
+      "helpers/": ["./src/helpers/"],
+      "interceptors/": ["./src/interceptors/"],
+      "interfaces/": ["./src/interfaces/"],
+      "interpretable-flags/": ["./src/interpretable-flags/"],
+      "parsers/": ["./src/parsers/"],
+      "types/": ["./src/types"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["/**/*.spec.ts"]
