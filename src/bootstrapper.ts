@@ -1,6 +1,5 @@
-import { INestApplication, RequestMethod } from '@nestjs/common';
+import { INestApplication } from '@nestjs/common';
 import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
-import { MessageWrapper } from './interfaces/settings/message-wrapper';
 import { defaultNormalizerSettings } from './helpers/default-normalizer-settings';
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 import { SettingsType } from './types/settings.type';
