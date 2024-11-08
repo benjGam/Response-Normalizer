@@ -1,6 +1,6 @@
-import { INestApplication, RequestMethod } from '@nestjs/common';
+import { INestApplication } from '@nestjs/common';
 import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
-import { MessageWrapper } from './interfaces/settings/message-wrapper';
+import { defaultNormalizerSettings } from './helpers/default-normalizer-settings';
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 import { SettingsType } from './types/settings.type';
 
@@ -14,8 +14,8 @@ export class Bootstrapper {
   ): void {
     app.useGlobalInterceptors(new NormalizerInterceptor());
     this._settings = !settings
-      ? this.getDefaultSettings()
-      : this.fillUndefinedSettingValues(settings, this.getDefaultSettings());
+      ? defaultNormalizerSettings
+      : this.fillUndefinedSettingValues(settings, defaultNormalizerSettings);
   }
 
   //Have to be rework in UML
@@ -44,45 +44,5 @@ export class Bootstrapper {
 
   public static get settings(): NormalizerSettings {
     return this._settings;
-  }
-
-  private static getDefaultSettings(): NormalizerSettings {
-    return {
-      responseMessages: new Map<RequestMethod, MessageWrapper>([
-        [
-          RequestMethod.POST,
-          {
-            success: ':callSubject has been registered.',
-            failure: ':callSubject was already registered.',
-          },
-        ],
-        [
-          RequestMethod.GET,
-          {
-            success: ':callSubject :callQueryParams has been getted.',
-            failure: ':callSubject :callQueryParams was not found.',
-          },
-        ],
-        [
-          RequestMethod.DELETE,
-          {
-            success: ':callSubject :callQueryParams has been deleted.',
-            failure: ':callSubject :callQueryParams cannot be deleted.',
-          },
-        ],
-        [
-          RequestMethod.PATCH,
-          {
-            success: ':callSubject :callQueryParams has been updated.',
-            failure: ':callSubject :callQueryParams was not updated.',
-          },
-        ],
-      ]),
-      queryParameterFormatRule: {
-        syntax: "(':name': ':value')",
-        separator: ', ',
-      },
-      includeStatusCode: true,
-    };
   }
 }
