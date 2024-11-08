@@ -1,6 +1,7 @@
 import { INestApplication, RequestMethod } from '@nestjs/common';
 import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
 import { MessageWrapper } from './interfaces/settings/message-wrapper';
+import { defaultNormalizerSettings } from './helpers/default-normalizer-settings';
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 import { SettingsType } from './types/settings.type';
 
@@ -14,8 +15,8 @@ export class Bootstrapper {
   ): void {
     app.useGlobalInterceptors(new NormalizerInterceptor());
     this._settings = !settings
-      ? this.getDefaultSettings()
-      : this.fillUndefinedSettingValues(settings, this.getDefaultSettings());
+      ? defaultNormalizerSettings
+      : this.fillUndefinedSettingValues(settings, defaultNormalizerSettings);
   }
 
   //Have to be rework in UML
