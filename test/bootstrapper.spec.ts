@@ -1,6 +1,10 @@
 import { RequestMethod } from '@nestjs/common';
 import { Bootstrapper } from '../src/bootstrapper';
 import { MessageWrapper } from '../src/interfaces/settings/message-wrapper';
+import JestRunner from './tests.utils';
+import { NormalizerSettings } from '../src/interfaces/settings/normalizer-settings';
+
+const runner = new JestRunner(Bootstrapper);
 
 describe('Settings', () => {
   test(`Should be the default settings`, () => {
@@ -45,39 +49,43 @@ describe('Settings', () => {
 
   const defaultSettings = Bootstrapper['getDefaultSettings']();
 
-  test('Invokation of "fillUndefinedSettingValues" should return default settings', () => {
-    expect(
-      Bootstrapper['fillUndefinedSettingValues']({}, defaultSettings),
-    ).toEqual(defaultSettings);
-  });
-
-  test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
-    expect(
-      Bootstrapper['fillUndefinedSettingValues'](
-        {
-          responseMessages: new Map<RequestMethod, MessageWrapper>(),
-        },
-        defaultSettings,
-      ),
-    ).toEqual(defaultSettings);
-  });
-
-  test('Invokation of "fillUndefinedSettingValues" should return correct settings', () => {
-    defaultSettings['queryParameterFormatRule'] = {
-      syntax: "(':name': ':value')",
-      separator: ' and ',
-    };
-
-    expect(
-      Bootstrapper['fillUndefinedSettingValues'](
-        {
-          queryParameterFormatRule: {
-            syntax: "(':name': ':value')",
-            separator: ' and ',
+  runner.runBasicTests(
+    Bootstrapper['fillUndefinedSettingValues'],
+    new Map<Function, NormalizerSettings>([
+      [() => [{}, defaultSettings], defaultSettings],
+      [
+        () => [
+          {
+            responseMessages: new Map<RequestMethod, MessageWrapper>(),
           },
-        },
-        Bootstrapper['getDefaultSettings'](),
-      ),
-    ).toEqual(defaultSettings);
-  });
+          defaultSettings,
+        ],
+        defaultSettings,
+      ],
+    ]),
+  );
+
+  const modifiedSettings = Bootstrapper['getDefaultSettings']();
+  modifiedSettings['queryParameterFormatRule'] = {
+    syntax: "(':name': ':value')",
+    separator: ' and ',
+  };
+
+  runner.runBasicTests(
+    Bootstrapper['fillUndefinedSettingValues'],
+    new Map<Function, NormalizerSettings>([
+      [
+        () => [
+          {
+            queryParameterFormatRule: {
+              syntax: "(':name': ':value')",
+              separator: ' and ',
+            },
+          },
+          defaultSettings,
+        ],
+        modifiedSettings,
+      ],
+    ]),
+  );
 });
