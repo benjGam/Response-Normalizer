@@ -47,11 +47,8 @@ describe('Settings', () => {
 
   test('Invokation of "fillUndefinedSettingValues" should return default settings', () => {
     expect(
-      Bootstrapper['fillUndefinedSettingValues'](
-        {},
-        Bootstrapper['getDefaultSettings'](),
-      ),
-    ).toEqual(Bootstrapper['getDefaultSettings']());
+      Bootstrapper['fillUndefinedSettingValues']({}, defaultSettings),
+    ).toEqual(defaultSettings);
   });
 
   test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
@@ -60,7 +57,7 @@ describe('Settings', () => {
         {
           responseMessages: new Map<RequestMethod, MessageWrapper>(),
         },
-        Bootstrapper['getDefaultSettings'](),
+        defaultSettings,
       ),
     ).toEqual(defaultSettings);
   });
