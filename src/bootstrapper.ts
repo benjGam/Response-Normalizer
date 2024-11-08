@@ -20,26 +20,26 @@ export class Bootstrapper {
 
   //Have to be rework in UML
   private static fillUndefinedSettingValues(
-    currentSettingObject: SettingsType,
-    defaultSettingObject: SettingsType,
+    settingObjectToFill: SettingsType,
+    filledSettingObject: SettingsType,
   ): any {
-    for (const key in defaultSettingObject) {
+    for (const key in filledSettingObject) {
       if (
-        currentSettingObject[key] === undefined ||
-        (currentSettingObject[key] instanceof Map &&
-          currentSettingObject[key].size == 0)
+        settingObjectToFill[key] === undefined ||
+        (settingObjectToFill[key] instanceof Map &&
+          settingObjectToFill[key].size == 0)
       ) {
-        currentSettingObject[key] = defaultSettingObject[key];
+        settingObjectToFill[key] = filledSettingObject[key];
         continue;
       }
-      if (defaultSettingObject[key] instanceof Object) {
-        currentSettingObject[key] = this.fillUndefinedSettingValues(
-          currentSettingObject[key],
-          defaultSettingObject[key],
+      if (filledSettingObject[key] instanceof Object) {
+        settingObjectToFill[key] = this.fillUndefinedSettingValues(
+          settingObjectToFill[key],
+          filledSettingObject[key],
         );
       }
     }
-    return currentSettingObject;
+    return settingObjectToFill;
   }
 
   public static get settings(): NormalizerSettings {
