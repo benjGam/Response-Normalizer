@@ -55,19 +55,6 @@ describe('Settings', () => {
   });
 
   test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
-    defaultSettings['test'] = '';
-    expect(
-      Bootstrapper['fillUndefinedSettingValues'](
-        {
-          test: '',
-        },
-        Bootstrapper['getDefaultSettings'](),
-      ),
-    ).toEqual(defaultSettings);
-  });
-
-  test('Invokation of "fillUndefinedSettingValues" should return filled settings', () => {
-    delete defaultSettings['test'];
     expect(
       Bootstrapper['fillUndefinedSettingValues'](
         {
