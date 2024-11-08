@@ -45,44 +45,4 @@ export class Bootstrapper {
   public static get settings(): NormalizerSettings {
     return this._settings;
   }
-
-  private static getDefaultSettings(): NormalizerSettings {
-    return {
-      responseMessages: new Map<RequestMethod, MessageWrapper>([
-        [
-          RequestMethod.POST,
-          {
-            success: ':callSubject has been registered.',
-            failure: ':callSubject was already registered.',
-          },
-        ],
-        [
-          RequestMethod.GET,
-          {
-            success: ':callSubject :callQueryParams has been getted.',
-            failure: ':callSubject :callQueryParams was not found.',
-          },
-        ],
-        [
-          RequestMethod.DELETE,
-          {
-            success: ':callSubject :callQueryParams has been deleted.',
-            failure: ':callSubject :callQueryParams cannot be deleted.',
-          },
-        ],
-        [
-          RequestMethod.PATCH,
-          {
-            success: ':callSubject :callQueryParams has been updated.',
-            failure: ':callSubject :callQueryParams was not updated.',
-          },
-        ],
-      ]),
-      queryParameterFormatRule: {
-        syntax: "(':name': ':value')",
-        separator: ', ',
-      },
-      includeStatusCode: true,
-    };
-  }
 }
