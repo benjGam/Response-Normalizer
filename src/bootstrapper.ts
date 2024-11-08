@@ -18,7 +18,6 @@ export class Bootstrapper {
       : this.fillUndefinedSettingValues(settings, defaultNormalizerSettings);
   }
 
-  //Have to be rework in UML
   private static fillUndefinedSettingValues(
     settingObjectToFill: SettingsType,
     filledSettingObject: SettingsType,
