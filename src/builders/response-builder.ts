@@ -1,6 +1,6 @@
-import { DetailedContext } from 'interfaces/detailed-context';
+import { DetailedContext } from '../interfaces/detailed-context';
 import { MessageBuilder } from './message-builder';
-import { Response } from 'interfaces/response';
+import { Response } from '../interfaces/response';
 
 export class ResponseBuilder {
   private messageBuilder: MessageBuilder;

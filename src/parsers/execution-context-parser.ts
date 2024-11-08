@@ -1,7 +1,7 @@
 import { ExecutionContext, RequestMethod } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { DetailedContext } from 'interfaces/detailed-context';
-import { QueryParameterNormalizer } from 'query-parameter-normalizer';
+import { DetailedContext } from '../interfaces/detailed-context';
+import { QueryParameterNormalizer } from '../query-parameter-normalizer';
 
 export class ExecutionContextParser {
   private readonly reflector: Reflector;

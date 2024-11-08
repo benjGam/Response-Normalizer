@@ -1,7 +1,7 @@
 import { SetMetadata } from '@nestjs/common';
-import { MessageWrapper } from 'interfaces/settings/message-wrapper';
-import { QueryParameterFormatRule } from 'interfaces/settings/rules/query-parameter-format.rule';
-import { QueryParameterRule } from 'interfaces/settings/rules/query-parameter.rule';
+import { MessageWrapper } from '../interfaces/settings/message-wrapper';
+import { QueryParameterFormatRule } from '../interfaces/settings/rules/query-parameter-format.rule';
+import { QueryParameterRule } from '../interfaces/settings/rules/query-parameter.rule';
 
 //Should be rework later.
 export class RuleOverrides {

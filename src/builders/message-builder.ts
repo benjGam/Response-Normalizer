@@ -1,4 +1,4 @@
-import { DetailedContext } from 'interfaces/detailed-context';
+import { DetailedContext } from '../interfaces/detailed-context';
 
 export class MessageBuilder {
   public buildMessage(context: DetailedContext): string {
