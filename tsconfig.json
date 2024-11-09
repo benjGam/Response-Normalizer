@@ -7,25 +7,15 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "ES2022",
-    "outDir": "./lib",
-    "baseUrl": "./src",
+    "outDir": "lib",
+    "baseUrl": "src",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "builders/": ["./src/builders/"],
-      "decorators/": ["./src/decorators/"],
-      "helpers/": ["./src/helpers/"],
-      "interceptors/": ["./src/interceptors/"],
-      "interfaces/": ["./src/interfaces/"],
-      "interpretable-flags/": ["./src/interpretable-flags/"],
-      "parsers/": ["./src/parsers/"],
-      "types/": ["./src/types"]
-    }
+    "noFallthroughCasesInSwitch": false
   },
   "include": ["src/**/*"],
   "exclude": ["/**/*.spec.ts"]
