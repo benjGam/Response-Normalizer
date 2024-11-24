@@ -1,15 +1,15 @@
 import { RequestMethod } from '@nestjs/common';
-import { Bootstrapper } from '../src/bootstrapper';
+import { NormalizerBootstrapper } from '../src/bootstrapper';
 import { MessageWrapper } from '../src/interfaces/settings/message-wrapper';
 import JestRunner from './tests.utils';
 import { NormalizerSettings } from '../src/interfaces/settings/normalizer-settings';
 import { defaultNormalizerSettings } from '../src/helpers/default-normalizer-settings';
 
-const runner = new JestRunner(Bootstrapper);
+const runner = new JestRunner(NormalizerBootstrapper);
 
 describe('Settings', () => {
   runner.runBasicTests(
-    Bootstrapper['fillUndefinedSettingValues'],
+    NormalizerBootstrapper['fillUndefinedSettingValues'],
     new Map<Function, NormalizerSettings>([
       [() => [{}, defaultNormalizerSettings], defaultNormalizerSettings],
       [
@@ -31,7 +31,7 @@ describe('Settings', () => {
   };
 
   runner.runBasicTests(
-    Bootstrapper['fillUndefinedSettingValues'],
+    NormalizerBootstrapper['fillUndefinedSettingValues'],
     new Map<Function, NormalizerSettings>([
       [
         () => [
