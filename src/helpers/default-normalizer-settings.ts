@@ -6,4 +6,5 @@ export const defaultNormalizerSettings: NormalizerSettings = {
   responseMessages: defaultResponseMessages,
   queryParameterFormatRule: defaultQueryParameterFormat,
   includeStatusCode: true,
+  debugMode: false,
 };

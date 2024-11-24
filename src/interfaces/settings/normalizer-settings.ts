@@ -8,4 +8,5 @@ export interface NormalizerSettings {
   queryParameterFormatRule?: QueryParameterFormatRule;
   queryParameterRules?: Map<string, QueryParameterRule>;
   includeStatusCode?: boolean;
+  debugMode?: boolean;
 }

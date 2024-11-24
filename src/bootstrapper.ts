@@ -4,10 +4,8 @@ import { defaultNormalizerSettings } from './helpers/default-normalizer-settings
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 import { SettingsType } from './types/settings.type';
 
-// Has to be rework in UML
 export class NormalizerBootstrapper {
   private static _settings: NormalizerSettings;
-  private static debug: boolean;
 
   public static bootstrap(
     app: INestApplication,
