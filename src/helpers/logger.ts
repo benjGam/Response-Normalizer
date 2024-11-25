@@ -7,12 +7,13 @@ export default class Logger {
   public static init(debugActive: boolean): void {
     if (!debugActive) return;
     this.logger = winston.createLogger({
+      level: 'debug',
       transports: [
         new winston.transports.Console({
           format: format.combine(
-            winston.format.colorize({ all: true }),
-            format.printf(({ timestamp, label, message }) => {
-              return `${timestamp} [${label}] : ${message}`;
+            format.colorize({ all: true }),
+            format.printf(({ message }) => {
+              return `${message}`;
             }),
           ),
         }),
@@ -21,6 +22,6 @@ export default class Logger {
   }
 
   public static debug<T>(caller: Type<T>, message: string): void {
-    if (this.logger) this.logger.log('debug', `[${caller.name}] ${message}`);
+    if (this.logger) this.logger.debug(`[${caller.name}] ${message}`);
   }
 }
