@@ -20,5 +20,7 @@ export default class Logger {
     });
   }
 
-  public static debug<T>(caller: Type<T>, message: string): void {}
+  public static debug<T>(caller: Type<T>, message: string): void {
+    if (this.logger) this.logger.log('debug', `[${caller.name}] ${message}`);
+  }
 }
