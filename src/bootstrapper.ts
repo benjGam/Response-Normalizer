@@ -9,6 +9,16 @@ import { HttpExceptionFilter } from './exception-filters/http-exception.filter';
 export class NormalizerBootstrapper {
   private static _settings: NormalizerSettings;
 
+  /**
+   *
+   * This method should be used once in `bootstrap` function of API.
+   * It's used to bootstrap package with needed components (atleast an interceptor).
+   * This could be not invoked, but it's recommanded way to use package.
+   *
+   * @param app - NestApplication object
+   * @param settings - NormalizerSettings object
+   */
+
   public static bootstrap(
     app: INestApplication,
     settings: NormalizerSettings = undefined,
@@ -21,6 +31,16 @@ export class NormalizerBootstrapper {
     if (this._settings.useBuiltInExceptionFilter)
       app.useGlobalFilters(new HttpExceptionFilter());
   }
+
+  /**
+   *
+   * This method is used to recursively fill the settings
+   * which aren't set by third-party developer
+   *
+   * @param settingObjectToFill - NormalizerSetting object or sub object from it
+   * @param filledSettingObject - DefaultNormalizerSetting object or sub object from it
+   * @returns
+   */
 
   private static fillUndefinedSettingValues(
     settingObjectToFill: SettingsType,
@@ -44,6 +64,10 @@ export class NormalizerBootstrapper {
     }
     return settingObjectToFill;
   }
+
+  /**
+   * This is a property getter to getting normalize settings.
+   */
 
   public static get settings(): NormalizerSettings {
     return this._settings;
