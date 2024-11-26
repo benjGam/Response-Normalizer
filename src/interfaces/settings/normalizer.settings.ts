@@ -1,6 +1,6 @@
 import { RequestMethod } from '@nestjs/common';
 import { MessageWrapper } from './message-wrapper';
-import { QueryParameterNormalizerSettings } from './query-parameters';
+import { QueryParameterNormalizerSettings } from './query-parameter-normalizer.settings';
 
 export interface NormalizerSettings {
   /**
