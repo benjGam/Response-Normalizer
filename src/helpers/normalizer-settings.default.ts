@@ -2,7 +2,7 @@ import { NormalizerSettings } from '../interfaces/settings/normalizer.settings';
 import {
   defaultResponseMessages,
   defaultQueryParameterNormalizerSettings,
-} from './';
+} from '.';
 
 export const defaultNormalizerSettings: NormalizerSettings = {
   responseMessages: defaultResponseMessages,

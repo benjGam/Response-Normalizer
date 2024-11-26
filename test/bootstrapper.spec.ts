@@ -24,7 +24,6 @@ describe('Settings', () => {
     ]),
   );
 
-  const modifiedSettings = defaultNormalizerSettings;
   modifiedSettings['queryParameterFormatRule'] = {
     syntax: "(':name': ':value')",
     separator: ' and ',
