@@ -4,6 +4,7 @@ import { defaultNormalizerSettings } from './helpers/default-normalizer-settings
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 import { SettingsType } from './types/settings.type';
 import Logger from './helpers/logger';
+import { HttpExceptionFilter } from './exception-filters/http-exception.filter';
 
 export class NormalizerBootstrapper {
   private static _settings: NormalizerSettings;
@@ -17,6 +18,8 @@ export class NormalizerBootstrapper {
     this._settings = !settings
       ? defaultNormalizerSettings
       : this.fillUndefinedSettingValues(settings, defaultNormalizerSettings);
+    if (this._settings.useBuiltInExceptionFilter)
+      app.useGlobalFilters(new HttpExceptionFilter());
   }
 
   private static fillUndefinedSettingValues(

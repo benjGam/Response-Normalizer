@@ -7,4 +7,5 @@ export const defaultNormalizerSettings: NormalizerSettings = {
   queryParameterFormatRule: defaultQueryParameterFormat,
   includeStatusCode: true,
   debugMode: false,
+  useBuiltInExceptionFilter: true,
 };

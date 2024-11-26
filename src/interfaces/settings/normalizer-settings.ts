@@ -9,4 +9,5 @@ export interface NormalizerSettings {
   queryParameterRules?: Map<string, QueryParameterRule>;
   includeStatusCode?: boolean;
   debugMode?: boolean;
+  useBuiltInExceptionFilter?: boolean;
 }
