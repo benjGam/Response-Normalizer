@@ -3,6 +3,7 @@ import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
 import { defaultNormalizerSettings } from './helpers/default-normalizer-settings';
 import { NormalizerSettings } from './interfaces/settings/normalizer-settings';
 import { SettingsType } from './types/settings.type';
+import Logger from './helpers/logger';
 
 export class NormalizerBootstrapper {
   private static _settings: NormalizerSettings;
@@ -12,6 +13,7 @@ export class NormalizerBootstrapper {
     settings: NormalizerSettings = undefined,
   ): void {
     app.useGlobalInterceptors(new NormalizerInterceptor());
+    Logger.init(settings.debugMode);
     this._settings = !settings
       ? defaultNormalizerSettings
       : this.fillUndefinedSettingValues(settings, defaultNormalizerSettings);
