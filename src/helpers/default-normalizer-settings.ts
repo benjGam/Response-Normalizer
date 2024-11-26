@@ -1,10 +1,12 @@
 import { NormalizerSettings } from '../interfaces/settings/normalizer.settings';
-import { defaultQueryParameterFormat } from './default-query-parameter-format';
-import { defaultResponseMessages } from './default-response-messages';
+import {
+  defaultResponseMessages,
+  defaultQueryParameterNormalizerSettings,
+} from './';
 
 export const defaultNormalizerSettings: NormalizerSettings = {
   responseMessages: defaultResponseMessages,
-  queryParameterFormatRule: defaultQueryParameterFormat,
+  queryParameterNormalizerSettings: defaultQueryParameterNormalizerSettings,
   includeStatusCode: true,
   debugMode: false,
   useBuiltInExceptionFilter: true,
