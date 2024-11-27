@@ -1,7 +1,6 @@
 import { RequestMethod } from '@nestjs/common';
 import { MessageWrapper } from './message-wrapper';
-import { QueryParameterFormatRule } from './rules/query-parameter-format.rule';
-import { QueryParameterRule } from './rules/query-parameter.rule';
+import { QueryParameterNormalizerSettings } from './query-parameter-normalizer.settings';
 
 export interface NormalizerSettings {
   /**
@@ -11,27 +10,7 @@ export interface NormalizerSettings {
    * default: See `default-response-messages`
    */
   responseMessages?: Map<RequestMethod, MessageWrapper>;
-  /**
-   * This setting allows package to format
-   * sub string of query parameters
-   * in message field in responses.
-   *
-   * default: See `default-query-parameter-format`
-   */
-  queryParameterFormatRule?: QueryParameterFormatRule;
-  /**
-   * This setting allows third-party developer to
-   * replace http param names by others or apply
-   * a casing change on http param name.
-   *
-   * default: none
-   */
-  queryParameterRules?: Map<string, QueryParameterRule>;
-  /**
-   * This setting add `statusCode` field in normalized responses.
-   *
-   * default: true
-   */
+  queryParameterNormalizerSettings?: QueryParameterNormalizerSettings;
   includeStatusCode?: boolean;
   /**
    * This setting can be useful in developpement phase.
