@@ -1,8 +1,8 @@
-import { QueryParameterNormalizerSettings } from '../interfaces';
+import { QueryParameterNormalizerSettings } from '../interfaces/';
 import { defaultQueryParameterFormat } from './';
 
 export const defaultQueryParameterNormalizerSettings: QueryParameterNormalizerSettings =
   {
     isParameterRulesIdentifiersCaseSensitive: false,
-    queryParameterFormatRule: defaultQueryParameterFormat,
+    formatRule: defaultQueryParameterFormat,
   };

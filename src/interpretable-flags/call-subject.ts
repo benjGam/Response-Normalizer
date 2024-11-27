@@ -1,4 +1,4 @@
-import { InterpretableFlag } from './interpretable-flag';
+import { InterpretableFlag } from './';
 
 export class CallSubject extends InterpretableFlag {
   protected readonly _aliases: string[] = [];

@@ -1,7 +1,7 @@
 import { Type } from '@nestjs/common';
 import winston, { Logger as WinstonLogger, format } from 'winston';
 
-export default class Logger {
+export class Logger {
   private static logger: WinstonLogger | undefined;
 
   public static init(debugActive: boolean): void {

@@ -4,8 +4,8 @@ import {
   Injectable,
   NestInterceptor,
 } from '@nestjs/common';
-import { ResponseBuilder } from '../builders/response-builder';
-import { ExecutionContextParser } from '../parsers/execution-context-parser';
+import { ResponseBuilder } from '../builders/';
+import { ExecutionContextParser } from '../parsers/';
 import { Observable } from 'rxjs';
 
 @Injectable()

@@ -1,5 +1,5 @@
 import { RequestMethod } from '@nestjs/common';
-import { MessageWrapper } from '../interfaces/settings/message-wrapper';
+import { MessageWrapper } from '../interfaces/';
 
 export const defaultResponseMessages: Map<RequestMethod, MessageWrapper> =
   new Map<RequestMethod, MessageWrapper>([

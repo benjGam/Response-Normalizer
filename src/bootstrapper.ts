@@ -1,10 +1,9 @@
+import { SettingsType } from './types/';
 import { INestApplication } from '@nestjs/common';
-import { NormalizerInterceptor } from './interceptors/normalizer-interceptor';
-import { defaultNormalizerSettings } from './helpers/normalizer-settings.default';
-import { NormalizerSettings } from './interfaces/settings/normalizer.settings';
-import { SettingsType } from './types/settings.type';
-import Logger from './helpers/logger';
-import { HttpExceptionFilter } from './exception-filters/http-exception.filter';
+import { NormalizerInterceptor } from './interceptors/';
+import { HttpExceptionFilter } from './exception-filters/';
+import { defaultNormalizerSettings, Logger } from './helpers/';
+import { NormalizerSettings } from './interfaces/settings/';
 
 export class NormalizerBootstrapper {
   private static _settings: NormalizerSettings;

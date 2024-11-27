@@ -1,5 +1,4 @@
-import { DetailedContext } from './interfaces/detailed-context';
-import { QueryParameterRule } from './interfaces/settings/rules/query-parameter.rule';
+import { DetailedContext, QueryParameterRule } from './interfaces/';
 
 export class QueryParameterNormalizer {
   public normalize(context: DetailedContext): void {}

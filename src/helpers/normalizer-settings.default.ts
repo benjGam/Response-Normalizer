@@ -1,4 +1,4 @@
-import { NormalizerSettings } from '../interfaces/settings/normalizer.settings';
+import { NormalizerSettings } from '../interfaces/';
 import {
   defaultResponseMessages,
   defaultQueryParameterNormalizerSettings,

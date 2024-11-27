@@ -1,4 +1,4 @@
-import { QueryParameterFormatRule } from '../interfaces/settings/rules/query-parameter-format.rule';
+import { QueryParameterFormatRule } from '../interfaces/';
 
 export const defaultQueryParameterFormat: QueryParameterFormatRule = {
   syntax: "(':name': ':value')",
