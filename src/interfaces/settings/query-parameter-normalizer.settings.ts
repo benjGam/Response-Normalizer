@@ -22,7 +22,7 @@ export interface QueryParameterNormalizerSettings {
    *
    * default: See `default-query-parameter-format`
    */
-  queryParameterFormatRule?: QueryParameterFormatRule;
+  formatRule?: QueryParameterFormatRule;
   /**
    * This setting allows third-party developer to
    * replace http param names by others or apply
@@ -30,5 +30,5 @@ export interface QueryParameterNormalizerSettings {
    *
    * default: none
    */
-  queryParameterRules?: Map<string, QueryParameterRule>;
+  parameterRules?: Map<string, QueryParameterRule>;
 }
