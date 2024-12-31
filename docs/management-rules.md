@@ -10,6 +10,15 @@
     "data": {},
     "statusCode": 200
     ```
+- MUST handle cases where responses are natively normalized :
+  - Do not overwrite object when they already contains :
+    - ```json
+      "message": "",
+      "data": {},
+      "statusCode: 200
+      ```
+    - MUST overwrite fields find as blank (message field is blank ? add message into field directly but do not touch to other field and so on for each blank fields.)
+    - MUST NOT add optional fields to natively normalized responses (depending on included ones).
 
 ## Global scope normalization rules
 
