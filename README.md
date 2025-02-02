@@ -1,349 +1,323 @@
-# Table of Contents
-
-- [Table of Contents](#table-of-contents)
-- [Response Normalizer](#response-normalizer)
-  - [Installation \& Bootstraping](#installation--bootstraping)
-  - [Personalization](#personalization)
-    - [Messages](#messages)
-      - [Identifiers for messages patterns injection](#identifiers-for-messages-patterns-injection)
-      - [Stringified Query Params formating](#stringified-query-params-formating)
-    - [Decorators](#decorators)
-    - [Response Format](#response-format)
-  - [Conclusion](#conclusion)
-
 # Response Normalizer
 
-Response Normalizer is a package which handle NestJS responses normalization.
+[![npm version](https://badge.fury.io/js/response-normalizer.svg)](https://badge.fury.io/js/response-normalizer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Responses format:**
+Response Normalizer is a comprehensive NestJS package designed to standardize and enhance HTTP response handling across your entire application. It automatically intercepts and transforms all responses to follow a consistent, predictable format, making your API more professional and easier to consume.
 
+### Why Response Normalizer?
+
+- **Consistency**: Ensures all your API endpoints return responses in the same format, improving client-side integration and reducing development time
+- **Automatic Message Generation**: Intelligently generates human-readable messages based on the context of each request
+- **Error Handling**: Provides unified error handling with consistent error response formats
+- **Flexibility**: Offers extensive customization options while maintaining zero-config defaults
+- **Type Safety**: Full TypeScript support with comprehensive type definitions
+- **Performance**: Minimal overhead with optimized response transformation
+
+## Table of Contents
+
+- [Response Normalizer](#response-normalizer)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Quick Start](#quick-start)
+  - [Response Format](#response-format)
+  - [Configuration](#configuration)
+    - [Basic Configuration](#basic-configuration)
+    - [Message Customization](#message-customization)
+    - [Query Parameters Formatting](#query-parameters-formatting)
+  - [Decorators](#decorators)
+  - [Advanced Usage](#advanced-usage)
+  - [Best Practices](#best-practices)
+  - [Troubleshooting](#troubleshooting)
+  - [Contributing](#contributing)
+  - [License](#license)
+
+## Features
+
+- 🚀 Automatic response normalization
+- 🎯 Consistent response format across all endpoints
+- 🛠 Customizable message patterns
+- 🔧 Flexible configuration options
+- 📝 Built-in decorators for fine-grained control
+- 🔍 Query parameter formatting
+- ⚡ Zero configuration needed to get started
+
+## Prerequisites
+
+Before you begin, ensure you have:
+- Node.js (v12 or higher)
+- NestJS application (v8 or higher)
+- npm or yarn package manager
+
+## Installation
+
+```bash
+# Using npm
+npm install response-normalizer
+
+# Using yarn
+yarn add response-normalizer
+```
+
+## Quick Start
+
+1. Install the package as shown above
+2. Import and configure in your `main.ts`:
+
+```typescript
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { bootstrapNormalizer } from 'response-normalizer';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  
+  // Basic setup - uses default configuration
+  bootstrapNormalizer(app);
+  
+  await app.listen(3000);
+}
+bootstrap();
+```
+
+That's it! Your application now automatically normalizes all responses.
+
+## Response Format
+
+All responses will follow this standardized format:
+
+```typescript
+{
+  "message": string,    // Auto-generated or custom message
+  "data": any,         // Your response data
+  "statusCode": number // HTTP status code (optional)
+}
+```
+
+Example response:
 ```json
 {
-  "message": "...", // Auto generated message
-  "data":"service returned datas", // ORM / DB datas
-  "statusCode": 200, // Request associated success status code
+  "message": "User has been successfully created",
+  "data": {
+    "id": "123",
+    "username": "john_doe",
+    "email": "john@example.com"
+  },
+  "statusCode": 201
 }
 ```
 
-## Installation & Bootstraping
+## Configuration
 
-To install Response Normalizer it's quite easy, just type the following command in your shell:
+### Basic Configuration
 
-```sh
-npm install response-normalizer
-```
+You can customize the global behavior when bootstrapping:
 
-To use Response Normalizer, proceed as following:
-
-`main.ts`
-
-```ts
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { bootstrapNormalizer } from 'response-normalizer'; //Import bootstrap function
-
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  bootstrapNormalizer(app); // Use bootstrap function which need an 'INestApplication' object (Here 'app')
-  await app.listen(3000);
-}
-```
-
-With this setup, Response Normalizer will hook every API Endpoints and normalize responses before return them to client.
-
-## Personalization
-
-There's many way to personalize Response Normalizer returns, let's dig througth them.
-
-### Messages
-
-You can obviously personalize format of builded messages.
-
-`main.ts`
-
-```ts
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { bootstrapNormalizer } from 'response-normalizer';
-
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  bootstrapNormalizer(app, {
-    messages: {
-      success: {
-        createdMessage: '::subjectModuleName has been registered', //Default value, set is as you want
-      },
-      errors: {
-        alreadyRegistered: '::subjectModuleName was already registered', //Default value, set is as you want
-      },
+```typescript
+bootstrapNormalizer(app, {
+  includeStatusCode: false,  // Remove statusCode from responses
+  messages: {
+    success: {
+      createdMessage: "::subjectModuleName has been created successfully",
+      updatedMessage: "::subjectModuleName has been updated successfully",
+      // ... other message patterns
     },
-  });
-  await app.listen(3000);
+    errors: {
+      notFound: "::subjectModuleName not found ::stringifiedQueryParams",
+      // ... other error patterns
+    }
+  }
+});
+```
+
+### Message Customization
+
+Messages can include dynamic values using special identifiers:
+
+- `::subjectModuleName` - Name of the controller/module
+- `::stringifiedQueryParams` - Formatted query parameters
+- `::statusCode` - HTTP status code
+
+Aliases are also available for better readability:
+- `::mn` or `::module` for module name
+- `::qp` for query parameters
+- `::sc` for status code
+
+Example usage in a controller:
+
+```typescript
+@Controller('users')
+export class UsersController {
+  @Post()
+  @CustomResponseMessage("New ::subjectModuleName created with ::stringifiedQueryParams")
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
+  }
 }
 ```
 
-By setting up Response Normalizer like that, you'll be able to overwrite default messages patterns by your owns. 
+### Query Parameters Formatting
 
-#### Identifiers for messages patterns injection
+Customize how query parameters appear in messages:
 
-There's 2 ways to tell to module, which value do you want to put into your messages.
-
-Here's the list of keys to inject real values into your message: 
-
-- **subjectModuleName**: This represents the name of handler module.
-    <details>
-    <summary>Code</summary>
-
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
-
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-      ) {}
-
-      @Post()
-      public create(@Body() createAwesomeRessourceDto : CreateAwesomeRessourceDto) {
-        return this.awesomeService.create(createAwesomeRessourceDto);
+```typescript
+bootstrapNormalizer(app, {
+  queryParamsOptions: {
+    joinedBy: ", ",  // Default is "and"
+    formattingRules: [
+      {
+        subStringSequence: "uuid",
+        casing: WordCasing.UPPERED,
+        replaceBy: "Universally Unique Identifier"  // Optional
       }
-    }
-    ```
-    `::subjectModuleName` will be `Awesome` (or `Awesomes` depending on returned data)
-    </details>
-- **stringifiedQueryParams**: This represents list of query params with handler was invoked or supposed to be invoked.
-    <details>
-    <summary>Code</summary>
-
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
-
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-      ) {}
-
-      @Post()
-      public create(@Body() createAwesomeRessourceDto : CreateAwesomeRessourceDto) {
-        return this.awesomeService.create(createAwesomeRessourceDto);
-      }
-    
-      @Get(':uuid') // <- This one
-      public getByUUID(@Param('uuid') uuid: string) {
-        return this.awesomeService.getByUUID(uuid);
-      }
-    }
-    ```
-    `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid` (There's some way to personalize this format, see <a href='#stringified-query-params-formating'>below</a>)
-    </details>
-- **statusCode**: `::statusCode` will represents the response status code (Not used in default templates).
-
-But 'cause it can be long and tricky to remember, the other way to inject values is **aliases**: <a id='aliases'></a>
-
-- **subjectModuleName**: `'subjectmodulename', 'modulename', 'submodulename', 'mn', 'smn', 'module', 'submodule'`.
-- **stringifiedQueryParams**: `'stringifiedqueryparams', 'queryparams', 'qp'`.
-- **statusCode**: `'statuscode', 'sc', 'status', 'stcd', 'stc', 'code'`.
-
-#### Stringified Query Params formating
-
-It's possible to personalize the format of query params.
-
-`main.ts`
-
-```ts
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { bootstrapNormalizer } from 'response-normalizer';
-
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  bootstrapNormalizer(app, {
-    queryParamsOptions: {
-      joinedBy: ', ',
-      formattingRules: [
-        {
-          subStringSequence: 'uuid',
-          casing: WordCasing.UPPERED,
-        },
-      ],
-    },
-  });
-  await app.listen(3000);
-}
+    ]
+  }
+});
 ```
 
-By adding `queryParamsOptions` object, it's possible to dig into options, there's 2 keys to personalize format:
+## Decorators
 
-- `joinedBy`: This represents the operator of joining (**DEFAULT**: 'and')
-    <details>
-    <summary>Code</summary>
+The package provides several decorators for fine-grained control:
 
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+1. `@CustomResponseMessage(message: string)`
+   - Customize response message for specific endpoints
+   ```typescript
+   @CustomResponseMessage("Custom success message for ::subjectModuleName")
+   @Get(':id')
+   findOne(@Param('id') id: string) {
+     return this.service.findOne(id);
+   }
+   ```
 
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-      ) {}
+2. `@ExternalService(type: Type)`
+   - Specify when using services from different modules
+   ```typescript
+   @ExternalService(PaymentService)
+   @Post('process-payment')
+   processPayment(@Body() paymentDto: PaymentDto) {
+     return this.paymentService.process(paymentDto);
+   }
+   ```
 
-      @Get(':uuid/:anotherCriteria')
-      public getByUUIDAndAnotherCriteria(
-        @Param('uuid') uuid: string, 
-        @Param('anotherCriteria') anotherCriteria: string) {
-        return this.awesomeService.getByUUIDAndAnotherCriteria(uuid, anotherCriteria);
-      }
-    }
-    ```
-    `::stringifiedQueryParams` will be `for '5b890609-f862-4a6e-b1dd-89467c2de36b' Uuid and 'value_here' Another Criteria`
-    </details>
-- `formattingRules`: This is an object that permeet to format a query params term.
-    <details>
-    <summary>Code</summary>
+3. `@IgnoreFormattingRules(rules?: string[])`
+   - Skip specific or all formatting rules
+   ```typescript
+   @IgnoreFormattingRules(['uuid'])
+   @Get(':uuid')
+   findByUUID(@Param('uuid') uuid: string) {
+     return this.service.findByUUID(uuid);
+   }
+   ```
 
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
+4. `@IgnoreNormalization()`
+   - Skip normalization for specific endpoints
+   ```typescript
+   @IgnoreNormalization()
+   @Get('raw-data')
+   getRawData() {
+     return this.service.getRawData();
+   }
+   ```
 
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-      ) {}
+## Best Practices
 
-      @Get(':uuid')
-      public getByUUID(@Param('uuid') uuid: string) {
-        return this.awesomeService.getByUUID(uuid);
-      }
-    }
-    ```
-    Formatting rules definition: 
-    ```ts
-    bootstrapNormalizer(app, {
-        queryParamsOptions: {
-          formattingRules: [
-            {
-              subStringSequence: 'uuid',
-              casing: WordCasing.UPPERED,
-            },
-          ],
-        },
-      });
-    ```
-    Will make return of getByUUID handler invokation looks like : `for '5b890609-f862-4a6e-b1dd-89467c2de36b' UUID`.
-    </details>
+1. **Consistent Naming**: Use clear, consistent module names for better auto-generated messages
+2. **Message Templates**: Keep message templates simple and informative
+3. **Error Handling**: Let the normalizer handle error responses for consistent error formats
+4. **Validation**: Combine with NestJS validation pipes for comprehensive request validation
 
-    Formatting rules objects has a `replaceBy` key which make you able to replace the `subStringSequence` by something totally different (like: for 'uuid' replace by 'Universally Unique Identifier')
+## Troubleshooting
 
-### Decorators
+Common issues and solutions:
 
-Also, package provides many decorators, here's a list:
+1. **Messages Not Formatting Correctly**
+   - Verify module naming conventions
+   - Check identifier syntax (::identifier)
+   - Ensure decorators are properly applied
 
-- `CustomResponseMessage(message)`: This decorator has to be applied above handler declaration.
-    <details>
-    <summary>Code</summary>
+2. **Normalization Not Working**
+   - Verify bootstrapNormalizer is called before app.listen()
+   - Check for @IgnoreNormalization() decorators
+   - Ensure endpoint is not in excluded routes
 
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
-    import { CustomResponseMessage } from 'response-normalizer';
+## Contributing
 
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-      ) {}
+We value and welcome contributions from the community! Here's how you can contribute to Response Normalizer:
 
-      @CustomResponseMessage('My custom message here') // <- Decorator
-      @Get(':uuid')
-      public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
-        return this.awesomeService.getByUUID(uuid);
-      }
-    }
-    ```
+### Getting Started
 
-    Using this decorator means "Message pattern for this route is this", it also takes injectable identifiers (`::subjectModuleName`, ...)
-    </details>
-- `ExternalService(type)`: This decorator has to be applied above handler declaration, and has to be used when your logic is in another module.
-    <details>
-    <summary>Code</summary>
+1. **Fork the Repository**
+   ```bash
+   # Clone your fork
+   git clone https://github.com/YOUR_USERNAME/response-normalizer.git
+   cd response-normalizer
+   
+   # Add upstream remote
+   git remote add upstream https://github.com/ORIGINAL_OWNER/response-normalizer.git
+   ```
 
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { AnotherAwesomeService } from '../another-awesome-module/another-awesome-service.service'; 
-    // ↑ ⚠️ Not the same module which is responsible of service ⚠️ ↑
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
-    import { ExternalService } from 'response-normalizer';
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-        private readonly anotherAwesomeService: AnotherAwesomeService, // Another service
-      ) {}
+3. **Create a Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-      @ExternalService(AnotherAwesomeService) // <- Decorator (⚠️ the type of the service, not the name of property)
-      @Get(':uuid')
-      public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
-        return this.anotherAwesomeService.getByUUID(uuid);
-      }
-    }
-    ```
+### Development Guidelines
 
-    Using this decorator means "The subject module isn't the same as handler".
-    </details>
-- `IgnoreFormattingRules(string[])`: This decorator has to be applied above handler declaration, and has to be used if you want to do not apply specific (or all) rules.
-    <details>
-    <summary>Code</summary>
+1. **Code Style**
+   - Follow the existing code style
+   - Use TypeScript features appropriately
+   - Maintain consistent naming conventions
+   - Add JSDoc comments for public APIs
 
-    ```ts
-    import { AwesomeService } from './awesome-service.service';
-    import { CreateAwesomeRessourceDto } from './dto/create-awesome-ressource.dto';
-    import { IgnoreFormattingRules } from 'response-normalizer';
+2. **Testing**
+   - Write unit tests for new features
+   - Ensure all tests pass: `npm test`
+   - Maintain or improve code coverage
+   - Include integration tests when necessary
 
-    @Controller()
-    export class AwesomeController {
-      constructor(
-        private readonly awesomeService: AwesomeService,
-      ) {}
+3. **Documentation**
+   - Update README.md for new features
+   - Add JSDoc comments for new functions/methods
+   - Include examples in documentation
+   - Update CHANGELOG.md
 
-      @IgnoreFormattingRules(['uuid']) // <- Decorator
-      @Get(':uuid')
-      public getByUUID(@Param('uuid') uuid: string) { // <-- Handler declaration
-        return this.awesomeService.getByUUID(uuid);
-      }
-    }
-    ```
+### Submission Process
 
-    Using this decorator means "For the formatting rule where `subStringSequence` is contained in table, do not apply formatting". If you do not specify any rule, all formatting rules will be ignored.
-    </details>
-- `IgnoreNormalization()`: This decorator has to be applied above handler declaration. It's used to do not submit handler response to any form of normalization.
+1. **Before Submitting**
+   - Run all tests: `npm test`
+   - Run linter: `npm run lint`
+   - Format code: `npm run format`
+   - Update documentation if needed
 
-### Response Format
+2. **Creating a Pull Request**
+   - Push your changes to your fork
+   - Create a pull request from your branch
+   - Fill out the PR template completely
+   - Link any related issues
 
-Also, package provides a way to include or not the `statusCode` field into responses, it can be modified only globally.
+3. **Code Review**
+   - Address review comments promptly
+   - Keep the PR focused on a single feature/fix
+   - Be open to feedback and suggestions
 
-`main.ts`
+### Reporting Issues
 
-```ts
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { bootstrapNormalizer } from 'response-normalizer';
+- Use the issue tracker to report bugs
+- Include detailed steps to reproduce
+- Provide system/environment information
+- Use the issue template if available
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  bootstrapNormalizer(app, {
-    includeStatusCode: false, 
-    // ↑ This will remove 'statusCode' field from responses
-  });
-  await app.listen(3000);
-}
-```
+### Community
 
-## Conclusion
+- Follow our Code of Conduct
+- Be respectful and constructive
+- Help others in discussions
+- Share your ideas in Discussions
 
-Every suggestions / help is most welcome, enjoy package.
+For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate.
