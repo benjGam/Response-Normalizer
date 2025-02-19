@@ -5,6 +5,20 @@
 
 Response Normalizer is a comprehensive NestJS package designed to standardize and enhance HTTP response handling across your entire application. It automatically intercepts and transforms all responses to follow a consistent, predictable format, making your API more professional and easier to consume.
 
+## ⚠️ Known Troubleshooting ⚠️
+
+Please be advice, reworks has been operated on the package, some issues seems to appears, to fix them please use :
+
+```bash
+# Using npm
+npm i string-utils-ts@1.3.0
+npm i response-normalizer@1.6.0
+
+# Using pnpm
+pnpm i string-utils-ts@1.3.0
+pnpm i response-normalizer@1.6.0
+```
+
 ### Why Response Normalizer?
 
 - **Consistency**: Ensures all your API endpoints return responses in the same format, improving client-side integration and reducing development time
@@ -17,6 +31,9 @@ Response Normalizer is a comprehensive NestJS package designed to standardize an
 ## Table of Contents
 
 - [Response Normalizer](#response-normalizer)
+  - [⚠️ Known Troubleshooting ⚠️](#️-known-troubleshooting-️)
+    - [Why Response Normalizer?](#why-response-normalizer)
+  - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -27,11 +44,14 @@ Response Normalizer is a comprehensive NestJS package designed to standardize an
     - [Message Customization](#message-customization)
     - [Query Parameters Formatting](#query-parameters-formatting)
   - [Decorators](#decorators)
-  - [Advanced Usage](#advanced-usage)
   - [Best Practices](#best-practices)
   - [Troubleshooting](#troubleshooting)
   - [Contributing](#contributing)
-  - [License](#license)
+    - [Getting Started](#getting-started)
+    - [Development Guidelines](#development-guidelines)
+    - [Submission Process](#submission-process)
+    - [Reporting Issues](#reporting-issues)
+    - [Community](#community)
 
 ## Features
 
@@ -46,6 +66,7 @@ Response Normalizer is a comprehensive NestJS package designed to standardize an
 ## Prerequisites
 
 Before you begin, ensure you have:
+
 - Node.js (v12 or higher)
 - NestJS application (v8 or higher)
 - npm or yarn package manager
@@ -72,10 +93,10 @@ import { bootstrapNormalizer } from 'response-normalizer';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+
   // Basic setup - uses default configuration
   bootstrapNormalizer(app);
-  
+
   await app.listen(3000);
 }
 bootstrap();
@@ -96,6 +117,7 @@ All responses will follow this standardized format:
 ```
 
 Example response:
+
 ```json
 {
   "message": "User has been successfully created",
@@ -116,18 +138,18 @@ You can customize the global behavior when bootstrapping:
 
 ```typescript
 bootstrapNormalizer(app, {
-  includeStatusCode: false,  // Remove statusCode from responses
+  includeStatusCode: false, // Remove statusCode from responses
   messages: {
     success: {
-      createdMessage: "::subjectModuleName has been created successfully",
-      updatedMessage: "::subjectModuleName has been updated successfully",
+      createdMessage: '::subjectModuleName has been created successfully',
+      updatedMessage: '::subjectModuleName has been updated successfully',
       // ... other message patterns
     },
     errors: {
-      notFound: "::subjectModuleName not found ::stringifiedQueryParams",
+      notFound: '::subjectModuleName not found ::stringifiedQueryParams',
       // ... other error patterns
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -140,6 +162,7 @@ Messages can include dynamic values using special identifiers:
 - `::statusCode` - HTTP status code
 
 Aliases are also available for better readability:
+
 - `::mn` or `::module` for module name
 - `::qp` for query parameters
 - `::sc` for status code
@@ -150,7 +173,9 @@ Example usage in a controller:
 @Controller('users')
 export class UsersController {
   @Post()
-  @CustomResponseMessage("New ::subjectModuleName created with ::stringifiedQueryParams")
+  @CustomResponseMessage(
+    'New ::subjectModuleName created with ::stringifiedQueryParams',
+  )
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
@@ -164,15 +189,15 @@ Customize how query parameters appear in messages:
 ```typescript
 bootstrapNormalizer(app, {
   queryParamsOptions: {
-    joinedBy: ", ",  // Default is "and"
+    joinedBy: ', ', // Default is "and"
     formattingRules: [
       {
-        subStringSequence: "uuid",
+        subStringSequence: 'uuid',
         casing: WordCasing.UPPERED,
-        replaceBy: "Universally Unique Identifier"  // Optional
-      }
-    ]
-  }
+        replaceBy: 'Universally Unique Identifier', // Optional
+      },
+    ],
+  },
 });
 ```
 
@@ -181,7 +206,9 @@ bootstrapNormalizer(app, {
 The package provides several decorators for fine-grained control:
 
 1. `@CustomResponseMessage(message: string)`
+
    - Customize response message for specific endpoints
+
    ```typescript
    @CustomResponseMessage("Custom success message for ::subjectModuleName")
    @Get(':id')
@@ -191,7 +218,9 @@ The package provides several decorators for fine-grained control:
    ```
 
 2. `@ExternalService(type: Type)`
+
    - Specify when using services from different modules
+
    ```typescript
    @ExternalService(PaymentService)
    @Post('process-payment')
@@ -201,7 +230,9 @@ The package provides several decorators for fine-grained control:
    ```
 
 3. `@IgnoreFormattingRules(rules?: string[])`
+
    - Skip specific or all formatting rules
+
    ```typescript
    @IgnoreFormattingRules(['uuid'])
    @Get(':uuid')
@@ -232,6 +263,7 @@ The package provides several decorators for fine-grained control:
 Common issues and solutions:
 
 1. **Messages Not Formatting Correctly**
+
    - Verify module naming conventions
    - Check identifier syntax (::identifier)
    - Ensure decorators are properly applied
@@ -248,16 +280,18 @@ We value and welcome contributions from the community! Here's how you can contri
 ### Getting Started
 
 1. **Fork the Repository**
+
    ```bash
    # Clone your fork
    git clone https://github.com/YOUR_USERNAME/response-normalizer.git
    cd response-normalizer
-   
+
    # Add upstream remote
    git remote add upstream https://github.com/ORIGINAL_OWNER/response-normalizer.git
    ```
 
 2. **Install Dependencies**
+
    ```bash
    npm install
    ```
@@ -270,12 +304,14 @@ We value and welcome contributions from the community! Here's how you can contri
 ### Development Guidelines
 
 1. **Code Style**
+
    - Follow the existing code style
    - Use TypeScript features appropriately
    - Maintain consistent naming conventions
    - Add JSDoc comments for public APIs
 
 2. **Testing**
+
    - Write unit tests for new features
    - Ensure all tests pass: `npm test`
    - Maintain or improve code coverage
@@ -290,12 +326,14 @@ We value and welcome contributions from the community! Here's how you can contri
 ### Submission Process
 
 1. **Before Submitting**
+
    - Run all tests: `npm test`
    - Run linter: `npm run lint`
    - Format code: `npm run format`
    - Update documentation if needed
 
 2. **Creating a Pull Request**
+
    - Push your changes to your fork
    - Create a pull request from your branch
    - Fill out the PR template completely
