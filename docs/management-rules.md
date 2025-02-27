@@ -4,6 +4,8 @@
 
 - SHOULD provide a way to normalize responses of Nest APIs calls.
 - MUST provide a way to personalize basic normalization rules on bootstraping.
+- MUST provide an `ExceptionFilter` to handle http exceptions :
+  - MUST provide a way to handle request engine (being compatible with Fastify and Express).
 - MUST provide a basic format for normalized APIs calls responses :
   - ```json
     "message":"",
