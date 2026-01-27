@@ -1,0 +1,69 @@
+# Gestion Rules
+
+## Package
+
+- SHOULD provide a way to normalize responses of Nest APIs calls.
+- MUST provide a way to personalize basic normalization rules on bootstraping.
+- MUST provide an `ExceptionFilter` to handle http exceptions :
+  - MUST provide a way to handle request engine (being compatible with Fastify and Express).
+- MUST provide a basic format for normalized APIs calls responses :
+  - ```json
+    "message":"",
+    "data": {},
+    "statusCode": 200
+    ```
+- MUST handle cases where responses are natively normalized :
+  - Do not overwrite object when they already contains :
+    - ```json
+      "message": "",
+      "data": {},
+      "statusCode: 200
+      ```
+    - MUST overwrite fields find as blank (message field is blank ? add message into field directly but do not touch to other field and so on for each blank fields.)
+    - MUST NOT add optional fields to natively normalized responses (depending on included ones).
+
+## Global scope normalization rules
+
+- MUST be applied to all APIs endpoint as defined (or not) default rules.
+- SHOULD be overridable by local normalization rules.
+
+## Local scope normalization rules
+
+- COULD be applied on a specific APIs endpoint.
+  - COULD be applied by using Nest metadata decorators on APIs endpoints.
+- MUST NOT change responses format.
+- MUST provide a way to do not apply normalization process on specific APIs endpoints.
+
+## Normalization process
+
+- SHOULD be as lightweight as possible.
+- MUST provide a way to personalize responses depending on some factors.
+  - MUST provide a way to apply normalization rules on global or local scope.
+
+## Response formatting
+
+### `message` field
+
+- MUST be auto-builded based on the `Module` invoked by the API call.
+- MUST be present in minimal response.
+- MUST be overridable by a local rule.
+
+### `data` field
+
+- MUST be auto-filled based on the return of invoked API endpoint.
+- MUST be present in minimal response.
+
+### `statusCode` field
+
+- MUST be determined by the return of invoked API endpoint.
+- COULD be ignored in response format.
+
+## Interpretor Parameters
+
+- Are values that package provide to be replaced by real values (evaluated during runtime).
+
+## Rules
+
+- Are litterals objects whose COULD contains other rules.
+- Are used to apply a particular behavior on components of package.
+- MUST have a default value if user doesn't set it.
